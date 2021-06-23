@@ -44,9 +44,10 @@ namespace chat_winForm.Client
             if (HasError(httpStatusCode))
             {
 				var errorResponse = ParseJson(jsonString);
-				ThrowsException(errorResponse, httpStatusCode);
-			}
-		}
+                ThrowsException(errorResponse, httpStatusCode);
+
+            }
+        }
 
 		/// <summary>
 		/// 
@@ -68,7 +69,7 @@ namespace chat_winForm.Client
 		private void ThrowsException(ErrorResponse errorResponse, HttpStatusCode httpStatusCode)
         {
 			//各種具体的にわかる例外を投げる・分別ができないときは他のやつ投げる
-			switch (errorResponse.ErrorName)
+			switch (errorResponse.ErrorCode)
 			{
 				case "NotFoundException":
 					throw new NotFoundException(errorResponse.Message);
@@ -111,7 +112,7 @@ namespace chat_winForm.Client
 				{
 					ContractResolver = new DefaultContractResolver
 					{
-						NamingStrategy = new SnakeCaseNamingStrategy()
+						NamingStrategy = new CamelCaseNamingStrategy()
 					}
 				};
 				return JsonConvert.DeserializeObject<ErrorResponse>(jsonString, jsonSerializerSettings);
@@ -128,7 +129,7 @@ namespace chat_winForm.Client
 		/// </summary>
 		public class ErrorResponse
 		{
-			public String ErrorName { get; set; }
+			public String ErrorCode { get; set; }
 			public String Message { get; set; }
 		}
     }

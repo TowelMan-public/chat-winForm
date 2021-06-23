@@ -23,7 +23,7 @@ namespace chat_winForm.Client.Api
         /// <returns>友達リスト</returns>
         static public List<HaveUserResponse> GetUserInDiarogueList(String outhToken)
         {
-            const String URL = ROOT_URL + "/join";
+            const String URL = ROOT_URL + "/gets";
 
             var dto = new Dto();
 

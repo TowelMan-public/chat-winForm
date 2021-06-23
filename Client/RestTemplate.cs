@@ -142,18 +142,24 @@ namespace chat_winForm.Client
         /// <param name="paramaters">DTOクラス（パラメター）</param>
         /// <returns>パラメータURL</returns>
         private String CreateRequestParamaterUrl<Paramater>(Paramater paramaters)
-        { 
+        {
             var requestParamaterUrl = new StringBuilder();
 
-            var config = new MapperConfiguration(cfg => {
+            /*var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Paramater, Dictionary<String, Object> >();
             });
             var mapper = config.CreateMapper();
             
-            var paramatersMap = mapper.Map< Dictionary<String, Object> >(paramaters);
-            foreach(var pair in paramatersMap)
+            var paramatersMap = mapper.Map< Dictionary<String, Object> >(paramaters);*/
+
+            var jsonString = ObjectToJsonString(paramaters);
+            var paramatersMap = JsonStringToObject<Dictionary<String, Object>>(jsonString);
+
+
+            foreach (var pair in paramatersMap)
             {
-                requestParamaterUrl.Append($",{pair.Key}={pair.Value}");
+                if(pair.Value != null && !pair.Value.ToString().Equals(""))
+                    requestParamaterUrl.Append($",{pair.Key}={pair.Value}");
             }
 
             if (requestParamaterUrl.Length == 0)
