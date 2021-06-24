@@ -83,6 +83,10 @@ namespace chat_winForm.Registry
             }
         }
 
+        /// <summary>
+        /// 認証用トークン
+        /// </summary>
+        public String OuthToken { get; set; }
 
         public void AllDelete()
         {
