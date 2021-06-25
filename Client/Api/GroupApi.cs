@@ -19,10 +19,10 @@ namespace chat_winForm.Client.Api
         /// <summary>
         /// グループ情報を取得するAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <returns>グループ情報</returns>
-        static public GroupTalkRoomResponse GetGroup(String outhToken, int talkRoomId)
+        static public GroupTalkRoomResponse GetGroup(String oauthToken, int talkRoomId)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -31,32 +31,32 @@ namespace chat_winForm.Client.Api
                 TalkRoomId = talkRoomId
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, GroupTalkRoomResponse>(outhToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, GroupTalkRoomResponse>(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// 加入してるグループリストの取得をするAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <returns>加入してるグループリストの取得</returns>
-        static public List<GroupTalkRoomResponse> GetGroups(String outhToken)
+        static public List<GroupTalkRoomResponse> GetGroups(String oauthToken)
         {
             const String URL = ROOT_URL + "/gets";
 
             var dto = new Dto();
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<GroupTalkRoomResponse>>(outhToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<GroupTalkRoomResponse>>(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループトークリストの取得をするAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="startIndex">最初のトークインデックス</param>
         /// <param name="maxSize">最大件数</param>
         /// <returns>グループトークリスト</returns>
-        static public List<TalkResponse> GetGroupTalks(String outhToken, int talkRoomId, int startIndex, int maxSize)
+        static public List<TalkResponse> GetGroupTalks(String oauthToken, int talkRoomId, int startIndex, int maxSize)
         {
             const String URL = ROOT_URL + "/gets/talks";
 
@@ -67,16 +67,16 @@ namespace chat_winForm.Client.Api
                 MaxSize = maxSize
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<TalkResponse>>(outhToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<TalkResponse>>(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループ名の更新をするAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="groupName">グループ名</param>
-        static public void UpdateGroupName(String outhToken, int talkRoomId, String groupName)
+        static public void UpdateGroupName(String oauthToken, int talkRoomId, String groupName)
         {
             const String URL = ROOT_URL + "/update/name";
 
@@ -86,15 +86,15 @@ namespace chat_winForm.Client.Api
                 GroupName = groupName
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(outhToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループの削除
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="talkRoomid">グループトークルームID</param>
-        static public void DeleteGroup(String outhToken, int talkRoomid)
+        static public void DeleteGroup(String oauthToken, int talkRoomid)
         {
             const String URL = ROOT_URL + "/delete";
 
@@ -103,15 +103,15 @@ namespace chat_winForm.Client.Api
                 TalkRoomId = talkRoomid
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(outhToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループの作成
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="groupName">グループ名</param>
-        static public void InsertGroup(String outhToken, String groupName)
+        static public void InsertGroup(String oauthToken, String groupName)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -120,7 +120,7 @@ namespace chat_winForm.Client.Api
                 GroupName = groupName
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(outhToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
         }
 
         /// <summary>

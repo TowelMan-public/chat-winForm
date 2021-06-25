@@ -105,23 +105,15 @@ namespace chat_winForm.Client
 		/// <param name="jsonString">JSON形式のレスポンスボディー</param>
 		/// <returns>エラーレスポンス</returns>
 		private ErrorResponse ParseJson(String jsonString)
-        {
-			try
+		{
+			var jsonSerializerSettings = new JsonSerializerSettings
 			{
-				var jsonSerializerSettings = new JsonSerializerSettings
+				ContractResolver = new DefaultContractResolver
 				{
-					ContractResolver = new DefaultContractResolver
-					{
-						NamingStrategy = new CamelCaseNamingStrategy()
-					}
-				};
-				return JsonConvert.DeserializeObject<ErrorResponse>(jsonString, jsonSerializerSettings);
-			}
-			//例外が長るときは指定された文字列がjson出ないときのみであるため、握りつぶせる。（サーバエラー発生時は必ずjsonになる。）
-            catch (System.Exception)
-            {
-				return null;
-            }
+					NamingStrategy = new CamelCaseNamingStrategy()
+				}
+			};
+			return JsonConvert.DeserializeObject<ErrorResponse>(jsonString, jsonSerializerSettings);
 		}
 
 		/// <summary>

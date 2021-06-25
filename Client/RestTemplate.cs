@@ -51,15 +51,15 @@ namespace chat_winForm.Client
         /// </summary>
         /// <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
         /// <typeparam name="Responce">レスポンスクラス</typeparam>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="url">APiのURL</param>
         /// <param name="paramaters">DTOクラス（パラメター）</param>
         /// <returns>レスポンスクラスに指定された型のレスポンス</returns>
-        public Responce GetHttpMethodWhenLogined<Paramater,Responce>(String outhToken, String url, Paramater paramaters)
+        public Responce GetHttpMethodWhenLogined<Paramater,Responce>(String oauthToken, String url, Paramater paramaters)
         {
             var requestParamaterUrl = CreateRequestParamaterUrl(paramaters);
             var request = new HttpRequestMessage(HttpMethod.Get, url + requestParamaterUrl);
-            request.Headers.Add(OUTH_HTTP_HEADER_NAME, outhToken);
+            request.Headers.Add(OUTH_HTTP_HEADER_NAME, oauthToken);
 
             var responseTask = s_httpClient.SendAsync(request);
             var response = responseTask.Result;
@@ -74,13 +74,13 @@ namespace chat_winForm.Client
         /// ログインされているときにPOSTメソッドを呼ぶ
         /// </summary>
         /// <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="url">APiのURL</param>
         /// <param name="paramaters">DTOクラス（パラメター）</param>
-        public void PostHttpMethodWhenLogined<Paramater>(String outhToken, String url, Paramater paramaters)
+        public void PostHttpMethodWhenLogined<Paramater>(String oauthToken, String url, Paramater paramaters)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, url);
-            request.Headers.Add(OUTH_HTTP_HEADER_NAME, outhToken);
+            request.Headers.Add(OUTH_HTTP_HEADER_NAME, oauthToken);
 
             var jsonString = ObjectToJsonString(paramaters);
             request.Content = new StringContent(jsonString, Encoding.UTF8, Content_Type);

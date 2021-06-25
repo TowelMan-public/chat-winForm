@@ -19,24 +19,24 @@ namespace chat_winForm.Client.Api
         /// <summary>
         /// 友達追加申請リストを取得するAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <returns>友達追加申請リスト</returns>
-        static public List<DesireHaveUserResponse> GetDesireUserList(String outhToken)
+        static public List<DesireHaveUserResponse> GetDesireUserList(String oauthToken)
         {
             const String URL = ROOT_URL + "/gets";
 
             var dto = new Dto();
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<DesireHaveUserResponse>>(outhToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<DesireHaveUserResponse>>(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// 友達追加申請を取得するAPi
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
         /// <returns>友達追加申請</returns>
-        static public DesireHaveUserResponse GetDesireUser(String outhToken, String userIdName)
+        static public DesireHaveUserResponse GetDesireUser(String oauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -45,15 +45,15 @@ namespace chat_winForm.Client.Api
                 UserIdName = userIdName
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, DesireHaveUserResponse>(outhToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, DesireHaveUserResponse>(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// 友達追加申請を断るAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void DeleteDesireUser(String outhToken, String userIdName)
+        static public void DeleteDesireUser(String oauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -62,15 +62,15 @@ namespace chat_winForm.Client.Api
                 UserIdName = userIdName
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(outhToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
         }
 
         /// <summary>
         /// 友達追加申請を受けるAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void JoinUser(String outhToken, String userIdName)
+        static public void JoinUser(String oauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/join";
 
@@ -79,7 +79,7 @@ namespace chat_winForm.Client.Api
                 UserIdName = userIdName
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(outhToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
         }
 
         /// <summary>

@@ -19,12 +19,12 @@ namespace chat_winForm.Client.Api
         /// <summary>
         /// 友達トークリストの取得をするAPI
         /// </summary>
-        /// <param name="outhToken">認証用トークン認証用トークン</param>
+        /// <param name="oauthToken">認証用トークン認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
         /// <param name="maxSize">最大取得件数</param>
         /// <param name="startIndex">取得開始トークインデックス</param>
         /// <returns>友達トークリスト</returns>
-        static public List<TalkResponse> GetDiarogueTalks(String outhToken, String userIdName, int maxSize, int startIndex)
+        static public List<TalkResponse> GetDiarogueTalks(String oauthToken, String userIdName, int maxSize, int startIndex)
         {
             const String URL = ROOT_URL + "/gets/talks";
 
@@ -35,7 +35,7 @@ namespace chat_winForm.Client.Api
                 StartIndex = startIndex
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<TalkResponse>>(outhToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<TalkResponse>>(oauthToken, URL, dto);
         }
 
         /// <summary>
