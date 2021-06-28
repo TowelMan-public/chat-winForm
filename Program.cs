@@ -16,7 +16,7 @@ namespace chat_winForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new OuterForm());
         }
     }
 }
