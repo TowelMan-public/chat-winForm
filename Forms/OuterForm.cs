@@ -11,25 +11,71 @@ using System.Windows.Forms;
 
 namespace chat_winForm
 {
+    /// <summary>
+    /// このアプリで使うフォームの大枠。
+    /// </summary>
     public partial class OuterForm : Form
     {
         private Point pointWhenLastMouseDown;
         private Size sizeWhenLastMouseDown;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public OuterForm()
         {
             InitializeComponent();
 
         }
 
+        /// <summary>
+        /// 初期化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OuterForm_Load(object sender, EventArgs e)
         {
             this.MouseDown +=
                 new MouseEventHandler(OuterForm_MouseDown);
             this.MouseMove +=
                 new MouseEventHandler(OuterForm_MouseMove);
+
+            this.LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopSizeChanger_MouseMove);
+            this.LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeftSizeChanger_MouseMove);
+
+            this.RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RightSizeChanger_MouseMove);
+            this.RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopSizeChanger_MouseMove);
+
+            this.LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeftSizeChanger_MouseMove);
+            this.LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BottomSizeChanger_MouseMove);
+
+            this.RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RightSizeChanger_MouseMove);
+            this.RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BottomSizeChanger_MouseMove);
+
+            var image = this.ExitButtom.BackgroundImage as Bitmap;
+            image.MakeTransparent(Color.FromArgb(255,255,255));
+            this.ExitButtom.BackgroundImage = image;
+
+            image = this.ReSizeButtom.BackgroundImage as Bitmap;
+            image.MakeTransparent(Color.FromArgb(255, 255, 255));
+            this.ReSizeButtom.BackgroundImage = image;
+
+            image = this.ToMinButtom.BackgroundImage as Bitmap;
+            image.MakeTransparent(Color.FromArgb(255, 255, 255));
+            this.ToMinButtom.BackgroundImage = image;
+
+            image = this.ReReSizeButtom.BackgroundImage as Bitmap;
+            image.MakeTransparent(Color.FromArgb(255, 255, 255));
+            this.ReReSizeButtom.BackgroundImage = image;
+            this.ReReSizeButtom.Visible = false;
+
         }
 
+        /// <summary>
+        /// このフォームでマウスが押されたときのイベント（マウスポイント等の記憶）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OuterForm_MouseDown(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -40,6 +86,12 @@ namespace chat_winForm
             }
         }
 
+        /// <summary>
+        /// このフォームでマウスがドラッグされたときのイベント
+        /// フォームの移動用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OuterForm_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -49,6 +101,12 @@ namespace chat_winForm
             }
         }
 
+        /// <summary>
+        /// このフォームのTopSizeChangerでマウスがドラッグされたときのイベント
+        /// リサイズ用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TopSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -59,6 +117,12 @@ namespace chat_winForm
             }
         }
 
+        /// <summary>
+        /// このフォームのBottomSizeChangerでマウスがドラッグされたときのイベント
+        /// リサイズ用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BottomSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -67,6 +131,12 @@ namespace chat_winForm
             }
         }
 
+        /// <summary>
+        /// このフォームのRightSizeChangerでマウスがドラッグされたときのイベント
+        /// リサイズ用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RightSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -75,6 +145,12 @@ namespace chat_winForm
             }
         }
 
+        /// <summary>
+        /// このフォームのLeftSizeChangerでマウスがドラッグされたときのイベント
+        /// リサイズ用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LeftSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -83,6 +159,70 @@ namespace chat_winForm
                 this.Width -= e.X - pointWhenLastMouseDown.X;
                 this.Left += w - this.Width;
             }
+        }
+
+        /// <summary>
+        /// 閉じるボタンの上にカーソルが乗った
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExitButtom_MouseEnter(object sender, EventArgs e)
+        {
+            this.ExitButtom.BackColor = Color.FromArgb(200,40,40);
+        }
+
+        /// <summary>
+        /// 閉じるボタンからカーソルが出て行った
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_MouseLeave(object sender, EventArgs e)
+        {
+            this.ExitButtom.BackColor = SystemColors.ControlDarkDark;
+        }
+
+        /// <summary>
+        /// 閉じるボタンが押された
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExitButtom_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// 最大化ボタン(ReSizeButtom)が押された
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReSizeButtom_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            this.ReSizeButtom.Visible = false;
+            this.ReReSizeButtom.Visible = true;
+        }
+
+        /// <summary>
+        /// 最小化ボタンが押された
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToMinButtom_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        /// <summary>
+        /// リサイズボタン(ReReSize)が押された
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReReSizeButtom_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.ReReSizeButtom.Visible = false;
+            this.ReSizeButtom.Visible = true;
         }
     }
 }
