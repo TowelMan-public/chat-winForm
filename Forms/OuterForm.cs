@@ -42,25 +42,25 @@ namespace chat_winForm
             LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(LeftSizeChanger_MouseMove);
             LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(BottomSizeChanger_MouseMove);
 
-            RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(RightSizeChanger_MouseMove);
-            RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(BottomSizeChanger_MouseMove);
+            RightButtonSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(RightSizeChanger_MouseMove);
+            RightButtonSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(BottomSizeChanger_MouseMove);
 
-            Bitmap image = ExitButtom.BackgroundImage as Bitmap;
+            Bitmap image = ExitButton.BackgroundImage as Bitmap;
             image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ExitButtom.BackgroundImage = image;
+            ExitButton.BackgroundImage = image;
 
-            image = ReSizeButtom.BackgroundImage as Bitmap;
+            image = ReSizeButton.BackgroundImage as Bitmap;
             image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ReSizeButtom.BackgroundImage = image;
+            ReSizeButton.BackgroundImage = image;
 
-            image = ToMinButtom.BackgroundImage as Bitmap;
+            image = ToMinButton.BackgroundImage as Bitmap;
             image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ToMinButtom.BackgroundImage = image;
+            ToMinButton.BackgroundImage = image;
 
-            image = ReReSizeButtom.BackgroundImage as Bitmap;
+            image = ReReSizeButton.BackgroundImage as Bitmap;
             image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ReReSizeButtom.BackgroundImage = image;
-            ReReSizeButtom.Visible = false;
+            ReReSizeButton.BackgroundImage = image;
+            ReReSizeButton.Visible = false;
 
         }
 
@@ -157,9 +157,9 @@ namespace chat_winForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ExitButtom_MouseEnter(object sender, EventArgs e)
+        private void ExitButton_MouseEnter(object sender, EventArgs e)
         {
-            ExitButtom.BackColor = Color.FromArgb(200, 40, 40);
+            ExitButton.BackColor = Color.FromArgb(200, 40, 40);
         }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void Button_MouseLeave(object sender, EventArgs e)
         {
-            ExitButtom.BackColor = Color.FromArgb(64, 64, 64);
+            ExitButton.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         /// <summary>
@@ -177,21 +177,21 @@ namespace chat_winForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ExitButtom_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         /// <summary>
-        /// 最大化ボタン(ReSizeButtom)が押された
+        /// 最大化ボタン(ReSizeButton)が押された
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReSizeButtom_Click(object sender, EventArgs e)
+        private void ReSizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-            ReSizeButtom.Visible = false;
-            ReReSizeButtom.Visible = true;
+            ReSizeButton.Visible = false;
+            ReReSizeButton.Visible = true;
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace chat_winForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ToMinButtom_Click(object sender, EventArgs e)
+        private void ToMinButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
@@ -209,11 +209,11 @@ namespace chat_winForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReReSizeButtom_Click(object sender, EventArgs e)
+        private void ReReSizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Normal;
-            ReReSizeButtom.Visible = false;
-            ReSizeButtom.Visible = true;
+            ReReSizeButton.Visible = false;
+            ReSizeButton.Visible = true;
         }
 
         /// <summary>

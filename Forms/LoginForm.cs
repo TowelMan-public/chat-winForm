@@ -43,19 +43,19 @@ namespace chat_winForm.Forms
             UserIdNameTextBox.Text = userIdName;
 
             //ValidationErrorProviderの初期状態作成
-            ValidationErrorProvider.SetError(PasswordTextBox, "");
+            ValidationErrorProvider.SetError(PasswordTextBox, ValidateMessage.INIT_MESSAGE);
             if (userIdName == null)
             {
-                ValidationErrorProvider.SetError(UserIdNameTextBox, "");
+                ValidationErrorProvider.SetError(UserIdNameTextBox, ValidateMessage.INIT_MESSAGE);
             }
 
             //ログイン処理
             if (userIdName != null && password != null)
             {
-                StartSpinnerMode();
-
                 try
                 {
+                    StartSpinnerMode();
+
                     //処理
                     string outhToken = await Task.Run(() => UserService.Login(userIdName, password));
 
@@ -76,8 +76,10 @@ namespace chat_winForm.Forms
                 {
                     CommonMessageBoxs.UnexpectedErrorMessageBox();
                 }
-
-                FinishSpinnerMode();
+                finally
+                {
+                    FinishSpinnerMode();
+                }
             }
 
         }
@@ -87,7 +89,7 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void LoginButtom_Click(object sender, EventArgs e)
+        private async void LoginButton_Click(object sender, EventArgs e)
         {
             //バリデーションチェック
             if (ValidationErrorProvider.GetError(UserIdNameTextBox) != "" ||
@@ -96,11 +98,10 @@ namespace chat_winForm.Forms
                 CommonMessageBoxs.ValidationMessageBox();
                 return;
             }
-
-            StartSpinnerMode();
-
             try
             {
+                StartSpinnerMode();
+
                 //データ取得
                 string userIdName = UserIdNameTextBox.Text;
                 string password = PasswordTextBox.Text;
@@ -130,8 +131,10 @@ namespace chat_winForm.Forms
             {
                 CommonMessageBoxs.UnexpectedErrorMessageBox();
             }
-
-            FinishSpinnerMode();
+            finally
+            {
+                FinishSpinnerMode();
+            }
         }
 
         /// <summary>
@@ -139,7 +142,7 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SignupButtom_Click(object sender, EventArgs e)
+        private void SignupButton_Click(object sender, EventArgs e)
         {
             //画面遷移
             SignupForm signupForm = new SignupForm();
@@ -184,8 +187,8 @@ namespace chat_winForm.Forms
         {
             SpinnerBox.Visible = true;
             UseWaitCursor = true;
-            LoginButtom.Visible = false;
-            SignupButtom.Visible = false;
+            LoginButton.Visible = false;
+            SignupButton.Visible = false;
 
         }
 
@@ -196,8 +199,8 @@ namespace chat_winForm.Forms
         {
             SpinnerBox.Visible = false;
             UseWaitCursor = false;
-            LoginButtom.Visible = true;
-            SignupButtom.Visible = true;
+            LoginButton.Visible = true;
+            SignupButton.Visible = true;
         }
     }
 }

@@ -65,5 +65,13 @@ namespace chat_winForm.Forms.Commons
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
         }
+
+        static public void AlreadyUsedUserIdNameErrorMessageBox()
+        {
+            MessageBox.Show("あなたが指定したユーザーIDは既にほかの人に使われています。ほかのユーザーIDをご検討ください。",
+                            "失敗",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+        }
     }
 }

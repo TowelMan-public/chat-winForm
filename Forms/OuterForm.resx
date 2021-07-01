@@ -121,7 +121,7 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ReReSizeButtom.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ReReSizeButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk02RwAAAAAAADYAAAAoAAAAVQAAAEcAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////
         ////////////////////////////////////////////////////////////////////////////////
@@ -429,7 +429,7 @@
         /////////////////////////////////////////////////////////////////wA=
 </value>
   </data>
-  <data name="ExitButtom.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ExitButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
         dAAAEnQB3mYfeAAABGlJREFUWEftV2loHVUUzh/FWGOapE3SpGmaNF2t0YKUKopLRWurKKIgagstLlAE
@@ -454,7 +454,7 @@
         DX8D8rSmGrPC7joAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ReSizeButtom.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ReSizeButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk02RwAAAAAAADYAAAAoAAAAVQAAAEcAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////
         ////////////////////////////////////////////////////////////////////////////////
@@ -762,7 +762,7 @@
         /////////////////////////////////////////////////////////////////wA=
 </value>
   </data>
-  <data name="ToMinButtom.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ToMinButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk02RwAAAAAAADYAAAAoAAAAVQAAAEcAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////
         ////////////////////////////////////////////////////////////////////////////////

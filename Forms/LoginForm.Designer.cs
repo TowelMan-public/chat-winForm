@@ -37,8 +37,8 @@ namespace chat_winForm.Forms
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ChackIsSavePassword = new System.Windows.Forms.CheckBox();
-            this.LoginButtom = new System.Windows.Forms.Button();
-            this.SignupButtom = new System.Windows.Forms.Button();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.SignupButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.ValidationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.SpinnerBox = new System.Windows.Forms.PictureBox();
@@ -115,37 +115,37 @@ namespace chat_winForm.Forms
             this.ChackIsSavePassword.Text = "パスワード等をこのPCに保持する";
             this.ChackIsSavePassword.UseVisualStyleBackColor = true;
             // 
-            // LoginButtom
+            // LoginButton
             // 
-            this.LoginButtom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LoginButtom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
-            this.LoginButtom.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.LoginButtom.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.LoginButtom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.LoginButtom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginButtom.Location = new System.Drawing.Point(283, 359);
-            this.LoginButtom.Name = "LoginButtom";
-            this.LoginButtom.Size = new System.Drawing.Size(98, 31);
-            this.LoginButtom.TabIndex = 18;
-            this.LoginButtom.Text = "ログイン";
-            this.LoginButtom.UseVisualStyleBackColor = false;
-            this.LoginButtom.Click += new System.EventHandler(this.LoginButtom_Click);
+            this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LoginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
+            this.LoginButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.LoginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.LoginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginButton.Location = new System.Drawing.Point(283, 359);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(98, 31);
+            this.LoginButton.TabIndex = 18;
+            this.LoginButton.Text = "ログイン";
+            this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // SignupButtom
+            // SignupButton
             // 
-            this.SignupButtom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SignupButtom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
-            this.SignupButtom.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.SignupButtom.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.SignupButtom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.SignupButtom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SignupButtom.Location = new System.Drawing.Point(393, 359);
-            this.SignupButtom.Name = "SignupButtom";
-            this.SignupButtom.Size = new System.Drawing.Size(103, 31);
-            this.SignupButtom.TabIndex = 19;
-            this.SignupButtom.Text = "新規登録";
-            this.SignupButtom.UseVisualStyleBackColor = false;
-            this.SignupButtom.Click += new System.EventHandler(this.SignupButtom_Click);
+            this.SignupButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SignupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(255)))));
+            this.SignupButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.SignupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.SignupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.SignupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SignupButton.Location = new System.Drawing.Point(393, 359);
+            this.SignupButton.Name = "SignupButton";
+            this.SignupButton.Size = new System.Drawing.Size(103, 31);
+            this.SignupButton.TabIndex = 19;
+            this.SignupButton.Text = "新規登録";
+            this.SignupButton.UseVisualStyleBackColor = false;
+            this.SignupButton.Click += new System.EventHandler(this.SignupButton_Click);
             // 
             // label4
             // 
@@ -184,8 +184,8 @@ namespace chat_winForm.Forms
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SpinnerBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.SignupButtom);
-            this.Controls.Add(this.LoginButtom);
+            this.Controls.Add(this.SignupButton);
+            this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.ChackIsSavePassword);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UserIdNameTextBox);
@@ -200,8 +200,8 @@ namespace chat_winForm.Forms
             this.Controls.SetChildIndex(this.UserIdNameTextBox, 0);
             this.Controls.SetChildIndex(this.PasswordTextBox, 0);
             this.Controls.SetChildIndex(this.ChackIsSavePassword, 0);
-            this.Controls.SetChildIndex(this.LoginButtom, 0);
-            this.Controls.SetChildIndex(this.SignupButtom, 0);
+            this.Controls.SetChildIndex(this.LoginButton, 0);
+            this.Controls.SetChildIndex(this.SignupButton, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.SpinnerBox, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ValidationErrorProvider)).EndInit();
@@ -219,8 +219,8 @@ namespace chat_winForm.Forms
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox ChackIsSavePassword;
-        private System.Windows.Forms.Button LoginButtom;
-        private System.Windows.Forms.Button SignupButtom;
+        private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Button SignupButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider ValidationErrorProvider;
         private System.Windows.Forms.PictureBox SpinnerBox;

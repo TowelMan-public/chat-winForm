@@ -114,6 +114,13 @@
     <Compile Include="Client\RestTemplate.cs" />
     <Compile Include="Client\RestTemplateErrorHandler.cs" />
     <Compile Include="Forms\Commons\CommonMessageBoxs.cs" />
+    <Compile Include="Forms\RunForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RunForm.Designer.cs">
+      <DependentUpon>RunForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Commons\ValidateMessage.cs" />
     <Compile Include="Forms\Commons\Validater.cs" />
     <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
@@ -149,11 +156,17 @@
     <Compile Include="Registry\UserCredentialsProvider.cs" />
     <Compile Include="Regular\OuthTokenUpdater.cs" />
     <Compile Include="Service\UserService.cs" />
+    <EmbeddedResource Include="Forms\RunForm.resx">
+      <DependentUpon>RunForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OuterForm.resx">
       <DependentUpon>OuterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SignupForm.resx">
+      <DependentUpon>SignupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
