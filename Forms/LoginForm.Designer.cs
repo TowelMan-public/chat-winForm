@@ -110,9 +110,9 @@ namespace chat_winForm.Forms
             this.ChackIsSavePassword.ForeColor = System.Drawing.Color.White;
             this.ChackIsSavePassword.Location = new System.Drawing.Point(314, 307);
             this.ChackIsSavePassword.Name = "ChackIsSavePassword";
-            this.ChackIsSavePassword.Size = new System.Drawing.Size(204, 19);
+            this.ChackIsSavePassword.Size = new System.Drawing.Size(219, 19);
             this.ChackIsSavePassword.TabIndex = 17;
-            this.ChackIsSavePassword.Text = "パスワードをこのPCに保持する";
+            this.ChackIsSavePassword.Text = "パスワード等をこのPCに保持する";
             this.ChackIsSavePassword.UseVisualStyleBackColor = true;
             // 
             // LoginButtom
