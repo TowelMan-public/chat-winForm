@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using chat_winForm.Forms.Commons;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace chat_winForm
@@ -17,7 +11,6 @@ namespace chat_winForm
     public partial class OuterForm : Form
     {
         private Point pointWhenLastMouseDown;
-        private Size sizeWhenLastMouseDown;
 
         /// <summary>
         /// コンストラクタ
@@ -35,39 +28,39 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void OuterForm_Load(object sender, EventArgs e)
         {
-            this.MouseDown +=
+            MouseDown +=
                 new MouseEventHandler(OuterForm_MouseDown);
-            this.MouseMove +=
+            MouseMove +=
                 new MouseEventHandler(OuterForm_MouseMove);
 
-            this.LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopSizeChanger_MouseMove);
-            this.LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeftSizeChanger_MouseMove);
+            LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(TopSizeChanger_MouseMove);
+            LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(LeftSizeChanger_MouseMove);
 
-            this.RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RightSizeChanger_MouseMove);
-            this.RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopSizeChanger_MouseMove);
+            RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(RightSizeChanger_MouseMove);
+            RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(TopSizeChanger_MouseMove);
 
-            this.LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeftSizeChanger_MouseMove);
-            this.LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BottomSizeChanger_MouseMove);
+            LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(LeftSizeChanger_MouseMove);
+            LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(BottomSizeChanger_MouseMove);
 
-            this.RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RightSizeChanger_MouseMove);
-            this.RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BottomSizeChanger_MouseMove);
+            RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(RightSizeChanger_MouseMove);
+            RightButtomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(BottomSizeChanger_MouseMove);
 
-            var image = this.ExitButtom.BackgroundImage as Bitmap;
-            image.MakeTransparent(Color.FromArgb(255,255,255));
-            this.ExitButtom.BackgroundImage = image;
-
-            image = this.ReSizeButtom.BackgroundImage as Bitmap;
+            Bitmap image = ExitButtom.BackgroundImage as Bitmap;
             image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            this.ReSizeButtom.BackgroundImage = image;
+            ExitButtom.BackgroundImage = image;
 
-            image = this.ToMinButtom.BackgroundImage as Bitmap;
+            image = ReSizeButtom.BackgroundImage as Bitmap;
             image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            this.ToMinButtom.BackgroundImage = image;
+            ReSizeButtom.BackgroundImage = image;
 
-            image = this.ReReSizeButtom.BackgroundImage as Bitmap;
+            image = ToMinButtom.BackgroundImage as Bitmap;
             image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            this.ReReSizeButtom.BackgroundImage = image;
-            this.ReReSizeButtom.Visible = false;
+            ToMinButtom.BackgroundImage = image;
+
+            image = ReReSizeButtom.BackgroundImage as Bitmap;
+            image.MakeTransparent(Color.FromArgb(255, 255, 255));
+            ReReSizeButtom.BackgroundImage = image;
+            ReReSizeButtom.Visible = false;
 
         }
 
@@ -81,8 +74,6 @@ namespace chat_winForm
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
                 pointWhenLastMouseDown = new Point(e.X, e.Y);
-                sizeWhenLastMouseDown = this.Size;
-                
             }
         }
 
@@ -96,8 +87,8 @@ namespace chat_winForm
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
-                this.Left += e.X - pointWhenLastMouseDown.X;
-                this.Top += e.Y - pointWhenLastMouseDown.Y;
+                Left += e.X - pointWhenLastMouseDown.X;
+                Top += e.Y - pointWhenLastMouseDown.Y;
             }
         }
 
@@ -111,9 +102,9 @@ namespace chat_winForm
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
-                int h = this.Height;
-                this.Height -= e.Y - pointWhenLastMouseDown.Y;
-                this.Top += h - this.Height;
+                int h = Height;
+                Height -= e.Y - pointWhenLastMouseDown.Y;
+                Top += h - Height;
             }
         }
 
@@ -127,7 +118,7 @@ namespace chat_winForm
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
-                this.Height += e.Y - pointWhenLastMouseDown.Y;
+                Height += e.Y - pointWhenLastMouseDown.Y;
             }
         }
 
@@ -141,7 +132,7 @@ namespace chat_winForm
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
-                this.Width += e.X - pointWhenLastMouseDown.X;
+                Width += e.X - pointWhenLastMouseDown.X;
             }
         }
 
@@ -155,9 +146,9 @@ namespace chat_winForm
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
-                int w = this.Width;
-                this.Width -= e.X - pointWhenLastMouseDown.X;
-                this.Left += w - this.Width;
+                int w = Width;
+                Width -= e.X - pointWhenLastMouseDown.X;
+                Left += w - Width;
             }
         }
 
@@ -168,7 +159,7 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void ExitButtom_MouseEnter(object sender, EventArgs e)
         {
-            this.ExitButtom.BackColor = Color.FromArgb(200,40,40);
+            ExitButtom.BackColor = Color.FromArgb(200, 40, 40);
         }
 
         /// <summary>
@@ -178,7 +169,7 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void Button_MouseLeave(object sender, EventArgs e)
         {
-            this.ExitButtom.BackColor = Color.FromArgb(64, 64, 64);
+            ExitButtom.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         /// <summary>
@@ -188,7 +179,7 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void ExitButtom_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         /// <summary>
@@ -198,9 +189,9 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void ReSizeButtom_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            this.ReSizeButtom.Visible = false;
-            this.ReReSizeButtom.Visible = true;
+            WindowState = FormWindowState.Maximized;
+            ReSizeButtom.Visible = false;
+            ReReSizeButtom.Visible = true;
         }
 
         /// <summary>
@@ -210,7 +201,7 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void ToMinButtom_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         /// <summary>
@@ -220,18 +211,20 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void ReReSizeButtom_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            this.ReReSizeButtom.Visible = false;
-            this.ReSizeButtom.Visible = true;
+            WindowState = FormWindowState.Normal;
+            ReReSizeButtom.Visible = false;
+            ReSizeButtom.Visible = true;
         }
 
-        protected void UnexpectedError(Exception e)
+        /// <summary>
+        /// 認証用トークンの期限が切れたときのハンドラー関数
+        /// </summary>
+        protected void InvalidLoginExceptionHandler()
         {
-            MessageBox.Show("予期しないエラーが発生しました。これまでに行われた操作は一部、あるいはすべてが無効になっている可能性があります。" +
-                "この現象が続く場合は開発者に報告してください。",
-                "重大なエラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+            CommonMessageBoxs.InvalidLoginExceptionMessageBox();
+            Close();
+            Forms.LoginForm loginForm = new Forms.LoginForm();
+            loginForm.Show();
         }
     }
 }

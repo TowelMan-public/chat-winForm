@@ -1,9 +1,5 @@
 ﻿using chat_winForm.Client.ResponseEntity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace chat_winForm.Client.Api
 {
@@ -12,7 +8,7 @@ namespace chat_winForm.Client.Api
     /// </summary>
     static class UserApi
     {
-        static RestTemplate s_RestTemplate = RestTemplate.GetInstance();
+        static readonly RestTemplate s_RestTemplate = RestTemplate.GetInstance();
 
         const String ROOT_URL = ApiUrlRootConfing.ROOT_URL + "/user";
 
@@ -26,12 +22,12 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/login";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 UserIdName = userIdName,
                 Password = password
             };
-            
+
             return s_RestTemplate.PostHttpMethodForLogin(URL, dto);
         }
 
@@ -45,14 +41,14 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/insert";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 UserName = userName,
                 UserIdName = userIdName,
                 Password = password
             };
 
-           s_RestTemplate.PostHttpMethod(URL, dto);
+            s_RestTemplate.PostHttpMethod(URL, dto);
         }
 
         /// <summary>
@@ -65,12 +61,12 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/get";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 UserIdName = userIdName
             };
 
-            return  s_RestTemplate.GetHttpMethodWhenLogined<Dto,UserEntity>(oauthToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, UserEntity>(oauthToken, URL, dto);
         }
 
         /// <summary>
@@ -82,7 +78,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/update/id-name";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 UserIdName = userIdName,
             };
@@ -99,7 +95,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/update/name";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 UserName = userName
             };
@@ -116,7 +112,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/update/password";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 Password = password
             };
@@ -132,7 +128,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/delete";
 
-            var dto = new Dto();
+            Dto dto = new Dto();
 
             s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
         }

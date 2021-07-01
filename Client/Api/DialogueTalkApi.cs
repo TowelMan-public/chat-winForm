@@ -1,9 +1,5 @@
 ﻿using chat_winForm.Client.ResponseEntity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace chat_winForm.Client.Api
 {
@@ -26,7 +22,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/insert";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 HaveUserIdName = haveUserIdName,
                 TalkContentText = talkContentText
@@ -46,7 +42,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/get";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 HaveUserIdName = haveUserIdName,
                 TalkIndex = talkIndex
@@ -66,7 +62,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/update";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 HaveUserIdName = haveUserIdName,
                 TalkIndex = talkIndex,
@@ -86,7 +82,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/delete";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 HaveUserIdName = haveUserIdName,
                 TalkIndex = talkIndex

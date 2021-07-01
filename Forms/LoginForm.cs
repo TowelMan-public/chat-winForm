@@ -1,41 +1,53 @@
 ﻿using chat_winForm.Client.Exception;
+using chat_winForm.Forms.Commons;
 using chat_winForm.Registry;
 using chat_winForm.Regular;
 using chat_winForm.Service;
 using System;
-using System.Drawing;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace chat_winForm.Forms
 {
+    /// <summary>
+    /// ログイン画面のフォーム
+    /// </summary>
     public partial class LoginForm : chat_winForm.OuterForm
     {
-        private static UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
+        private static readonly UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 初期化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void LoginForm_Load(object sender, EventArgs e)
         {
             //大枠のサイズ
-            this.Width = 320;
-            this.Height = 500;
+            Width = 320;
+            Height = 500;
 
             //PasswordTextBox
-            this.PasswordTextBox.PasswordChar = '*';
+            PasswordTextBox.PasswordChar = '*';
 
-            //初期動作
-            var userIdName = userCredentialsProvider.UserIdName;
-            var password = userCredentialsProvider.Password;
-            this.UserIdNameTextBox.Text = userIdName;
+            //値の取得とセット
+            string userIdName = userCredentialsProvider.UserIdName;
+            string password = userCredentialsProvider.Password;
+            UserIdNameTextBox.Text = userIdName;
 
             //ValidationErrorProviderの初期状態作成
-            this.ValidationErrorProvider.SetError(this.PasswordTextBox, "何か入力してください");
+            ValidationErrorProvider.SetError(PasswordTextBox, "");
             if (userIdName == null)
-                this.ValidationErrorProvider.SetError(this.UserIdNameTextBox, "何か入力してください");
+            {
+                ValidationErrorProvider.SetError(UserIdNameTextBox, "");
+            }
 
             //ログイン処理
             if (userIdName != null && password != null)
@@ -44,22 +56,25 @@ namespace chat_winForm.Forms
 
                 try
                 {
-                    var outhToken = await Task.Run(() => UserService.Login(userIdName, password));
+                    //処理
+                    string outhToken = await Task.Run(() => UserService.Login(userIdName, password));
 
+                    //後処理
                     userCredentialsProvider.oauthToken = outhToken;
                     OuthTokenUpdater.GetInstance().Start();
 
-                    //画面遷移 HomeForm
-                    //TODO
-                    this.Close();
+                    //画面遷移
+                    HomeForm homeForm = new HomeForm();
+                    homeForm.Show();
+                    Close();
                 }
                 catch (LoginException)
                 {
                     userCredentialsProvider.DeletePassword();
                 }
-                catch (Exception error)
+                catch (Exception)
                 {
-                    UnexpectedError(error);
+                    CommonMessageBoxs.UnexpectedErrorMessageBox();
                 }
 
                 FinishSpinnerMode();
@@ -67,16 +82,18 @@ namespace chat_winForm.Forms
 
         }
 
+        /// <summary>
+        /// ログインボタンが押されたときの処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void LoginButtom_Click(object sender, EventArgs e)
         {
             //バリデーションチェック
-            if(this.ValidationErrorProvider.GetError(this.UserIdNameTextBox) != "" || 
-                this.ValidationErrorProvider.GetError(this.PasswordTextBox) != "")
+            if (ValidationErrorProvider.GetError(UserIdNameTextBox) != "" ||
+                ValidationErrorProvider.GetError(PasswordTextBox) != "")
             {
-                MessageBox.Show("入力された値が不正です。テキストボックスのわきにある赤いアイコンをマウスでかざして、それに従ってください。",
-                            "警告",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
+                CommonMessageBoxs.ValidationMessageBox();
                 return;
             }
 
@@ -85,76 +102,102 @@ namespace chat_winForm.Forms
             try
             {
                 //データ取得
-                var userIdName = this.UserIdNameTextBox.Text;
-                var password = this.PasswordTextBox.Text;
+                string userIdName = UserIdNameTextBox.Text;
+                string password = PasswordTextBox.Text;
 
                 //処理
-                var outhToken = await Task.Run(() => UserService.Login(userIdName, password));
-                if (this.ChackIsSavePassword.Checked)
+                string outhToken = await Task.Run(() => UserService.Login(userIdName, password));
+
+                //後処理
+                if (ChackIsSavePassword.Checked)
                 {
-                    userCredentialsProvider.UserIdName = this.UserIdNameTextBox.Text;
-                    userCredentialsProvider.Password = this.PasswordTextBox.Text;
+                    userCredentialsProvider.UserIdName = UserIdNameTextBox.Text;
+                    userCredentialsProvider.Password = PasswordTextBox.Text;
+                    OuthTokenUpdater.GetInstance().Start();
                 }
-
-                //認証用トークンの保存
                 userCredentialsProvider.oauthToken = outhToken;
-                OuthTokenUpdater.GetInstance().Start();
 
-                //画面遷移 HomeForm
-                //TODO
-                this.Close();
+                //画面遷移
+                HomeForm homeForm = new HomeForm();
+                homeForm.Show();
+                Close();
             }
             catch (LoginException)
             {
-                MessageBox.Show("ログインに失敗しました。パスワードとユーザーIDを確かめてください。",
-                            "失敗",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                CommonMessageBoxs.FailureLoginMessageBox();
             }
-            catch(Exception error)
+            catch (Exception)
             {
-                UnexpectedError(error);
+                CommonMessageBoxs.UnexpectedErrorMessageBox();
             }
 
             FinishSpinnerMode();
         }
 
+        /// <summary>
+        /// 新規登録ボタンが押されたときの処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SignupButtom_Click(object sender, EventArgs e)
         {
-            //画面遷移 SugnupForm
-            //TODO
-            this.Close();
+            //画面遷移
+            SignupForm signupForm = new SignupForm();
+            signupForm.Show();
+            Close();
         }
 
+        /// <summary>
+        /// ユーザーID(UserIdName)のバリデーションチェック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserIdNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (this.UserIdNameTextBox.Text == null || this.UserIdNameTextBox.Text == "")
-                this.ValidationErrorProvider.SetError(this.UserIdNameTextBox, "何か入力してください");
-            else
-                this.ValidationErrorProvider.SetError(this.UserIdNameTextBox, null);
+            string errorMessage = new Validater(UserIdNameTextBox.Text)
+                .NotBlank()
+                .MaxString(100)
+                .getErrorMessage();
+
+            ValidationErrorProvider.SetError(UserIdNameTextBox, errorMessage);
         }
 
+        /// <summary>
+        /// パスワードのバリデーションチェック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PasswordTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (this.PasswordTextBox.Text == null || this.PasswordTextBox.Text == "")
-                this.ValidationErrorProvider.SetError(this.PasswordTextBox, "何か入力してください");
-            else
-                this.ValidationErrorProvider.SetError(this.PasswordTextBox, null);
+            string errorMessage = new Validater(PasswordTextBox.Text)
+                .NotBlank()
+                .MaxString(100)
+                .getErrorMessage();
+
+            ValidationErrorProvider.SetError(PasswordTextBox, errorMessage);
         }
 
+        /// <summary>
+        /// このフォームで、スピナーを表示するモードにする
+        /// </summary>
         private void StartSpinnerMode()
         {
-            this.SpinnerBox.Visible = true;
-            this.LoginButtom.Visible = false;
-            this.SignupButtom.Visible = false;
+            SpinnerBox.Visible = true;
+            UseWaitCursor = true;
+            LoginButtom.Visible = false;
+            SignupButtom.Visible = false;
 
         }
 
+        /// <summary>
+        /// このフォームで、スピナーを表示するモードを終了する
+        /// </summary>
         private void FinishSpinnerMode()
         {
-            this.SpinnerBox.Visible = false;
-            this.LoginButtom.Visible = true;
-            this.SignupButtom.Visible = true;
+            SpinnerBox.Visible = false;
+            UseWaitCursor = false;
+            LoginButtom.Visible = true;
+            SignupButtom.Visible = true;
         }
     }
 }

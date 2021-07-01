@@ -1,13 +1,9 @@
-﻿using AutoMapper;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace chat_winForm.Client
@@ -43,7 +39,7 @@ namespace chat_winForm.Client
         /// </summary>
         private RestTemplate()
         {
-           
+
         }
 
         /// <summary>
@@ -55,15 +51,15 @@ namespace chat_winForm.Client
         /// <param name="url">APiのURL</param>
         /// <param name="paramaters">DTOクラス（パラメター）</param>
         /// <returns>レスポンスクラスに指定された型のレスポンス</returns>
-        public Responce GetHttpMethodWhenLogined<Paramater,Responce>(String oauthToken, String url, Paramater paramaters)
+        public Responce GetHttpMethodWhenLogined<Paramater, Responce>(String oauthToken, String url, Paramater paramaters)
         {
-            var requestParamaterUrl = CreateRequestParamaterUrl(paramaters);
-            var request = new HttpRequestMessage(HttpMethod.Get, url + requestParamaterUrl);
+            string requestParamaterUrl = CreateRequestParamaterUrl(paramaters);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url + requestParamaterUrl);
             request.Headers.Add(OUTH_HTTP_HEADER_NAME, oauthToken);
 
-            var responseTask = s_httpClient.SendAsync(request);
-            var response = responseTask.Result;
-            var responseJsonString = response.Content.ReadAsStringAsync().Result;
+            Task<HttpResponseMessage> responseTask = s_httpClient.SendAsync(request);
+            HttpResponseMessage response = responseTask.Result;
+            string responseJsonString = response.Content.ReadAsStringAsync().Result;
 
             s_RestTemplateErrorHandler.CheckErrorAndThrows(responseJsonString, response.StatusCode);
 
@@ -79,15 +75,15 @@ namespace chat_winForm.Client
         /// <param name="paramaters">DTOクラス（パラメター）</param>
         public void PostHttpMethodWhenLogined<Paramater>(String oauthToken, String url, Paramater paramaters)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, url);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url);
             request.Headers.Add(OUTH_HTTP_HEADER_NAME, oauthToken);
 
-            var jsonString = ObjectToJsonString(paramaters);
+            string jsonString = ObjectToJsonString(paramaters);
             request.Content = new StringContent(jsonString, Encoding.UTF8, Content_Type);
 
-            var responseTask = s_httpClient.SendAsync(request);
-            var response = responseTask.Result;
-            var responseJsonString = response.Content.ReadAsStringAsync().Result;
+            Task<HttpResponseMessage> responseTask = s_httpClient.SendAsync(request);
+            HttpResponseMessage response = responseTask.Result;
+            string responseJsonString = response.Content.ReadAsStringAsync().Result;
 
             s_RestTemplateErrorHandler.CheckErrorAndThrows(responseJsonString, response.StatusCode);
         }
@@ -100,14 +96,14 @@ namespace chat_winForm.Client
         /// <param name="paramaters">DTOクラス（パラメター）</param>
         public void PostHttpMethod<Paramater>(String url, Paramater paramaters)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, url);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url);
 
-            var jsonString = ObjectToJsonString(paramaters);
+            string jsonString = ObjectToJsonString(paramaters);
             request.Content = new StringContent(jsonString, Encoding.UTF8, Content_Type);
 
-            var responseTask = s_httpClient.SendAsync(request);
-            var response = responseTask.Result;
-            var responseJsonString = response.Content.ReadAsStringAsync().Result;
+            Task<HttpResponseMessage> responseTask = s_httpClient.SendAsync(request);
+            HttpResponseMessage response = responseTask.Result;
+            string responseJsonString = response.Content.ReadAsStringAsync().Result;
 
             s_RestTemplateErrorHandler.CheckErrorAndThrows(responseJsonString, response.StatusCode);
         }
@@ -121,14 +117,14 @@ namespace chat_winForm.Client
         /// <returns>文字列（認証用トークン）</returns>
         public String PostHttpMethodForLogin<Paramater>(String url, Paramater paramaters)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, url);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url);
 
-            var jsonString = ObjectToJsonString(paramaters);
+            string jsonString = ObjectToJsonString(paramaters);
             request.Content = new StringContent(jsonString, Encoding.UTF8, Content_Type);
 
-            var responseTask = s_httpClient.SendAsync(request);
-            var response = responseTask.Result;
-            var responseJsonString = response.Content.ReadAsStringAsync().Result;
+            Task<HttpResponseMessage> responseTask = s_httpClient.SendAsync(request);
+            HttpResponseMessage response = responseTask.Result;
+            string responseJsonString = response.Content.ReadAsStringAsync().Result;
 
             s_RestTemplateErrorHandler.CheckErrorAndThrows(responseJsonString, response.StatusCode);
 
@@ -143,7 +139,7 @@ namespace chat_winForm.Client
         /// <returns>パラメータURL</returns>
         private String CreateRequestParamaterUrl<Paramater>(Paramater paramaters)
         {
-            var requestParamaterUrl = new StringBuilder();
+            StringBuilder requestParamaterUrl = new StringBuilder();
 
             /*var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<Paramater, Dictionary<String, Object> >();
@@ -152,21 +148,25 @@ namespace chat_winForm.Client
             
             var paramatersMap = mapper.Map< Dictionary<String, Object> >(paramaters);*/
 
-            var jsonString = ObjectToJsonString(paramaters);
-            var paramatersMap = JsonStringToObject<Dictionary<String, Object>>(jsonString);
+            string jsonString = ObjectToJsonString(paramaters);
+            Dictionary<string, object> paramatersMap = JsonStringToObject<Dictionary<String, Object>>(jsonString);
 
 
-            foreach (var pair in paramatersMap)
+            foreach (KeyValuePair<string, object> pair in paramatersMap)
             {
-                if(pair.Value != null && !pair.Value.ToString().Equals(""))
+                if (pair.Value != null && !pair.Value.ToString().Equals(""))
+                {
                     requestParamaterUrl.Append($",{pair.Key}={pair.Value}");
+                }
             }
 
             if (requestParamaterUrl.Length == 0)
+            {
                 return "";
+            }
             else
             {
-                requestParamaterUrl.Remove(0,1);
+                requestParamaterUrl.Remove(0, 1);
                 return "?" + requestParamaterUrl.ToString();
             }
         }
@@ -179,7 +179,7 @@ namespace chat_winForm.Client
         /// <returns>指定されたクラス</returns>
         private ObjectType JsonStringToObject<ObjectType>(String jsonString)
         {
-            var jsonSerializerSettings = new JsonSerializerSettings
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
             {
                 ContractResolver = new DefaultContractResolver
                 {
@@ -198,7 +198,7 @@ namespace chat_winForm.Client
         /// <returns>JSON文字列</returns>
         private String ObjectToJsonString<ObjectType>(ObjectType objectClass)
         {
-            var jsonSerializerSettings = new JsonSerializerSettings
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
             {
                 ContractResolver = new DefaultContractResolver
                 {

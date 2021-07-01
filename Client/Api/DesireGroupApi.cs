@@ -1,9 +1,6 @@
 ﻿using chat_winForm.Client.ResponseEntity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace chat_winForm.Client.Api
 {
@@ -12,7 +9,7 @@ namespace chat_winForm.Client.Api
     /// </summary>
     class DesireGroupApi
     {
-        static RestTemplate s_RestTemplate = RestTemplate.GetInstance();
+        static readonly RestTemplate s_RestTemplate = RestTemplate.GetInstance();
 
         const String ROOT_URL = ApiUrlRootConfing.ROOT_URL + "/desire/group";
 
@@ -25,7 +22,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/gets";
 
-            var dto = new Dto();
+            Dto dto = new Dto();
 
             return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<DesireUserInGroupResponce>>(oauthToken, URL, dto);
         }
@@ -40,7 +37,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/get";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 TalkRoomId = talkRoomId
             };
@@ -57,7 +54,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/delete";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 TalkRoomId = talkRoomId
             };
@@ -74,7 +71,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/join";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 TalkRoomId = talkRoomId
             };

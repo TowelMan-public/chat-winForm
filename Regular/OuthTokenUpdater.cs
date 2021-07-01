@@ -1,10 +1,10 @@
 ﻿using chat_winForm.Client.Exception;
+using chat_winForm.Forms.Commons;
 using chat_winForm.Registry;
 using chat_winForm.Service;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace chat_winForm.Regular
 {
@@ -18,8 +18,8 @@ namespace chat_winForm.Regular
         /// </summary>
         const int PERIOD = 30 * 60 * 1000;
 
-        static private UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
-        static private OuthTokenUpdater outhTokenUpdater = new OuthTokenUpdater();
+        private static readonly UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
+        private static readonly OuthTokenUpdater outhTokenUpdater = new OuthTokenUpdater();
 
         private System.Threading.Timer timer;
 
@@ -40,7 +40,8 @@ namespace chat_winForm.Regular
         /// <summary>
         /// デストラクタ
         /// </summary>
-        ~OuthTokenUpdater(){
+        ~OuthTokenUpdater()
+        {
             Stop();
         }
 
@@ -64,25 +65,18 @@ namespace chat_winForm.Regular
         {
             try
             {
-                var outhToken = await Task.Run(() => UserService.Login(userCredentialsProvider.UserIdName, userCredentialsProvider.Password));
+                string outhToken = await Task.Run(() => UserService.Login(userCredentialsProvider.UserIdName, userCredentialsProvider.Password));
                 userCredentialsProvider.oauthToken = outhToken;
             }
             catch (LoginException)
             {
                 userCredentialsProvider.DeletePassword();
-                MessageBox.Show("認証の更新でエラーが発生しました。これは外部でパスワードが変更されたときにおこるエラーです。" +
-                    "後でパスワードを再設定してください。",
-                    "失敗",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                CommonMessageBoxs.FailureUpdateOuthTokenMessageBox();
+                Stop();
             }
             catch (Exception)
             {
-                MessageBox.Show("予期しないエラーが発生しました。これまでに行われた操作は一部、あるいはすべてが無効になっている可能性があります。" +
-                        "この現象が続く場合は開発者に報告してください。",
-                        "重大なエラー",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                CommonMessageBoxs.UnexpectedErrorMessageBox();
             }
         }
 

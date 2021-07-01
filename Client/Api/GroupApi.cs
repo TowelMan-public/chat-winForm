@@ -1,9 +1,6 @@
 ﻿using chat_winForm.Client.ResponseEntity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace chat_winForm.Client.Api
 {
@@ -12,7 +9,7 @@ namespace chat_winForm.Client.Api
     /// </summary>
     class GroupApi
     {
-        static RestTemplate s_RestTemplate = RestTemplate.GetInstance();
+        static readonly RestTemplate s_RestTemplate = RestTemplate.GetInstance();
 
         const String ROOT_URL = ApiUrlRootConfing.ROOT_URL + "/group";
 
@@ -26,7 +23,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/get";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 TalkRoomId = talkRoomId
             };
@@ -43,7 +40,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/gets";
 
-            var dto = new Dto();
+            Dto dto = new Dto();
 
             return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<GroupTalkRoomResponse>>(oauthToken, URL, dto);
         }
@@ -60,7 +57,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/gets/talks";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 TalkRoomId = talkRoomId,
                 StartIndex = startIndex,
@@ -80,7 +77,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/update/name";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 TalkRoomId = talkRoomId,
                 GroupName = groupName
@@ -98,7 +95,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/delete";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 TalkRoomId = talkRoomid
             };
@@ -115,7 +112,7 @@ namespace chat_winForm.Client.Api
         {
             const String URL = ROOT_URL + "/insert";
 
-            var dto = new Dto
+            Dto dto = new Dto
             {
                 GroupName = groupName
             };

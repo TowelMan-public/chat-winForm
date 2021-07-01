@@ -127,7 +127,7 @@ namespace chat_winForm.Registry
         /// <param name="keyName">キー名</param>
         private void DeleteKeyValue(String keyName)
         {
-            var regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, true);
+            Microsoft.Win32.RegistryKey regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, true);
             regstryKey.DeleteValue(keyName, false);
         }
 
@@ -138,11 +138,11 @@ namespace chat_winForm.Registry
 
         private void SetKeyValue(String keyName, String keyValue)
         {
-            var regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, true);
+            Microsoft.Win32.RegistryKey regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, true);
 
             try
             {
-                var encodedValue = Encrypt(keyValue, ENCODE_IV, ENCODE_KEY);
+                string encodedValue = Encrypt(keyValue, ENCODE_IV, ENCODE_KEY);
                 regstryKey.SetValue(keyName, encodedValue);
             }
             finally
@@ -153,15 +153,19 @@ namespace chat_winForm.Registry
 
         private String GetKeyValue(String keyName)
         {
-            var regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, false);
+            Microsoft.Win32.RegistryKey regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, false);
 
             try
             {
-                var encodedValue = regstryKey.GetValue(keyName);
+                object encodedValue = regstryKey.GetValue(keyName);
                 if (encodedValue == null)
+                {
                     return null;
+                }
                 else
+                {
                     return Decrypt(encodedValue.ToString(), ENCODE_IV, ENCODE_KEY);
+                }
             }
             finally
             {
