@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace chat_winForm.Registry
 {
@@ -40,6 +37,7 @@ namespace chat_winForm.Registry
 
         /// <summary>
         /// ユーザーId (正確にはユーザーID名)
+        /// レジストリに保存される
         /// </summary>
         public String UserIdName
         {
@@ -55,6 +53,7 @@ namespace chat_winForm.Registry
 
         /// <summary>
         /// ニックネーム（=ユーザー名）
+        /// レジストリに保存される
         /// </summary>
         public String UserName
         {
@@ -70,6 +69,7 @@ namespace chat_winForm.Registry
 
         /// <summary>
         /// パースワード
+        /// レジストリに保存される
         /// </summary>
         public String Password
         {
@@ -85,8 +85,51 @@ namespace chat_winForm.Registry
 
         /// <summary>
         /// 認証用トークン
+        /// レジストリに保存されない
         /// </summary>
         public String oauthToken { get; set; }
+
+        /// <summary>
+        /// UserIdNameの値の削除
+        /// </summary>
+        public void DeleteUserIdName()
+        {
+            DeleteKeyValue(USER_ID_NAME_KEY);
+        }
+
+        /// <summary>
+        /// UserNameの値の削除
+        /// </summary>
+        public void DeleteUserName()
+        {
+            DeleteKeyValue(USER_NAME_KEY);
+        }
+
+        /// <summary>
+        /// Passwordの値の削除
+        /// </summary>
+        public void DeletePassword()
+        {
+            DeleteKeyValue(PASSWORD_KEY);
+        }
+
+        /// <summary>
+        /// OuthTokenの値の削除
+        /// </summary>
+        public void DeleteOuthToken()
+        {
+            oauthToken = null;
+        }
+
+        /// <summary>
+        /// キーの中身を削除する
+        /// </summary>
+        /// <param name="keyName">キー名</param>
+        private void DeleteKeyValue(String keyName)
+        {
+            var regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, true);
+            regstryKey.DeleteValue(keyName, false);
+        }
 
         public void AllDelete()
         {

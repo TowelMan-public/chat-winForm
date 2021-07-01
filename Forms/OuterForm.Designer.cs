@@ -42,6 +42,7 @@ namespace chat_winForm
             this.ReSizeButtom = new System.Windows.Forms.Button();
             this.ToMinButtom = new System.Windows.Forms.Button();
             this.ReReSizeButtom = new System.Windows.Forms.Button();
+            this.TopSizeChanger.SuspendLayout();
             this.SuspendLayout();
             // 
             // RightSizeChenger
@@ -77,6 +78,7 @@ namespace chat_winForm
             this.TopSizeChanger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TopSizeChanger.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TopSizeChanger.Controls.Add(this.ReReSizeButtom);
             this.TopSizeChanger.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.TopSizeChanger.Location = new System.Drawing.Point(15, 0);
             this.TopSizeChanger.Margin = new System.Windows.Forms.Padding(0);
@@ -91,7 +93,7 @@ namespace chat_winForm
             this.BottomSizeChanger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BottomSizeChanger.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BottomSizeChanger.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BottomSizeChanger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BottomSizeChanger.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.BottomSizeChanger.Location = new System.Drawing.Point(15, 435);
             this.BottomSizeChanger.Margin = new System.Windows.Forms.Padding(0);
@@ -111,7 +113,6 @@ namespace chat_winForm
             this.LeftTopSizeChanger.Size = new System.Drawing.Size(15, 15);
             this.LeftTopSizeChanger.TabIndex = 4;
             this.LeftTopSizeChanger.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OuterForm_MouseDown);
-            
             // 
             // RightTopSizeChanger
             // 
@@ -123,7 +124,6 @@ namespace chat_winForm
             this.RightTopSizeChanger.Size = new System.Drawing.Size(15, 15);
             this.RightTopSizeChanger.TabIndex = 5;
             this.RightTopSizeChanger.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OuterForm_MouseDown);
-            
             // 
             // LeftBottomSizeChanger
             // 
@@ -135,7 +135,6 @@ namespace chat_winForm
             this.LeftBottomSizeChanger.Size = new System.Drawing.Size(15, 15);
             this.LeftBottomSizeChanger.TabIndex = 6;
             this.LeftBottomSizeChanger.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OuterForm_MouseDown);
-            
             // 
             // RightButtomSizeChanger
             // 
@@ -147,13 +146,12 @@ namespace chat_winForm
             this.RightButtomSizeChanger.Size = new System.Drawing.Size(15, 15);
             this.RightButtomSizeChanger.TabIndex = 7;
             this.RightButtomSizeChanger.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OuterForm_MouseDown);
-            
             // 
             // ExitButtom
             // 
             this.ExitButtom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ExitButtom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ExitButtom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ExitButtom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ExitButtom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitButtom.BackgroundImage")));
             this.ExitButtom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ExitButtom.Cursor = System.Windows.Forms.Cursors.Default;
@@ -173,7 +171,7 @@ namespace chat_winForm
             // 
             this.ReSizeButtom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReSizeButtom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ReSizeButtom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ReSizeButtom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ReSizeButtom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReSizeButtom.BackgroundImage")));
             this.ReSizeButtom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ReSizeButtom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -190,7 +188,7 @@ namespace chat_winForm
             // 
             this.ToMinButtom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ToMinButtom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ToMinButtom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ToMinButtom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ToMinButtom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToMinButtom.BackgroundImage")));
             this.ToMinButtom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ToMinButtom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -207,12 +205,12 @@ namespace chat_winForm
             // 
             this.ReReSizeButtom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReReSizeButtom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ReReSizeButtom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ReReSizeButtom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ReReSizeButtom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReReSizeButtom.BackgroundImage")));
             this.ReReSizeButtom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ReReSizeButtom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReReSizeButtom.ForeColor = System.Drawing.Color.Transparent;
-            this.ReReSizeButtom.Location = new System.Drawing.Point(671, 3);
+            this.ReReSizeButtom.Location = new System.Drawing.Point(656, 3);
             this.ReReSizeButtom.Margin = new System.Windows.Forms.Padding(0);
             this.ReReSizeButtom.Name = "ReReSizeButtom";
             this.ReReSizeButtom.Size = new System.Drawing.Size(63, 22);
@@ -225,9 +223,8 @@ namespace chat_winForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ReReSizeButtom);
             this.Controls.Add(this.ToMinButtom);
             this.Controls.Add(this.ReSizeButtom);
             this.Controls.Add(this.ExitButtom);
@@ -244,6 +241,7 @@ namespace chat_winForm
             this.Name = "OuterForm";
             this.Text = "OuterForm";
             this.Load += new System.EventHandler(this.OuterForm_Load);
+            this.TopSizeChanger.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

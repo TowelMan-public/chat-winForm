@@ -113,6 +113,7 @@
     <Compile Include="Client\ResponseEntity\UserInGroupResponse.cs" />
     <Compile Include="Client\RestTemplate.cs" />
     <Compile Include="Client\RestTemplateErrorHandler.cs" />
+    <Compile Include="Forms\Commons\CommonParts.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +134,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Registry\UserCredentialsProvider.cs" />
+    <Compile Include="Regular\OuthTokenUpdater.cs" />
+    <Compile Include="Service\UserService.cs" />
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,10 +163,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Client\Login\" />
-    <Folder Include="Client\Service\" />
     <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\325-88.gif" />
     <Content Include="img\anotherMenu.jpeg" />
     <Content Include="img\exit.jpeg" />
     <Content Include="img\fromMaxSize.jpeg" />

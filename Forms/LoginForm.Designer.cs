@@ -29,14 +29,21 @@ namespace chat_winForm.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.UserIdNameTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.IsSavePassword = new System.Windows.Forms.CheckBox();
+            this.ChackIsSavePassword = new System.Windows.Forms.CheckBox();
             this.LoginButtom = new System.Windows.Forms.Button();
             this.SignupButtom = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ValidationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.SpinnerBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidationErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,23 +70,26 @@ namespace chat_winForm.Forms
             this.label2.TabIndex = 13;
             this.label2.Text = "ユーザーID";
             // 
-            // textBox1
+            // UserIdNameTextBox
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox1.Location = new System.Drawing.Point(349, 165);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 24);
-            this.textBox1.TabIndex = 14;
+            this.UserIdNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UserIdNameTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.UserIdNameTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.UserIdNameTextBox.Location = new System.Drawing.Point(349, 165);
+            this.UserIdNameTextBox.Name = "UserIdNameTextBox";
+            this.UserIdNameTextBox.Size = new System.Drawing.Size(228, 24);
+            this.UserIdNameTextBox.TabIndex = 14;
+            this.UserIdNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.UserIdNameTextBox_Validating);
             // 
-            // textBox2
+            // PasswordTextBox
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox2.Location = new System.Drawing.Point(349, 247);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 24);
-            this.textBox2.TabIndex = 15;
+            this.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.PasswordTextBox.Location = new System.Drawing.Point(349, 247);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(228, 24);
+            this.PasswordTextBox.TabIndex = 15;
+            this.PasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordTextBox_Validating);
             // 
             // label3
             // 
@@ -93,17 +103,17 @@ namespace chat_winForm.Forms
             this.label3.TabIndex = 13;
             this.label3.Text = "パスワード";
             // 
-            // IsSavePassword
+            // ChackIsSavePassword
             // 
-            this.IsSavePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.IsSavePassword.AutoSize = true;
-            this.IsSavePassword.ForeColor = System.Drawing.Color.White;
-            this.IsSavePassword.Location = new System.Drawing.Point(314, 307);
-            this.IsSavePassword.Name = "IsSavePassword";
-            this.IsSavePassword.Size = new System.Drawing.Size(204, 19);
-            this.IsSavePassword.TabIndex = 17;
-            this.IsSavePassword.Text = "パスワードをこのPCに保持する";
-            this.IsSavePassword.UseVisualStyleBackColor = true;
+            this.ChackIsSavePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ChackIsSavePassword.AutoSize = true;
+            this.ChackIsSavePassword.ForeColor = System.Drawing.Color.White;
+            this.ChackIsSavePassword.Location = new System.Drawing.Point(314, 307);
+            this.ChackIsSavePassword.Name = "ChackIsSavePassword";
+            this.ChackIsSavePassword.Size = new System.Drawing.Size(204, 19);
+            this.ChackIsSavePassword.TabIndex = 17;
+            this.ChackIsSavePassword.Text = "パスワードをこのPCに保持する";
+            this.ChackIsSavePassword.UseVisualStyleBackColor = true;
             // 
             // LoginButtom
             // 
@@ -119,6 +129,7 @@ namespace chat_winForm.Forms
             this.LoginButtom.TabIndex = 18;
             this.LoginButtom.Text = "ログイン";
             this.LoginButtom.UseVisualStyleBackColor = false;
+            this.LoginButtom.Click += new System.EventHandler(this.LoginButtom_Click);
             // 
             // SignupButtom
             // 
@@ -134,16 +145,50 @@ namespace chat_winForm.Forms
             this.SignupButtom.TabIndex = 19;
             this.SignupButtom.Text = "新規登録";
             this.SignupButtom.UseVisualStyleBackColor = false;
+            this.SignupButtom.Click += new System.EventHandler(this.SignupButtom_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 17);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "チャット♪";
+            // 
+            // ValidationErrorProvider
+            // 
+            this.ValidationErrorProvider.BlinkRate = 100;
+            this.ValidationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ValidationErrorProvider.ContainerControl = this;
+            // 
+            // SpinnerBox
+            // 
+            this.SpinnerBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SpinnerBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SpinnerBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.SpinnerBox.Image = ((System.Drawing.Image)(resources.GetObject("SpinnerBox.Image")));
+            this.SpinnerBox.Location = new System.Drawing.Point(349, 165);
+            this.SpinnerBox.Name = "SpinnerBox";
+            this.SpinnerBox.Size = new System.Drawing.Size(106, 106);
+            this.SpinnerBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SpinnerBox.TabIndex = 21;
+            this.SpinnerBox.TabStop = false;
+            this.SpinnerBox.Visible = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SpinnerBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.SignupButtom);
             this.Controls.Add(this.LoginButtom);
-            this.Controls.Add(this.IsSavePassword);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ChackIsSavePassword);
+            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.UserIdNameTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -152,11 +197,15 @@ namespace chat_winForm.Forms
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
-            this.Controls.SetChildIndex(this.IsSavePassword, 0);
+            this.Controls.SetChildIndex(this.UserIdNameTextBox, 0);
+            this.Controls.SetChildIndex(this.PasswordTextBox, 0);
+            this.Controls.SetChildIndex(this.ChackIsSavePassword, 0);
             this.Controls.SetChildIndex(this.LoginButtom, 0);
             this.Controls.SetChildIndex(this.SignupButtom, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.SpinnerBox, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.ValidationErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,11 +215,14 @@ namespace chat_winForm.Forms
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox UserIdNameTextBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox IsSavePassword;
+        private System.Windows.Forms.CheckBox ChackIsSavePassword;
         private System.Windows.Forms.Button LoginButtom;
         private System.Windows.Forms.Button SignupButtom;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider ValidationErrorProvider;
+        private System.Windows.Forms.PictureBox SpinnerBox;
     }
 }

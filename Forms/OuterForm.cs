@@ -178,7 +178,7 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void Button_MouseLeave(object sender, EventArgs e)
         {
-            this.ExitButtom.BackColor = SystemColors.ControlDarkDark;
+            this.ExitButtom.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         /// <summary>
@@ -223,6 +223,15 @@ namespace chat_winForm
             this.WindowState = FormWindowState.Normal;
             this.ReReSizeButtom.Visible = false;
             this.ReSizeButtom.Visible = true;
+        }
+
+        protected void UnexpectedError(Exception e)
+        {
+            MessageBox.Show("予期しないエラーが発生しました。これまでに行われた操作は一部、あるいはすべてが無効になっている可能性があります。" +
+                "この現象が続く場合は開発者に報告してください。",
+                "重大なエラー",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
         }
     }
 }

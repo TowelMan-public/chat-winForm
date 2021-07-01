@@ -2,20 +2,16 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace chat_winForm.Client
 {
-	/// <summary>
-	/// RestTemplateクラスのエラーハンドリングクラス。
-	/// </summary>
-	/// <see cref="RestTemplate"/>
-	class RestTemplateErrorHandler
+    /// <summary>
+    /// RestTemplateクラスのエラーハンドリングクラス。
+    /// </summary>
+    /// <see cref="RestTemplate"/>
+    class RestTemplateErrorHandler
     {
 		static readonly private RestTemplateErrorHandler s_RestTemplateErrorHandler = new RestTemplateErrorHandler();
 
