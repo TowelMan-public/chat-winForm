@@ -28,40 +28,30 @@ namespace chat_winForm
         /// <param name="e"></param>
         private void OuterForm_Load(object sender, EventArgs e)
         {
+            //マウスイベント登録
             MouseDown +=
                 new MouseEventHandler(OuterForm_MouseDown);
             MouseMove +=
                 new MouseEventHandler(OuterForm_MouseMove);
 
+            //リサイズ用コントロールにマウスイベントを追加
             LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(TopSizeChanger_MouseMove);
             LeftTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(LeftSizeChanger_MouseMove);
-
             RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(RightSizeChanger_MouseMove);
             RightTopSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(TopSizeChanger_MouseMove);
-
             LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(LeftSizeChanger_MouseMove);
             LeftBottomSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(BottomSizeChanger_MouseMove);
-
             RightButtonSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(RightSizeChanger_MouseMove);
             RightButtonSizeChanger.MouseMove += new System.Windows.Forms.MouseEventHandler(BottomSizeChanger_MouseMove);
 
-            Bitmap image = ExitButton.BackgroundImage as Bitmap;
-            image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ExitButton.BackgroundImage = image;
+            //ボタンの画像を透過させる
+            (ExitButton.BackgroundImage as Bitmap).MakeTransparent(Color.FromArgb(255, 255, 255));
+            (ReSizeButton.BackgroundImage as Bitmap).MakeTransparent();
+            (ToMinButton.BackgroundImage as Bitmap).MakeTransparent();
+            (ReReSizeButton.BackgroundImage as Bitmap).MakeTransparent();
 
-            image = ReSizeButton.BackgroundImage as Bitmap;
-            image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ReSizeButton.BackgroundImage = image;
-
-            image = ToMinButton.BackgroundImage as Bitmap;
-            image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ToMinButton.BackgroundImage = image;
-
-            image = ReReSizeButton.BackgroundImage as Bitmap;
-            image.MakeTransparent(Color.FromArgb(255, 255, 255));
-            ReReSizeButton.BackgroundImage = image;
+            //サイズをもとに戻すボタンを非表示にする
             ReReSizeButton.Visible = false;
-
         }
 
         /// <summary>

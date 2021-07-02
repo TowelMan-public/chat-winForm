@@ -113,6 +113,42 @@
     <Compile Include="Client\ResponseEntity\UserInGroupResponse.cs" />
     <Compile Include="Client\RestTemplate.cs" />
     <Compile Include="Client\RestTemplateErrorHandler.cs" />
+    <Compile Include="Control\TalkRoomColtrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkRoomColtrol.Designer.cs">
+      <DependentUpon>TalkRoomColtrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TalkRoomListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkRoomListControl.Designer.cs">
+      <DependentUpon>TalkRoomListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TalkRoomListGroupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkRoomListGroupControl.Designer.cs">
+      <DependentUpon>TalkRoomListGroupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TalkRoomListGroupTitleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkRoomListGroupTitleControl.Designer.cs">
+      <DependentUpon>TalkRoomListGroupTitleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\OuterTalkRoomListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\OuterTalkRoomListControl.Designer.cs">
+      <DependentUpon>OuterTalkRoomListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\NoticeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\NoticeControl.Designer.cs">
+      <DependentUpon>NoticeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Commons\CommonMessageBoxs.cs" />
     <Compile Include="Forms\RunForm.cs">
       <SubType>Form</SubType>
@@ -146,6 +182,11 @@
     <Compile Include="Forms\SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\DesireDialogueTalkRoomModel.cs" />
+    <Compile Include="Model\DesireGroupTalkRoomModel.cs" />
+    <Compile Include="Model\DialogueTalkRoomModel.cs" />
+    <Compile Include="Model\GroupTalkRoomModel.cs" />
+    <Compile Include="Model\TalkRoomModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -155,7 +196,29 @@
     </Compile>
     <Compile Include="Registry\UserCredentialsProvider.cs" />
     <Compile Include="Regular\OuthTokenUpdater.cs" />
+    <Compile Include="Service\TalkRoomService.cs" />
     <Compile Include="Service\UserService.cs" />
+    <EmbeddedResource Include="Control\NoticeControl.resx">
+      <DependentUpon>NoticeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkRoomColtrol.resx">
+      <DependentUpon>TalkRoomColtrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkRoomListControl.resx">
+      <DependentUpon>TalkRoomListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkRoomListGroupControl.resx">
+      <DependentUpon>TalkRoomListGroupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkRoomListGroupTitleControl.resx">
+      <DependentUpon>TalkRoomListGroupTitleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\OuterTalkRoomListControl.resx">
+      <DependentUpon>OuterTalkRoomListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RunForm.resx">
       <DependentUpon>RunForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Client\Login\" />
+    <Folder Include="Event\Delegate\" />
     <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +261,7 @@
     <Content Include="img\exit.jpeg" />
     <Content Include="img\fromMaxSize.jpeg" />
     <Content Include="img\groupTalkRoomAdd.png" />
+    <Content Include="img\notice.jpeg" />
     <Content Include="img\nowTalkRoomsTalkList.jpeg" />
     <Content Include="img\talkRoomAdd.jpeg" />
     <Content Include="img\TalkRoomList.jpeg" />

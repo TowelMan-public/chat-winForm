@@ -114,9 +114,9 @@ namespace chat_winForm.Forms
             this.CheckIsSavePassword.ForeColor = System.Drawing.Color.White;
             this.CheckIsSavePassword.Location = new System.Drawing.Point(283, 331);
             this.CheckIsSavePassword.Name = "CheckIsSavePassword";
-            this.CheckIsSavePassword.Size = new System.Drawing.Size(219, 19);
+            this.CheckIsSavePassword.Size = new System.Drawing.Size(204, 19);
             this.CheckIsSavePassword.TabIndex = 26;
-            this.CheckIsSavePassword.Text = "パスワード等をこのPCに保持する";
+            this.CheckIsSavePassword.Text = "パスワードをこのPCに保持する";
             this.CheckIsSavePassword.UseVisualStyleBackColor = true;
             // 
             // SignupButton

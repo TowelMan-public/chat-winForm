@@ -1,14 +1,14 @@
 ﻿
-namespace chat_winForm.Forms
+namespace chat_winForm.Control
 {
-    partial class HomeForm
+    partial class TalkRoomListGroupControl
     {
-        /// <summary>
+        /// <summary> 
         /// 必要なデザイナー変数です。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// 使用中のリソースをすべてクリーンアップします。
         /// </summary>
         /// <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
@@ -21,22 +21,23 @@ namespace chat_winForm.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows フォーム デザイナーで生成されたコード
+        #region コンポーネント デザイナーで生成されたコード
 
-        /// <summary>
-        /// デザイナー サポートに必要なメソッドです。このメソッドの内容を
+        /// <summary> 
+        /// デザイナー サポートに必要なメソッドです。このメソッドの内容を 
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent()
         {
             this.SuspendLayout();
             // 
-            // HomeForm
+            // TalkRoomListGroupControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "HomeForm";
-            this.Load += new System.EventHandler(this.HomeForm_Load_1);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Name = "TalkRoomListGroupControl";
+            this.Size = new System.Drawing.Size(268, 20);
             this.ResumeLayout(false);
 
         }
