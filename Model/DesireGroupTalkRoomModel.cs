@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace chat_winForm.Model
 {
@@ -22,7 +18,7 @@ namespace chat_winForm.Model
         /// <param name="name">トークルームの名前</param>
         /// <param name="myLastTalkIndex">ラストトークインデックス</param>
         /// <param name="groupTalkRoomId">グループトークルームID</param>
-        public DesireGroupTalkRoomModel(String name, int lastTalkIndex, int groupTalkRoomId) 
+        public DesireGroupTalkRoomModel(String name, int lastTalkIndex, int groupTalkRoomId)
             : base(name, lastTalkIndex, 0)
         {
             GroupTalkRoomId = groupTalkRoomId;

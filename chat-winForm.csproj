@@ -113,6 +113,18 @@
     <Compile Include="Client\ResponseEntity\UserInGroupResponse.cs" />
     <Compile Include="Client\RestTemplate.cs" />
     <Compile Include="Client\RestTemplateErrorHandler.cs" />
+    <Compile Include="Control\TalkControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkControl.Designer.cs">
+      <DependentUpon>TalkControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TalkListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkListControl.Designer.cs">
+      <DependentUpon>TalkListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\TalkRoomColtrol.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,8 +196,11 @@
     </Compile>
     <Compile Include="Model\DesireDialogueTalkRoomModel.cs" />
     <Compile Include="Model\DesireGroupTalkRoomModel.cs" />
+    <Compile Include="Model\DialogueTalkModel.cs" />
     <Compile Include="Model\DialogueTalkRoomModel.cs" />
+    <Compile Include="Model\GroupTalkModel.cs" />
     <Compile Include="Model\GroupTalkRoomModel.cs" />
+    <Compile Include="Model\TalkModel.cs" />
     <Compile Include="Model\TalkRoomModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,6 +215,12 @@
     <Compile Include="Service\UserService.cs" />
     <EmbeddedResource Include="Control\NoticeControl.resx">
       <DependentUpon>NoticeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkControl.resx">
+      <DependentUpon>TalkControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkListControl.resx">
+      <DependentUpon>TalkListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\TalkRoomColtrol.resx">
       <DependentUpon>TalkRoomColtrol.cs</DependentUpon>

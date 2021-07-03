@@ -1,12 +1,6 @@
 ﻿using chat_winForm.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace chat_winForm.Control
@@ -21,19 +15,19 @@ namespace chat_winForm.Control
         {
             InitializeComponent();
         }
-        
+
         public void AddTalkRoom(String name, int noticeCount, TalkRoomModel model)
         {
             //高さの変更
-            var talkRoomControlPointY = this.Height;
+            int talkRoomControlPointY = Height;
             Height += TALK_ROOM_HEIGHT;
 
             //TalkRoomControlの作成・設定
-            var talkRoomControl = new TalkRoomColtrol
+            TalkRoomColtrol talkRoomControl = new TalkRoomColtrol
             {
                 Location = new Point(0, talkRoomControlPointY),
                 Margin = new Padding(0),
-                Size = new Size(this.Width, TALK_ROOM_HEIGHT),
+                Size = new Size(Width, TALK_ROOM_HEIGHT),
                 ForeColor = Color.White,
                 BorderStyle = BorderStyle.FixedSingle,
                 Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,

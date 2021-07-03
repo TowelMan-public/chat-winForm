@@ -183,6 +183,7 @@ namespace chat_winForm.Control
             this.Controls.Add(this.DesireDialogueTalkRoomListTitle);
             this.Controls.Add(this.GroupTalkRoomListTitle);
             this.Controls.Add(this.DialogueTalkRoomListTitle);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "TalkRoomListControl";
             this.Size = new System.Drawing.Size(265, 375);
             this.Load += new System.EventHandler(this.TalkRoomListControl_Load);

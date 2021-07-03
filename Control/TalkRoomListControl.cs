@@ -4,11 +4,6 @@ using chat_winForm.Model;
 using chat_winForm.Service;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,20 +38,20 @@ namespace chat_winForm.Control
             //4つのListGroup全て生成・表示
             CreateAllListGroupContents();
         }
-        
+
         private void TalkRoomListTitle_Click(object sender, EventArgs e)
         {
-            if(sender == DialogueTalkRoomListTitle)
+            if (sender == DialogueTalkRoomListTitle)
             {
                 DialogueTalkRoomListTitle.IsOpend ^= true;
                 DialogueTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
             }
-            else if(sender == GroupTalkRoomListTitle)
+            else if (sender == GroupTalkRoomListTitle)
             {
                 GroupTalkRoomListTitle.IsOpend ^= true;
                 GroupTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
             }
-            else if(sender == DesireDialogueTalkRoomListTitle)
+            else if (sender == DesireDialogueTalkRoomListTitle)
             {
                 DesireDialogueTalkRoomListTitle.IsOpend ^= true;
                 DesireDialogueTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
@@ -107,26 +102,34 @@ namespace chat_winForm.Control
 
         private void ShowDialogueTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
-            foreach(var model in modelList)
-                this.DialogueTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+            foreach (TalkRoomModel model in modelList)
+            {
+                DialogueTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+            }
         }
 
         private void ShowGroupTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
-            foreach (var model in modelList)
+            foreach (TalkRoomModel model in modelList)
+            {
                 GroupTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+            }
         }
 
         private void ShowDesireGroupTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
-            foreach (var model in modelList)
+            foreach (TalkRoomModel model in modelList)
+            {
                 DesireGroupTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+            }
         }
 
         private void ShowDesireDialogueTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
-            foreach (var model in modelList)
+            foreach (TalkRoomModel model in modelList)
+            {
                 DialogueTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+            }
         }
 
         private void StartSpinnerMode()

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace chat_winForm.Control
@@ -21,7 +15,7 @@ namespace chat_winForm.Control
             set
             {
 
-                NoticeLabel.Font = new Font("MS UI Gothic", value, FontStyle.Regular, GraphicsUnit.Point, ((byte)(128)));
+                NoticeLabel.Font = new Font("MS UI Gothic", value, FontStyle.Regular, GraphicsUnit.Point, 128);
             }
         }
 

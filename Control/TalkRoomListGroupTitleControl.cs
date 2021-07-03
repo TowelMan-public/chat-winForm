@@ -1,12 +1,4 @@
-﻿using chat_winForm.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace chat_winForm.Control
@@ -30,17 +22,25 @@ namespace chat_winForm.Control
             get
             {
                 if (int.TryParse(NoticeCountColtrol.Text, out int value))
+                {
                     return value;
+                }
                 else
+                {
                     return -1;
+                }
             }
             set
             {
                 NoticeCountColtrol.Text = value.ToString();
                 if (value <= 0)
+                {
                     NoticeCountColtrol.Visible = false;
+                }
                 else
+                {
                     NoticeCountColtrol.Visible = true;
+                }
             }
         }
 
@@ -53,9 +53,13 @@ namespace chat_winForm.Control
             set
             {
                 if (value)
+                {
                     OpenOrCloseLabel.Text = "△";
+                }
                 else
+                {
                     OpenOrCloseLabel.Text = "▽";
+                }
             }
         }
 

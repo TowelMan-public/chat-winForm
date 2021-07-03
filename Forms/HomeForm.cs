@@ -1,8 +1,4 @@
-﻿using System.Drawing;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
-
-namespace chat_winForm.Forms
+﻿namespace chat_winForm.Forms
 {
     public partial class HomeForm : chat_winForm.OuterForm
     {
