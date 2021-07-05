@@ -62,6 +62,7 @@ namespace chat_winForm.Control
                 var widths = new List<int> { ContentTectLabel.Width, TimeStampLabel.Width };
                 Width = widths.Max();
 
+                ContentTectLabel.ForeColor = Color.Black;
                 PeintImae(MY_TAKL_COLOR);
             }
             else
@@ -73,6 +74,7 @@ namespace chat_winForm.Control
                 var widths =  new List<int>{ ContentTectLabel.Width, SenderLabel.Width, TimeStampLabel.Width};
                 Width = widths.Max();
 
+                ContentTectLabel.ForeColor = Color.White;
                 PeintImae(YOUR_TAKL_COLOR);
             }
             

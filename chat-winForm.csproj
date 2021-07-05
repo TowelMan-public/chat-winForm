@@ -132,6 +132,12 @@
     <Compile Include="Control\TalkListControl.Designer.cs">
       <DependentUpon>TalkListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\TalkListInTalkRoomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkListInTalkRoomControl.Designer.cs">
+      <DependentUpon>TalkListInTalkRoomControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\TalkRoomColtrol.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\TalkListControl.resx">
       <DependentUpon>TalkListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkListInTalkRoomControl.resx">
+      <DependentUpon>TalkListInTalkRoomControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\TalkRoomColtrol.resx">
       <DependentUpon>TalkRoomColtrol.cs</DependentUpon>
