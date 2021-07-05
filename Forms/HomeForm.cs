@@ -17,7 +17,9 @@
 
         private void HomeForm_Load_1(object sender, System.EventArgs e)
         {
-
+            var control = new Control.TalkInnerControl();
+            control.Location = new System.Drawing.Point(0, 0);
+            Controls.Add(control);
         }
     }
 }

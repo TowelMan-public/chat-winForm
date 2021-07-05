@@ -29,41 +29,48 @@ namespace chat_winForm.Control
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.LoadOlderTalkButtom = new System.Windows.Forms.Button();
+            this.LoadNewerTalkButtom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // LoadOlderTalkButtom
             // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(543, 25);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "もっと古いトークを読み込む";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LoadOlderTalkButtom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadOlderTalkButtom.BackColor = System.Drawing.Color.Maroon;
+            this.LoadOlderTalkButtom.ForeColor = System.Drawing.Color.White;
+            this.LoadOlderTalkButtom.Location = new System.Drawing.Point(0, 0);
+            this.LoadOlderTalkButtom.Margin = new System.Windows.Forms.Padding(0);
+            this.LoadOlderTalkButtom.Name = "LoadOlderTalkButtom";
+            this.LoadOlderTalkButtom.Size = new System.Drawing.Size(543, 25);
+            this.LoadOlderTalkButtom.TabIndex = 0;
+            this.LoadOlderTalkButtom.Text = "もっと古いトークを読み込む";
+            this.LoadOlderTalkButtom.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // LoadNewerTalkButtom
             // 
-            this.button2.Location = new System.Drawing.Point(0, 418);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(543, 25);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "もっと新しいトークを読み込む";
-            this.button2.UseVisualStyleBackColor = true;
+            this.LoadNewerTalkButtom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadNewerTalkButtom.BackColor = System.Drawing.Color.Maroon;
+            this.LoadNewerTalkButtom.ForeColor = System.Drawing.Color.White;
+            this.LoadNewerTalkButtom.Location = new System.Drawing.Point(0, 54);
+            this.LoadNewerTalkButtom.Margin = new System.Windows.Forms.Padding(0);
+            this.LoadNewerTalkButtom.Name = "LoadNewerTalkButtom";
+            this.LoadNewerTalkButtom.Size = new System.Drawing.Size(543, 25);
+            this.LoadNewerTalkButtom.TabIndex = 1;
+            this.LoadNewerTalkButtom.Text = "もっと新しいトークを読み込む";
+            this.LoadNewerTalkButtom.UseVisualStyleBackColor = false;
             // 
             // TalkListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LoadNewerTalkButtom);
+            this.Controls.Add(this.LoadOlderTalkButtom);
             this.Name = "TalkListControl";
-            this.Size = new System.Drawing.Size(543, 443);
+            this.Size = new System.Drawing.Size(543, 80);
             this.Load += new System.EventHandler(this.TalkListControl_Load);
             this.ResumeLayout(false);
 
@@ -71,7 +78,7 @@ namespace chat_winForm.Control
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button LoadOlderTalkButtom;
+        private System.Windows.Forms.Button LoadNewerTalkButtom;
     }
 }

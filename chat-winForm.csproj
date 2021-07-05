@@ -42,6 +42,7 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -118,6 +119,12 @@
     </Compile>
     <Compile Include="Control\TalkControl.Designer.cs">
       <DependentUpon>TalkControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TalkInnerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TalkInnerControl.Designer.cs">
+      <DependentUpon>TalkInnerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Control\TalkListControl.cs">
       <SubType>UserControl</SubType>
@@ -218,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\TalkControl.resx">
       <DependentUpon>TalkControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TalkInnerControl.resx">
+      <DependentUpon>TalkInnerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\TalkListControl.resx">
       <DependentUpon>TalkListControl.cs</DependentUpon>
