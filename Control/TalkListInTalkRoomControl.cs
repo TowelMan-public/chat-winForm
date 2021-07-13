@@ -28,7 +28,6 @@ namespace chat_winForm.Control
 
                 subContentControl = value;
                 subContentControl.Visible = false;
-                subContentControl.BringToFront();
                 Controls.Add(subContentControl);
             }
         }
@@ -62,7 +61,10 @@ namespace chat_winForm.Control
         private void SwitchButton_Click(object sender, EventArgs e)
         {
             if (SubContentControl != null)
+            {
                 SubContentControl.Visible ^= true;
+                SubContentControl.BringToFront();
+            }
         }
 
         private void StartSpinnerMode()

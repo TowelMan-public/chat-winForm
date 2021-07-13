@@ -31,9 +31,11 @@ namespace chat_winForm.Control
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TalkListInTalkRoomControl));
             this.SwitchButton = new System.Windows.Forms.Button();
-            this.BodyControl = new chat_winForm.Control.TalkListControl();
             this.SpinnerBox = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BodyControl = new chat_winForm.Control.TalkListControl();
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SwitchButton
@@ -51,33 +53,13 @@ namespace chat_winForm.Control
             this.SwitchButton.UseVisualStyleBackColor = false;
             this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click);
             // 
-            // BodyControl
-            // 
-            this.BodyControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BodyControl.AutoScroll = true;
-            this.BodyControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BodyControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BodyControl.Location = new System.Drawing.Point(0, 43);
-            this.BodyControl.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.BodyControl.Name = "BodyControl";
-            this.BodyControl.NewestTalkIndex = -1;
-            this.BodyControl.OldestTalkIndex = -1;
-            this.BodyControl.Size = new System.Drawing.Size(488, 418);
-            this.BodyControl.TabIndex = 2;
-            this.BodyControl.TalkClick = null;
-            this.BodyControl.TalkControlClick = null;
-            this.BodyControl.LoadOlderTalkButtonClick += new System.EventHandler(this.BodyControl_LoadOlderTalkButtonClick);
-            this.BodyControl.LoadNewerTalkButtonClick += new System.EventHandler(this.BodyControl_LoadNewerTalkButtonClick);
-            // 
             // SpinnerBox
             // 
             this.SpinnerBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SpinnerBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.SpinnerBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.SpinnerBox.Image = ((System.Drawing.Image)(resources.GetObject("SpinnerBox.Image")));
-            this.SpinnerBox.Location = new System.Drawing.Point(191, 179);
+            this.SpinnerBox.Location = new System.Drawing.Point(181, 112);
             this.SpinnerBox.Name = "SpinnerBox";
             this.SpinnerBox.Size = new System.Drawing.Size(106, 106);
             this.SpinnerBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -85,18 +67,46 @@ namespace chat_winForm.Control
             this.SpinnerBox.TabStop = false;
             this.SpinnerBox.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.SpinnerBox);
+            this.panel1.Controls.Add(this.BodyControl);
+            this.panel1.Location = new System.Drawing.Point(3, 43);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(482, 418);
+            this.panel1.TabIndex = 34;
+            // 
+            // BodyControl
+            // 
+            this.BodyControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BodyControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BodyControl.Location = new System.Drawing.Point(0, 3);
+            this.BodyControl.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.BodyControl.Name = "BodyControl";
+            this.BodyControl.NewestTalkIndex = -1;
+            this.BodyControl.OldestTalkIndex = -1;
+            this.BodyControl.Size = new System.Drawing.Size(482, 412);
+            this.BodyControl.TabIndex = 3;
+            this.BodyControl.TalkClick = null;
+            this.BodyControl.TalkControlClick = null;
+            // 
             // TalkListInTalkRoomControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Controls.Add(this.SpinnerBox);
-            this.Controls.Add(this.BodyControl);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.SwitchButton);
             this.Name = "TalkListInTalkRoomControl";
             this.Size = new System.Drawing.Size(488, 464);
             this.Load += new System.EventHandler(this.TalkListInTalkRoomControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -104,7 +114,8 @@ namespace chat_winForm.Control
         #endregion
 
         private System.Windows.Forms.Button SwitchButton;
-        private TalkListControl BodyControl;
         private System.Windows.Forms.PictureBox SpinnerBox;
+        private System.Windows.Forms.Panel panel1;
+        private TalkListControl BodyControl;
     }
 }
