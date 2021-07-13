@@ -41,8 +41,6 @@ namespace chat_winForm.Control
 
         public void ShowTalkList(List<TalkModel> modelList)
         {
-            LoadNewerTalkButtom.Visible = false;
-
             foreach(var model in modelList)
             {
                 NewestTalkIndex = model.TalkIndex;
@@ -58,7 +56,7 @@ namespace chat_winForm.Control
 
                 if (OldestTalkIndex == -1)
                 {
-                    location.Y = MORE_LOAD_BUTTON_HEIGHT + TALK_UP_AND_BOTTOM_MERGIN;
+                    location.Y = LoadOlderTalkButtom.Height + TALK_UP_AND_BOTTOM_MERGIN;
                     OldestTalkIndex = model.TalkIndex;
                     oldestTalkControl = talkControl;
                 }
@@ -75,7 +73,7 @@ namespace chat_winForm.Control
                 X = 0,
                 Y = newestTalkControl.Location.Y + newestTalkControl.Size.Height + TALK_UP_AND_BOTTOM_MERGIN
             };
-            LoadNewerTalkButtom.Visible = true;
+            Height = LoadNewerTalkButtom.Location.Y + LoadNewerTalkButtom.Height;
         }
 
         public void AddOlderTalkList(List<TalkModel> modelList)
@@ -115,13 +113,21 @@ namespace chat_winForm.Control
                 X = 0,
                 Y = oldestTalkControl.Location.Y - TALK_UP_AND_BOTTOM_MERGIN
             };
+
+            var addLocationY = LoadOlderTalkButtom.Location.Y;
+            foreach (var control in Controls)
+            {
+                var location = (control as UserControl).Location;
+                location.Y += addLocationY;
+                (control as UserControl).Location = location;
+            }
+
             LoadOlderTalkButtom.Visible = true;
+            Height = LoadNewerTalkButtom.Location.Y + LoadNewerTalkButtom.Height;
         }
 
         public void AddNewerTalkList(List<TalkModel> modelList)
         {
-            LoadNewerTalkButtom.Visible = false;
-
             foreach (var model in modelList)
             {
                 NewestTalkIndex = model.TalkIndex;
@@ -137,7 +143,7 @@ namespace chat_winForm.Control
 
                 if (OldestTalkIndex == -1)
                 {
-                    location.Y = MORE_LOAD_BUTTON_HEIGHT + TALK_UP_AND_BOTTOM_MERGIN;
+                    location.Y = LoadOlderTalkButtom.Height + TALK_UP_AND_BOTTOM_MERGIN;
                     OldestTalkIndex = model.TalkIndex;
                     oldestTalkControl = talkControl;
                 }
@@ -154,7 +160,7 @@ namespace chat_winForm.Control
                 X = 0,
                 Y = newestTalkControl.Location.Y + newestTalkControl.Size.Height + TALK_UP_AND_BOTTOM_MERGIN
             };
-            LoadNewerTalkButtom.Visible = true;
+            Height = LoadNewerTalkButtom.Location.Y + LoadNewerTalkButtom.Height;
         }
     }
 }
