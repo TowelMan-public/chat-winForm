@@ -37,10 +37,6 @@ namespace chat_winForm.Control
 
         private void TalkListControl_Load(object sender, EventArgs e)
         {
-            //スクロールバー
-            VerticalScroll.Maximum = 0;
-            VerticalScroll.Visible = false;
-            AutoScroll = true;
         }
 
         public void ShowTalkList(List<TalkModel> modelList)

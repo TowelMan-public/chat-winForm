@@ -45,7 +45,7 @@ namespace chat_winForm.Control
         {
         }
 
-        private void PaintAll()
+        public void PaintAll()
         {
             //プロパティーが足りない
             if (Model == null)

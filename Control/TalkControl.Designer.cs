@@ -35,13 +35,13 @@ namespace chat_winForm.Control
             // Inner
             // 
             this.Inner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.Inner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Inner.BackColor = System.Drawing.Color.Transparent;
             this.Inner.ForeColor = System.Drawing.Color.White;
             this.Inner.Location = new System.Drawing.Point(11, 0);
             this.Inner.Margin = new System.Windows.Forms.Padding(0);
             this.Inner.Model = null;
             this.Inner.Name = "Inner";
-            this.Inner.Size = new System.Drawing.Size(99, 83);
+            this.Inner.Size = new System.Drawing.Size(150, 150);
             this.Inner.TabIndex = 0;
             // 
             // TalkControl
@@ -49,11 +49,10 @@ namespace chat_winForm.Control
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Inner);
             this.Name = "TalkControl";
-            this.Size = new System.Drawing.Size(262, 83);
-            this.Load += new System.EventHandler(this.TalkControl_Load);
+            this.Size = new System.Drawing.Size(262, 150);
             this.SizeChanged += new System.EventHandler(this.TalkControl_SizeChanged);
             this.ResumeLayout(false);
 
