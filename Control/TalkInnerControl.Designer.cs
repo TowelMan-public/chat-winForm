@@ -30,12 +30,13 @@ namespace chat_winForm.Control
         private void InitializeComponent()
         {
             this.SenderLabel = new System.Windows.Forms.Label();
-            this.ContentTectLabel = new System.Windows.Forms.Label();
+            this.ContentTextLabel = new System.Windows.Forms.Label();
             this.TimeStampLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SenderLabel
             // 
+            this.SenderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SenderLabel.AutoSize = true;
             this.SenderLabel.Location = new System.Drawing.Point(0, 0);
             this.SenderLabel.Margin = new System.Windows.Forms.Padding(0);
@@ -44,22 +45,23 @@ namespace chat_winForm.Control
             this.SenderLabel.TabIndex = 0;
             this.SenderLabel.Text = "label1";
             // 
-            // ContentTectLabel
+            // ContentTextLabel
             // 
-            this.ContentTectLabel.AutoSize = true;
-            this.ContentTectLabel.Font = new System.Drawing.Font("MS UI Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ContentTectLabel.Location = new System.Drawing.Point(0, 20);
-            this.ContentTectLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.ContentTectLabel.Name = "ContentTectLabel";
-            this.ContentTectLabel.Size = new System.Drawing.Size(63, 22);
-            this.ContentTectLabel.TabIndex = 1;
-            this.ContentTectLabel.Text = "label2";
+            this.ContentTextLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ContentTextLabel.AutoSize = true;
+            this.ContentTextLabel.Font = new System.Drawing.Font("MS UI Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ContentTextLabel.Location = new System.Drawing.Point(0, 20);
+            this.ContentTextLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.ContentTextLabel.Name = "ContentTextLabel";
+            this.ContentTextLabel.Size = new System.Drawing.Size(63, 22);
+            this.ContentTextLabel.TabIndex = 1;
+            this.ContentTextLabel.Text = "label2";
             // 
             // TimeStampLabel
             // 
-            this.TimeStampLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TimeStampLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TimeStampLabel.AutoSize = true;
-            this.TimeStampLabel.Location = new System.Drawing.Point(109, 98);
+            this.TimeStampLabel.Location = new System.Drawing.Point(109, 135);
             this.TimeStampLabel.Name = "TimeStampLabel";
             this.TimeStampLabel.Size = new System.Drawing.Size(43, 15);
             this.TimeStampLabel.TabIndex = 2;
@@ -71,13 +73,13 @@ namespace chat_winForm.Control
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.TimeStampLabel);
-            this.Controls.Add(this.ContentTectLabel);
+            this.Controls.Add(this.ContentTextLabel);
             this.Controls.Add(this.SenderLabel);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "TalkInnerControl";
-            this.Size = new System.Drawing.Size(152, 113);
+            this.Size = new System.Drawing.Size(152, 150);
             this.Load += new System.EventHandler(this.TalkControl_Load);
             this.SizeChanged += new System.EventHandler(this.TalkControl_SizeChanged);
             this.ResumeLayout(false);
@@ -88,7 +90,7 @@ namespace chat_winForm.Control
         #endregion
 
         private System.Windows.Forms.Label SenderLabel;
-        private System.Windows.Forms.Label ContentTectLabel;
+        private System.Windows.Forms.Label ContentTextLabel;
         private System.Windows.Forms.Label TimeStampLabel;
     }
 }

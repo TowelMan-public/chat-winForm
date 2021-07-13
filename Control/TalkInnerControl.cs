@@ -12,6 +12,7 @@ namespace chat_winForm.Control
     {
         private const int TIME_STAMP_HEIGHT = 15;
         private const int YOUR_TALK_LABEL_LOCATION_Y = 20;
+        private bool AlreadyPringtAll;
 
         public TalkModel Model
         {
@@ -25,8 +26,8 @@ namespace chat_winForm.Control
 
         public event EventHandler TalkClickEventHandler
         {
-            add => ContentTectLabel.Click += value;
-            remove => ContentTectLabel.Click -= value;
+            add => ContentTextLabel.Click += value;
+            remove => ContentTextLabel.Click -= value;
         }
 
         private static Color MY_TAKL_COLOR = Color.FromArgb(128,255,128);
@@ -37,6 +38,7 @@ namespace chat_winForm.Control
         public TalkInnerControl()
         {
             InitializeComponent();
+            AlreadyPringtAll = false;
         }
 
         private void TalkControl_Load(object sender, EventArgs e)
@@ -51,33 +53,57 @@ namespace chat_winForm.Control
 
             TimeStampLabel.Text = Model.TimeStamp;
 
-            ContentTectLabel.Text = Model.ContentText;
-            ContentTectLabel.MaximumSize = new Size(Width, 0);
+            ContentTextLabel.MaximumSize = new Size(Width, 0);
+            ContentTextLabel.Text = Model.ContentText;
 
             if (Model.IsMyTake)
             {
                 SenderLabel.Visible = false;
-                Height = ContentTectLabel.Height + TIME_STAMP_HEIGHT;
 
-                var widths = new List<int> { ContentTectLabel.Width, TimeStampLabel.Width };
+                var widths = new List<int> { ContentTextLabel.Width, TimeStampLabel.Width };
                 Width = widths.Max();
 
-                ContentTectLabel.ForeColor = Color.Black;
+
+                ContentTextLabel.Location = new Point
+                {
+                    X = Width - ContentTextLabel.Width,
+                    Y = 0
+                };
+                TimeStampLabel.Location = new Point
+                {
+                    X = Width - TimeStampLabel.Width,
+                    Y = ContentTextLabel.Location.Y + ContentTextLabel.Height + 1
+                };
+
+                Height = TimeStampLabel.Location.Y + TimeStampLabel.Height;
+                ContentTextLabel.ForeColor = Color.Black;
                 PeintImae(MY_TAKL_COLOR);
             }
             else
             {
                 SenderLabel.Visible = true;
                 SenderLabel.Text = Model.SenderUserName;
-                Height = ContentTectLabel.Height + YOUR_TALK_LABEL_LOCATION_Y + TIME_STAMP_HEIGHT;
+                SenderLabel.Location = new Point(0);
 
-                var widths =  new List<int>{ ContentTectLabel.Width, SenderLabel.Width, TimeStampLabel.Width};
+                var widths =  new List<int>{ ContentTextLabel.Width, SenderLabel.Width, TimeStampLabel.Width};
                 Width = widths.Max();
 
-                ContentTectLabel.ForeColor = Color.White;
+                ContentTextLabel.Location = new Point
+                {
+                    X = Width - ContentTextLabel.Width,
+                    Y = SenderLabel.Height + 1
+                };
+                TimeStampLabel.Location = new Point
+                {
+                    X = Width - TimeStampLabel.Width,
+                    Y = ContentTextLabel.Location.Y + ContentTextLabel.Height + 1
+                };
+
+                Height = TimeStampLabel.Location.Y + TimeStampLabel.Height;
+                ContentTextLabel.ForeColor = Color.White;
                 PeintImae(YOUR_TAKL_COLOR);
             }
-            
+            AlreadyPringtAll = true;
         }
 
         //四角形の形を作る
@@ -124,11 +150,11 @@ namespace chat_winForm.Control
         //四角形を描画する
         private void PeintImae(Color fillColor)
         {
-            Rectangle rect = new Rectangle(0, Model.IsMyTake ? 0 : YOUR_TALK_LABEL_LOCATION_Y,
-                Width, Height);
+            Rectangle rect = new Rectangle(0, 0, ContentTextLabel.Width, ContentTextLabel.Height);
             GraphicsPath path = GetRoundRect(rect, 10);
 
-            Graphics graphics = Graphics.FromImage(BackgroundImage);
+            ContentTextLabel.BackgroundImage = new Bitmap(ContentTextLabel.Width, ContentTextLabel.Height);
+            Graphics graphics = Graphics.FromImage(ContentTextLabel.BackgroundImage);
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             graphics.FillPath(new SolidBrush(fillColor), path);
@@ -136,7 +162,7 @@ namespace chat_winForm.Control
 
         private void TalkControl_SizeChanged(object sender, EventArgs e)
         {
-            if (sender != this)
+            if (AlreadyPringtAll)
             {
                 PaintAll();
             }
