@@ -5,6 +5,24 @@ namespace chat_winForm.Control
 {
     public partial class TalkRoomListGroupTitleControl : UserControl
     {
+        public event EventHandler MyClick
+        {
+            add
+            {
+                Click += value;
+                TalkRoomLabel.Click += value;
+                NoticeCountColtrol.Click += value;
+                OpenOrCloseLabel.Click += value;
+            }
+            remove
+            {
+                Click -= value;
+                TalkRoomLabel.Click -= value;
+                NoticeCountColtrol.Click -= value;
+                OpenOrCloseLabel.Click -= value;
+            }
+        }
+
         public new String Text
         {
             get

@@ -7,6 +7,21 @@ namespace chat_winForm.Control
     public partial class TalkRoomColtrol : UserControl
     {
         public TalkRoomModel Model { get; set; }
+        public event EventHandler MyClick
+        {
+            add
+            {
+                Click += value;
+                TalkRoomLabel.Click += value;
+                NoticeCountColtrol.Click += value;
+            }
+            remove
+            {
+                Click -= value;
+                TalkRoomLabel.Click -= value;
+                NoticeCountColtrol.Click -= value;
+            }
+        }
 
         public new String Text
         {

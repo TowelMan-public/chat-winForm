@@ -29,6 +29,12 @@ namespace chat_winForm.Control
             DesireDialogueTalkRoomListTitle.Text = "友達追加申請一覧";
             DesireGroupTalkRoomListTitle.Text = "グループ招待一覧";
 
+            //各ListGroupTitleにクリックイベント
+            DialogueTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
+            GroupTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
+            DesireDialogueTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
+            DesireGroupTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
+
             //各ListGroupにクリックイベントを設定
             DialogueTalkRoomList.TalkRoomClickEventHandler = DialigueTalkRoomClickEventHandler;
             GroupTalkRoomList.TalkRoomClickEventHandler = GroupTalkRoomClickEventHandler;
@@ -41,26 +47,7 @@ namespace chat_winForm.Control
 
         private void TalkRoomListTitle_Click(object sender, EventArgs e)
         {
-            if (sender == DialogueTalkRoomListTitle)
-            {
-                DialogueTalkRoomListTitle.IsOpend ^= true;
-                DialogueTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
-            }
-            else if (sender == GroupTalkRoomListTitle)
-            {
-                GroupTalkRoomListTitle.IsOpend ^= true;
-                GroupTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
-            }
-            else if (sender == DesireDialogueTalkRoomListTitle)
-            {
-                DesireDialogueTalkRoomListTitle.IsOpend ^= true;
-                DesireDialogueTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
-            }
-            else //sender == DesireGroupTalkRoomListTitle
-            {
-                DesireGroupTalkRoomListTitle.IsOpend ^= true;
-                DesireGroupTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
-            }
+
         }
 
         private async void CreateAllListGroupContents()

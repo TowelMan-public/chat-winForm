@@ -46,70 +46,62 @@ namespace chat_winForm.Control
             // 
             this.DialogueTalkRoomListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DialogueTalkRoomListTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DialogueTalkRoomListTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DialogueTalkRoomListTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DialogueTalkRoomListTitle.IsOpend = false;
+            this.DialogueTalkRoomListTitle.IsOpend = true;
             this.DialogueTalkRoomListTitle.Location = new System.Drawing.Point(0, 0);
             this.DialogueTalkRoomListTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.DialogueTalkRoomListTitle.MaximumSize = new System.Drawing.Size(350, 42);
             this.DialogueTalkRoomListTitle.Name = "DialogueTalkRoomListTitle";
             this.DialogueTalkRoomListTitle.NoticeCount = 1;
             this.DialogueTalkRoomListTitle.Size = new System.Drawing.Size(265, 30);
             this.DialogueTalkRoomListTitle.TabIndex = 0;
-            this.DialogueTalkRoomListTitle.Click += new System.EventHandler(this.TalkRoomListTitle_Click);
             // 
             // GroupTalkRoomListTitle
             // 
-            this.GroupTalkRoomListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.GroupTalkRoomListTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GroupTalkRoomListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GroupTalkRoomListTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.GroupTalkRoomListTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.GroupTalkRoomListTitle.IsOpend = false;
+            this.GroupTalkRoomListTitle.IsOpend = true;
             this.GroupTalkRoomListTitle.Location = new System.Drawing.Point(0, 50);
             this.GroupTalkRoomListTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.GroupTalkRoomListTitle.MaximumSize = new System.Drawing.Size(350, 42);
             this.GroupTalkRoomListTitle.Name = "GroupTalkRoomListTitle";
             this.GroupTalkRoomListTitle.NoticeCount = 1;
             this.GroupTalkRoomListTitle.Size = new System.Drawing.Size(265, 30);
             this.GroupTalkRoomListTitle.TabIndex = 1;
-            this.GroupTalkRoomListTitle.Click += new System.EventHandler(this.TalkRoomListTitle_Click);
             // 
             // DesireDialogueTalkRoomListTitle
             // 
-            this.DesireDialogueTalkRoomListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DesireDialogueTalkRoomListTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DesireDialogueTalkRoomListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DesireDialogueTalkRoomListTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DesireDialogueTalkRoomListTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DesireDialogueTalkRoomListTitle.IsOpend = false;
+            this.DesireDialogueTalkRoomListTitle.IsOpend = true;
             this.DesireDialogueTalkRoomListTitle.Location = new System.Drawing.Point(0, 100);
             this.DesireDialogueTalkRoomListTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.DesireDialogueTalkRoomListTitle.MaximumSize = new System.Drawing.Size(350, 42);
             this.DesireDialogueTalkRoomListTitle.Name = "DesireDialogueTalkRoomListTitle";
             this.DesireDialogueTalkRoomListTitle.NoticeCount = 1;
             this.DesireDialogueTalkRoomListTitle.Size = new System.Drawing.Size(265, 30);
             this.DesireDialogueTalkRoomListTitle.TabIndex = 2;
-            this.DesireDialogueTalkRoomListTitle.Click += new System.EventHandler(this.TalkRoomListTitle_Click);
             // 
             // DesireGroupTalkRoomListTitle
             // 
-            this.DesireGroupTalkRoomListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DesireGroupTalkRoomListTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DesireGroupTalkRoomListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DesireGroupTalkRoomListTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DesireGroupTalkRoomListTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DesireGroupTalkRoomListTitle.IsOpend = false;
+            this.DesireGroupTalkRoomListTitle.IsOpend = true;
             this.DesireGroupTalkRoomListTitle.Location = new System.Drawing.Point(0, 150);
             this.DesireGroupTalkRoomListTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.DesireGroupTalkRoomListTitle.MaximumSize = new System.Drawing.Size(350, 42);
             this.DesireGroupTalkRoomListTitle.Name = "DesireGroupTalkRoomListTitle";
             this.DesireGroupTalkRoomListTitle.NoticeCount = 1;
             this.DesireGroupTalkRoomListTitle.Size = new System.Drawing.Size(265, 30);
             this.DesireGroupTalkRoomListTitle.TabIndex = 3;
-            this.DesireGroupTalkRoomListTitle.Click += new System.EventHandler(this.TalkRoomListTitle_Click);
             // 
             // DialogueTalkRoomList
             // 
-            this.DialogueTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DialogueTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DialogueTalkRoomList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DialogueTalkRoomList.Location = new System.Drawing.Point(0, 30);
             this.DialogueTalkRoomList.Margin = new System.Windows.Forms.Padding(0);
@@ -120,8 +112,7 @@ namespace chat_winForm.Control
             // 
             // GroupTalkRoomList
             // 
-            this.GroupTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GroupTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GroupTalkRoomList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.GroupTalkRoomList.Location = new System.Drawing.Point(0, 80);
             this.GroupTalkRoomList.Margin = new System.Windows.Forms.Padding(0);
@@ -132,8 +123,7 @@ namespace chat_winForm.Control
             // 
             // DesireDialogueTalkRoomList
             // 
-            this.DesireDialogueTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DesireDialogueTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DesireDialogueTalkRoomList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DesireDialogueTalkRoomList.Location = new System.Drawing.Point(0, 130);
             this.DesireDialogueTalkRoomList.Margin = new System.Windows.Forms.Padding(0);
@@ -144,8 +134,7 @@ namespace chat_winForm.Control
             // 
             // DesireGroupTalkRoomList
             // 
-            this.DesireGroupTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DesireGroupTalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DesireGroupTalkRoomList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DesireGroupTalkRoomList.Location = new System.Drawing.Point(0, 180);
             this.DesireGroupTalkRoomList.Margin = new System.Windows.Forms.Padding(0);
@@ -170,9 +159,7 @@ namespace chat_winForm.Control
             // 
             // TalkRoomListControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.SpinnerBox);
             this.Controls.Add(this.DesireGroupTalkRoomList);

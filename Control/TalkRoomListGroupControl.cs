@@ -41,5 +41,10 @@ namespace chat_winForm.Control
             Controls.Add(talkRoomControl);
 
         }
+
+        private void TalkRoomListGroupControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
