@@ -1,11 +1,7 @@
 ﻿using chat_winForm.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,6 +25,14 @@ namespace chat_winForm.Control
                 subContentControl = value;
                 subContentControl.Visible = false;
                 Controls.Add(subContentControl);
+                SubContentControl.Width = Width;
+                SubContentControl.Location = new Point
+                {
+                    X = 0,
+                    Y = SwitchButton.Height
+                };
+                SubContentControl.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+                SubContentControl.BringToFront();
             }
         }
 
@@ -52,8 +56,10 @@ namespace chat_winForm.Control
             StartSpinnerMode();
 
             SwitchButton.Text = Model.Name;
-            var talkModelList = await Task.Run(() => TalkListLoader(Model.LastTalkIndex - 25, 50));
+            List<TalkModel> talkModelList = await Task.Run(() => TalkListLoader(Model.LastTalkIndex - 25, 50));
             BodyControl.ShowTalkList(talkModelList);
+            BodyControl.LoadNewerTalkButtonClick += BodyControl_LoadNewerTalkButtonClick;
+            BodyControl.LoadOlderTalkButtonClick += BodyControl_LoadOlderTalkButtonClick;
 
             FinishSpinnerMode();
         }
@@ -63,7 +69,6 @@ namespace chat_winForm.Control
             if (SubContentControl != null)
             {
                 SubContentControl.Visible ^= true;
-                SubContentControl.BringToFront();
             }
         }
 
@@ -83,8 +88,8 @@ namespace chat_winForm.Control
         {
             StartSpinnerMode();
 
-            var startIndex = BodyControl.NewestTalkIndex + 1;
-            var talkModelList = await Task.Run(() => TalkListLoader(startIndex, 25));
+            int startIndex = BodyControl.NewestTalkIndex + 1;
+            List<TalkModel> talkModelList = await Task.Run(() => TalkListLoader(startIndex, 25));
             BodyControl.AddNewerTalkList(talkModelList);
 
             FinishSpinnerMode();
@@ -94,8 +99,8 @@ namespace chat_winForm.Control
         {
             StartSpinnerMode();
 
-            var startIndex = BodyControl.OldestTalkIndex - 25;
-            var talkModelList = await Task.Run(() => TalkListLoader(startIndex, 25));
+            int startIndex = BodyControl.OldestTalkIndex - 25;
+            List<TalkModel> talkModelList = await Task.Run(() => TalkListLoader(startIndex, 25));
             BodyControl.AddOlderTalkList(talkModelList);
 
             FinishSpinnerMode();

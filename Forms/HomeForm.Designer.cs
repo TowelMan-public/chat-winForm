@@ -31,16 +31,19 @@ namespace chat_winForm.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.TalkRoomListPanel = new System.Windows.Forms.Panel();
-            this.TtalkRoomList = new chat_winForm.Control.TalkRoomListControl();
+            this.TalkRoomList = new chat_winForm.Control.TalkRoomListControl();
             this.TalkListInTalkRoomPanel = new System.Windows.Forms.Panel();
             this.ShowAddDialogueButton = new System.Windows.Forms.Button();
             this.ShowAddGroupButton = new System.Windows.Forms.Button();
             this.ShowUserConfingButton = new System.Windows.Forms.Button();
             this.SendPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SendTextBox = new System.Windows.Forms.TextBox();
+            this.SendButton = new System.Windows.Forms.Button();
+            this.SpinnerBox = new System.Windows.Forms.PictureBox();
             this.TalkRoomListPanel.SuspendLayout();
+            this.TalkListInTalkRoomPanel.SuspendLayout();
             this.SendPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).BeginInit();
             this.SuspendLayout();
             // 
             // TalkRoomListPanel
@@ -49,27 +52,23 @@ namespace chat_winForm.Forms
             | System.Windows.Forms.AnchorStyles.Left)));
             this.TalkRoomListPanel.AutoScroll = true;
             this.TalkRoomListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TalkRoomListPanel.Controls.Add(this.TtalkRoomList);
+            this.TalkRoomListPanel.Controls.Add(this.TalkRoomList);
             this.TalkRoomListPanel.Location = new System.Drawing.Point(88, 29);
             this.TalkRoomListPanel.Name = "TalkRoomListPanel";
             this.TalkRoomListPanel.Size = new System.Drawing.Size(249, 403);
             this.TalkRoomListPanel.TabIndex = 12;
             // 
-            // TtalkRoomList
+            // TalkRoomList
             // 
-            this.TtalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TalkRoomList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TtalkRoomList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TtalkRoomList.DesireDialogueTalkRoomClickEventHandler = null;
-            this.TtalkRoomList.DesireGroupTalkRoomClickEventHandler = null;
-            this.TtalkRoomList.DialigueTalkRoomClickEventHandler = null;
-            this.TtalkRoomList.ForeColor = System.Drawing.Color.White;
-            this.TtalkRoomList.GroupTalkRoomClickEventHandler = null;
-            this.TtalkRoomList.Location = new System.Drawing.Point(0, 0);
-            this.TtalkRoomList.Margin = new System.Windows.Forms.Padding(0);
-            this.TtalkRoomList.Name = "TtalkRoomList";
-            this.TtalkRoomList.Size = new System.Drawing.Size(249, 403);
-            this.TtalkRoomList.TabIndex = 0;
+            this.TalkRoomList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TalkRoomList.ForeColor = System.Drawing.Color.White;
+            this.TalkRoomList.Location = new System.Drawing.Point(0, 0);
+            this.TalkRoomList.Margin = new System.Windows.Forms.Padding(0);
+            this.TalkRoomList.Name = "TalkRoomList";
+            this.TalkRoomList.Size = new System.Drawing.Size(249, 403);
+            this.TalkRoomList.TabIndex = 0;
             // 
             // TalkListInTalkRoomPanel
             // 
@@ -77,6 +76,7 @@ namespace chat_winForm.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TalkListInTalkRoomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TalkListInTalkRoomPanel.Controls.Add(this.SpinnerBox);
             this.TalkListInTalkRoomPanel.Location = new System.Drawing.Point(343, 29);
             this.TalkListInTalkRoomPanel.Name = "TalkListInTalkRoomPanel";
             this.TalkListInTalkRoomPanel.Size = new System.Drawing.Size(445, 276);
@@ -97,6 +97,7 @@ namespace chat_winForm.Forms
             this.ShowAddDialogueButton.Size = new System.Drawing.Size(53, 53);
             this.ShowAddDialogueButton.TabIndex = 0;
             this.ShowAddDialogueButton.UseVisualStyleBackColor = false;
+            this.ShowAddDialogueButton.Click += new System.EventHandler(this.ShowAddDialogueButton_Click);
             // 
             // ShowAddGroupButton
             // 
@@ -113,6 +114,7 @@ namespace chat_winForm.Forms
             this.ShowAddGroupButton.Size = new System.Drawing.Size(53, 53);
             this.ShowAddGroupButton.TabIndex = 14;
             this.ShowAddGroupButton.UseVisualStyleBackColor = false;
+            this.ShowAddGroupButton.Click += new System.EventHandler(this.ShowAddGroupButton_Click);
             // 
             // ShowUserConfingButton
             // 
@@ -129,44 +131,61 @@ namespace chat_winForm.Forms
             this.ShowUserConfingButton.Size = new System.Drawing.Size(53, 53);
             this.ShowUserConfingButton.TabIndex = 15;
             this.ShowUserConfingButton.UseVisualStyleBackColor = false;
+            this.ShowUserConfingButton.Click += new System.EventHandler(this.ShowUserConfingButton_Click);
             // 
             // SendPanel
             // 
             this.SendPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SendPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SendPanel.Controls.Add(this.textBox1);
-            this.SendPanel.Controls.Add(this.button1);
+            this.SendPanel.Controls.Add(this.SendTextBox);
+            this.SendPanel.Controls.Add(this.SendButton);
             this.SendPanel.Location = new System.Drawing.Point(343, 311);
             this.SendPanel.Name = "SendPanel";
             this.SendPanel.Size = new System.Drawing.Size(445, 121);
             this.SendPanel.TabIndex = 16;
             // 
-            // textBox1
+            // SendTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.SendTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.MaxLength = 2000;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(442, 92);
-            this.textBox1.TabIndex = 1;
+            this.SendTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SendTextBox.ForeColor = System.Drawing.Color.White;
+            this.SendTextBox.Location = new System.Drawing.Point(0, 0);
+            this.SendTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.SendTextBox.MaxLength = 2000;
+            this.SendTextBox.Multiline = true;
+            this.SendTextBox.Name = "SendTextBox";
+            this.SendTextBox.Size = new System.Drawing.Size(442, 92);
+            this.SendTextBox.TabIndex = 1;
             // 
-            // button1
+            // SendButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(366, 92);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "送信";
-            this.button1.UseVisualStyleBackColor = false;
+            this.SendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SendButton.BackColor = System.Drawing.Color.Blue;
+            this.SendButton.ForeColor = System.Drawing.Color.White;
+            this.SendButton.Location = new System.Drawing.Point(366, 92);
+            this.SendButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SendButton.Name = "SendButton";
+            this.SendButton.Size = new System.Drawing.Size(76, 29);
+            this.SendButton.TabIndex = 0;
+            this.SendButton.Text = "送信";
+            this.SendButton.UseVisualStyleBackColor = false;
+            // 
+            // SpinnerBox
+            // 
+            this.SpinnerBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SpinnerBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SpinnerBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.SpinnerBox.Image = ((System.Drawing.Image)(resources.GetObject("SpinnerBox.Image")));
+            this.SpinnerBox.Location = new System.Drawing.Point(28, 146);
+            this.SpinnerBox.Name = "SpinnerBox";
+            this.SpinnerBox.Size = new System.Drawing.Size(106, 106);
+            this.SpinnerBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SpinnerBox.TabIndex = 22;
+            this.SpinnerBox.TabStop = false;
+            this.SpinnerBox.Visible = false;
             // 
             // HomeForm
             // 
@@ -180,7 +199,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.TalkListInTalkRoomPanel);
             this.Controls.Add(this.TalkRoomListPanel);
             this.Name = "HomeForm";
-            this.Load += new System.EventHandler(this.HomeForm_Load_1);
+            this.Load += new System.EventHandler(this.HomeForm_Load);
             this.Controls.SetChildIndex(this.TalkRoomListPanel, 0);
             this.Controls.SetChildIndex(this.TalkListInTalkRoomPanel, 0);
             this.Controls.SetChildIndex(this.ShowAddDialogueButton, 0);
@@ -188,8 +207,10 @@ namespace chat_winForm.Forms
             this.Controls.SetChildIndex(this.ShowUserConfingButton, 0);
             this.Controls.SetChildIndex(this.SendPanel, 0);
             this.TalkRoomListPanel.ResumeLayout(false);
+            this.TalkListInTalkRoomPanel.ResumeLayout(false);
             this.SendPanel.ResumeLayout(false);
             this.SendPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,8 +223,9 @@ namespace chat_winForm.Forms
         private System.Windows.Forms.Button ShowAddGroupButton;
         private System.Windows.Forms.Button ShowUserConfingButton;
         private System.Windows.Forms.Panel SendPanel;
-        private Control.TalkRoomListControl TtalkRoomList;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private Control.TalkRoomListControl TalkRoomList;
+        private System.Windows.Forms.TextBox SendTextBox;
+        private System.Windows.Forms.Button SendButton;
+        private System.Windows.Forms.PictureBox SpinnerBox;
     }
 }

@@ -13,7 +13,7 @@ namespace chat_winForm.Service
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 
-            List<Client.ResponseEntity.HaveUserResponse> responseList = UserInDialogueApi.GetUserInDiarogueList(userCredentialsProvider.oauthToken);
+            List<Client.ResponseEntity.HaveUserResponse> responseList = UserInDialogueApi.GetUserInDiarogueList(userCredentialsProvider.OauthToken);
             foreach (Client.ResponseEntity.HaveUserResponse response in responseList)
             {
                 modelList.Add(
@@ -28,7 +28,7 @@ namespace chat_winForm.Service
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 
-            List<Client.ResponseEntity.GroupTalkRoomResponse> responseList = GroupApi.GetGroups(userCredentialsProvider.oauthToken);
+            List<Client.ResponseEntity.GroupTalkRoomResponse> responseList = GroupApi.GetGroups(userCredentialsProvider.OauthToken);
             foreach (Client.ResponseEntity.GroupTalkRoomResponse response in responseList)
             {
                 modelList.Add(
@@ -43,7 +43,7 @@ namespace chat_winForm.Service
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 
-            List<Client.ResponseEntity.DesireHaveUserResponse> responseList = DesireUserApi.GetDesireUserList(userCredentialsProvider.oauthToken);
+            List<Client.ResponseEntity.DesireHaveUserResponse> responseList = DesireUserApi.GetDesireUserList(userCredentialsProvider.OauthToken);
             foreach (Client.ResponseEntity.DesireHaveUserResponse response in responseList)
             {
                 modelList.Add(
@@ -57,7 +57,7 @@ namespace chat_winForm.Service
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 
-            List<Client.ResponseEntity.DesireUserInGroupResponce> responseList = DesireGroupApi.GetDesireUserList(userCredentialsProvider.oauthToken);
+            List<Client.ResponseEntity.DesireUserInGroupResponce> responseList = DesireGroupApi.GetDesireUserList(userCredentialsProvider.OauthToken);
             foreach (Client.ResponseEntity.DesireUserInGroupResponce response in responseList)
             {
                 modelList.Add(

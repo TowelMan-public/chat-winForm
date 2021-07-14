@@ -114,6 +114,24 @@
     <Compile Include="Client\ResponseEntity\UserInGroupResponse.cs" />
     <Compile Include="Client\RestTemplate.cs" />
     <Compile Include="Client\RestTemplateErrorHandler.cs" />
+    <Compile Include="Control\DesireMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\DesireMenuControl.Designer.cs">
+      <DependentUpon>DesireMenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DialogueMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\DialogueMenuControl.Designer.cs">
+      <DependentUpon>DialogueMenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\GroupMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\GroupMenuControl.Designer.cs">
+      <DependentUpon>GroupMenuControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\TalkControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,8 +242,20 @@
     </Compile>
     <Compile Include="Registry\UserCredentialsProvider.cs" />
     <Compile Include="Regular\OuthTokenUpdater.cs" />
+    <Compile Include="Service\DialogueService.cs" />
+    <Compile Include="Service\GroupService.cs" />
     <Compile Include="Service\TalkRoomService.cs" />
+    <Compile Include="Service\TalkService.cs" />
     <Compile Include="Service\UserService.cs" />
+    <EmbeddedResource Include="Control\DesireMenuControl.resx">
+      <DependentUpon>DesireMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\DialogueMenuControl.resx">
+      <DependentUpon>DialogueMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\GroupMenuControl.resx">
+      <DependentUpon>GroupMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\NoticeControl.resx">
       <DependentUpon>NoticeControl.cs</DependentUpon>
     </EmbeddedResource>

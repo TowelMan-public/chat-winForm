@@ -1,12 +1,6 @@
 ﻿using chat_winForm.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace chat_winForm.Control
@@ -46,9 +40,13 @@ namespace chat_winForm.Control
             Inner.PaintAll();
 
             if (Model.IsMyTake)
+            {
                 Inner.Location = new Point(Width - Inner.Width, 0);
+            }
             else
+            {
                 Inner.Location = new Point(0, 0);
+            }
 
             Height = Inner.Height;
             AlreadyAdaptWide = true;

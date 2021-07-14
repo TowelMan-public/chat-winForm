@@ -91,7 +91,7 @@ namespace chat_winForm.Forms
             string errorMessage = new Validater(UserIdNameTextBox.Text)
                 .NotBlank()
                 .MaxString(100)
-                .getErrorMessage();
+                .GetErrorMessage();
 
             ValidationErrorProvider.SetError(UserIdNameTextBox, errorMessage);
         }
@@ -101,7 +101,7 @@ namespace chat_winForm.Forms
             string errorMessage = new Validater(UserNameTextBox.Text)
                 .NotBlank()
                 .MaxString(100)
-                .getErrorMessage();
+                .GetErrorMessage();
 
             ValidationErrorProvider.SetError(UserNameTextBox, errorMessage);
         }
@@ -111,7 +111,7 @@ namespace chat_winForm.Forms
             string errorMessage = new Validater(PasswordTextBox.Text)
                 .NotBlank()
                 .MaxString(100)
-                .getErrorMessage();
+                .GetErrorMessage();
 
             ValidationErrorProvider.SetError(PasswordTextBox, errorMessage);
         }

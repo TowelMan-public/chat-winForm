@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,12 @@ namespace chat_winForm.Client
     class RestTemplate
     {
         static readonly private RestTemplate s_RestTemplate = new RestTemplate();
-        static readonly private HttpClient s_httpClient = new HttpClient(
+        static readonly private HttpClientHandler s_HttpClientHandler =
             new HttpClientHandler
             {
                 UseProxy = false
-            });
+            };
+        static readonly private HttpClient s_httpClient = new HttpClient(s_HttpClientHandler);
         static readonly private RestTemplateErrorHandler s_RestTemplateErrorHandler = RestTemplateErrorHandler.GetInstance();
 
         const String OUTH_HTTP_HEADER_NAME = @"X-AUTH-TOKEN";
@@ -35,11 +37,11 @@ namespace chat_winForm.Client
         }
 
         /// <summary>
-        /// 使わない
+        /// 初期設定
         /// </summary>
         private RestTemplate()
         {
-
+            WebRequest.DefaultWebProxy = null;
         }
 
         /// <summary>
@@ -47,15 +49,15 @@ namespace chat_winForm.Client
         /// </summary>
         /// <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
         /// <typeparam name="Responce">レスポンスクラス</typeparam>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="url">APiのURL</param>
         /// <param name="paramaters">DTOクラス（パラメター）</param>
         /// <returns>レスポンスクラスに指定された型のレスポンス</returns>
-        public Responce GetHttpMethodWhenLogined<Paramater, Responce>(String oauthToken, String url, Paramater paramaters)
+        public Responce GetHttpMethodWhenLogined<Paramater, Responce>(String OauthToken, String url, Paramater paramaters)
         {
             string requestParamaterUrl = CreateRequestParamaterUrl(paramaters);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url + requestParamaterUrl);
-            request.Headers.Add(OUTH_HTTP_HEADER_NAME, oauthToken);
+            request.Headers.Add(OUTH_HTTP_HEADER_NAME, OauthToken);
 
             Task<HttpResponseMessage> responseTask = s_httpClient.SendAsync(request);
             HttpResponseMessage response = responseTask.Result;
@@ -70,13 +72,13 @@ namespace chat_winForm.Client
         /// ログインされているときにPOSTメソッドを呼ぶ
         /// </summary>
         /// <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="url">APiのURL</param>
         /// <param name="paramaters">DTOクラス（パラメター）</param>
-        public void PostHttpMethodWhenLogined<Paramater>(String oauthToken, String url, Paramater paramaters)
+        public void PostHttpMethodWhenLogined<Paramater>(String OauthToken, String url, Paramater paramaters)
         {
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url);
-            request.Headers.Add(OUTH_HTTP_HEADER_NAME, oauthToken);
+            request.Headers.Add(OUTH_HTTP_HEADER_NAME, OauthToken);
 
             string jsonString = ObjectToJsonString(paramaters);
             request.Content = new StringContent(jsonString, Encoding.UTF8, Content_Type);
@@ -156,7 +158,7 @@ namespace chat_winForm.Client
             {
                 if (pair.Value != null && !pair.Value.ToString().Equals(""))
                 {
-                    requestParamaterUrl.Append($",{pair.Key}={pair.Value}");
+                    requestParamaterUrl.Append($"&{pair.Key}={pair.Value}");
                 }
             }
 

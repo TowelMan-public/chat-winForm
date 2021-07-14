@@ -16,24 +16,24 @@ namespace chat_winForm.Client.Api
         /// <summary>
         /// グループに加入してほしい申請リストの取得
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <returns>グループに加入してほしい申請リスト</returns>
-        static public List<DesireUserInGroupResponce> GetDesireUserList(String oauthToken)
+        static public List<DesireUserInGroupResponce> GetDesireUserList(String OauthToken)
         {
             const String URL = ROOT_URL + "/gets";
 
             Dto dto = new Dto();
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<DesireUserInGroupResponce>>(oauthToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<DesireUserInGroupResponce>>(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループに加入してほしい申請を取得する
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルーム</param>
         /// <returns>グループに加入してほしい申請</returns>
-        static public DesireUserInGroupResponce GetDesireUser(String oauthToken, int talkRoomId)
+        static public DesireUserInGroupResponce GetDesireUser(String OauthToken, int talkRoomId)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -42,15 +42,15 @@ namespace chat_winForm.Client.Api
                 TalkRoomId = talkRoomId
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, DesireUserInGroupResponce>(oauthToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, DesireUserInGroupResponce>(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループ加入してほしい申請を断る
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルーム</param>
-        static public void DeleteDesireGroup(String oauthToken, int talkRoomId)
+        static public void DeleteDesireGroup(String OauthToken, int talkRoomId)
         {
             const String URL = ROOT_URL + "/delete";
 
@@ -59,15 +59,15 @@ namespace chat_winForm.Client.Api
                 TalkRoomId = talkRoomId
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループ加入してほしい申請を受ける
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルーム</param>
-        static public void JoinGroup(String oauthToken, int talkRoomId)
+        static public void JoinGroup(String OauthToken, int talkRoomId)
         {
             const String URL = ROOT_URL + "/join";
 
@@ -76,7 +76,7 @@ namespace chat_winForm.Client.Api
                 TalkRoomId = talkRoomId
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>

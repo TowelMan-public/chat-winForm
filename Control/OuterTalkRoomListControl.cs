@@ -35,17 +35,20 @@ namespace chat_winForm.Control
 
         private TalkRoomListControl CreateTalkRoomListControl()
         {
-            return new TalkRoomListControl
+            TalkRoomListControl talkRoomListControl = new TalkRoomListControl
             {
                 Margin = new Padding(0),
                 Location = new Point(5, THIS_TITLE_HEIGHT + 1),
                 Size = new Size(Width - 10, Height - THIS_TITLE_HEIGHT),
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
-                DialigueTalkRoomClickEventHandler = DialigueTalkRoomClickEventHandler,
-                GroupTalkRoomClickEventHandler = GroupTalkRoomClickEventHandler,
-                DesireDialogueTalkRoomClickEventHandler = DesireDialogueTalkRoomClickEventHandler,
-                DesireGroupTalkRoomClickEventHandler = DesireGroupTalkRoomClickEventHandler
             };
+
+            talkRoomListControl.DialigueTalkRoomClickEventHandler += DialigueTalkRoomClickEventHandler;
+            talkRoomListControl.GroupTalkRoomClickEventHandler += GroupTalkRoomClickEventHandler;
+            talkRoomListControl.DesireDialogueTalkRoomClickEventHandler += DesireDialogueTalkRoomClickEventHandler;
+            talkRoomListControl.DesireGroupTalkRoomClickEventHandler += DesireGroupTalkRoomClickEventHandler;
+
+            return talkRoomListControl;
         }
     }
 }

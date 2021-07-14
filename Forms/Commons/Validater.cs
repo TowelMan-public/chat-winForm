@@ -76,9 +76,19 @@ namespace chat_winForm.Forms.Commons
         /// ErrorProviderコントロール向けのエラーメッセージを返す。
         /// </summary>
         /// <returns>エラーがあれば一番最初に引っかかったエラーメッセージ。なければnull。</returns>
-        public String getErrorMessage()
+        public String GetErrorMessage()
         {
             return errorMessage;
+        }
+
+        /// <summary>
+        /// このクラスの終着点。
+        /// エラーがあるか無いかを判定し、結果を返す
+        /// </summary>
+        /// <returns>エラーがあればfalse, 無ければtrue</returns>
+        public bool Check()
+        {
+            return errorMessage != null;
         }
     }
 }

@@ -66,7 +66,7 @@ namespace chat_winForm.Regular
             try
             {
                 string outhToken = await Task.Run(() => UserService.Login(userCredentialsProvider.UserIdName, userCredentialsProvider.Password));
-                userCredentialsProvider.oauthToken = outhToken;
+                userCredentialsProvider.OauthToken = outhToken;
             }
             catch (LoginException)
             {

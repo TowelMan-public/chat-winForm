@@ -35,7 +35,7 @@ namespace chat_winForm.Control
                 NoticeCount = noticeCount,
                 Model = model
             };
-            talkRoomControl.Click += TalkRoomClickEventHandler;
+            talkRoomControl.MyClick += TalkRoomClickEventHandler;
 
             //追加
             Controls.Add(talkRoomControl);

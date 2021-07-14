@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace chat_winForm.Control
 {
@@ -30,8 +30,8 @@ namespace chat_winForm.Control
             remove => ContentTextLabel.Click -= value;
         }
 
-        private static Color MY_TAKL_COLOR = Color.FromArgb(128,255,128);
-        private static Color YOUR_TAKL_COLOR = Color.Gray;
+        private static readonly Color MY_TAKL_COLOR = Color.FromArgb(128, 255, 128);
+        private static readonly Color YOUR_TAKL_COLOR = Color.Gray;
 
         private TalkModel model;
 
@@ -49,7 +49,9 @@ namespace chat_winForm.Control
         {
             //プロパティーが足りない
             if (Model == null)
+            {
                 return;
+            }
 
             TimeStampLabel.Text = Model.TimeStamp;
 
@@ -60,7 +62,7 @@ namespace chat_winForm.Control
             {
                 SenderLabel.Visible = false;
 
-                var widths = new List<int> { ContentTextLabel.Width, TimeStampLabel.Width };
+                List<int> widths = new List<int> { ContentTextLabel.Width, TimeStampLabel.Width };
                 Width = widths.Max();
 
 
@@ -85,7 +87,7 @@ namespace chat_winForm.Control
                 SenderLabel.Text = Model.SenderUserName;
                 SenderLabel.Location = new Point(0);
 
-                var widths =  new List<int>{ ContentTextLabel.Width, SenderLabel.Width, TimeStampLabel.Width};
+                List<int> widths = new List<int> { ContentTextLabel.Width, SenderLabel.Width, TimeStampLabel.Width };
                 Width = widths.Max();
 
                 ContentTextLabel.Location = new Point

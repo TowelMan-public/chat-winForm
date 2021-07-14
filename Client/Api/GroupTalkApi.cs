@@ -15,10 +15,10 @@ namespace chat_winForm.Client.Api
         /// <summary>
         /// グループトークの作成をするAPI
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkContentText">トークテキスト</param>
-        static public void InsertTalk(String oauthToken, int talkRoomId, String talkContentText)
+        static public void InsertTalk(String OauthToken, int talkRoomId, String talkContentText)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -28,17 +28,17 @@ namespace chat_winForm.Client.Api
                 TalkContentText = talkContentText
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループトークの取得をするAPI
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkIndex"> トークインデクス</param>
         /// <returns>グループトーク</returns>
-        static public TalkResponse GetTalk(String oauthToken, int talkRoomId, int talkIndex)
+        static public TalkResponse GetTalk(String OauthToken, int talkRoomId, int talkIndex)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -48,17 +48,17 @@ namespace chat_winForm.Client.Api
                 TalkIndex = talkIndex
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, TalkResponse>(oauthToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, TalkResponse>(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループトークの更新をするAPI
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkIndex"> トークインデクス</param>
         /// <param name="talkContentText">トークテキスト</param>
-        static public void UpdateTalk(String oauthToken, int talkRoomId, int talkIndex, String talkContentText)
+        static public void UpdateTalk(String OauthToken, int talkRoomId, int talkIndex, String talkContentText)
         {
             const String URL = ROOT_URL + "/update";
 
@@ -69,16 +69,16 @@ namespace chat_winForm.Client.Api
                 TalkContentText = talkContentText
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループトークの作成をするAPI
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkIndex"> トークインデクス</param>
-        static public void DeleteTalk(String oauthToken, int talkRoomId, int talkIndex)
+        static public void DeleteTalk(String OauthToken, int talkRoomId, int talkIndex)
         {
             const String URL = ROOT_URL + "/delete";
 
@@ -88,7 +88,7 @@ namespace chat_winForm.Client.Api
                 TalkIndex = talkIndex
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>

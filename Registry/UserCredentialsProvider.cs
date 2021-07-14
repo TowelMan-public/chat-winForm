@@ -87,7 +87,7 @@ namespace chat_winForm.Registry
         /// 認証用トークン
         /// レジストリに保存されない
         /// </summary>
-        public String oauthToken { get; set; }
+        public String OauthToken { get; set; }
 
         /// <summary>
         /// UserIdNameの値の削除
@@ -118,7 +118,7 @@ namespace chat_winForm.Registry
         /// </summary>
         public void DeleteOuthToken()
         {
-            oauthToken = null;
+            OauthToken = null;
         }
 
         /// <summary>

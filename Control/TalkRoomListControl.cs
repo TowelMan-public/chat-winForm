@@ -12,10 +12,29 @@ namespace chat_winForm.Control
 {
     public partial class TalkRoomListControl : UserControl
     {
-        public EventHandler DialigueTalkRoomClickEventHandler { get; set; }
-        public EventHandler GroupTalkRoomClickEventHandler { get; set; }
-        public EventHandler DesireDialogueTalkRoomClickEventHandler { get; set; }
-        public EventHandler DesireGroupTalkRoomClickEventHandler { get; set; }
+        public event EventHandler DialigueTalkRoomClickEventHandler
+        {
+            add => DialogueTalkRoomList.TalkRoomClickEventHandler += value;
+            remove => DialogueTalkRoomList.TalkRoomClickEventHandler -= value;
+        }
+
+        public event EventHandler GroupTalkRoomClickEventHandler
+        {
+            add => GroupTalkRoomList.TalkRoomClickEventHandler += value;
+            remove => GroupTalkRoomList.TalkRoomClickEventHandler -= value;
+        }
+
+        public event EventHandler DesireDialogueTalkRoomClickEventHandler
+        {
+            add => DesireDialogueTalkRoomList.TalkRoomClickEventHandler += value;
+            remove => DesireDialogueTalkRoomList.TalkRoomClickEventHandler -= value;
+        }
+
+        public event EventHandler DesireGroupTalkRoomClickEventHandler
+        {
+            add => DesireGroupTalkRoomList.TalkRoomClickEventHandler += value;
+            remove => DesireGroupTalkRoomList.TalkRoomClickEventHandler -= value;
+        }
 
         public TalkRoomListControl()
         {
@@ -36,12 +55,7 @@ namespace chat_winForm.Control
             DesireDialogueTalkRoomListTitle.MyClick += DesireDialogueTalkRoomListTitle_Click;
             DesireGroupTalkRoomListTitle.MyClick += DesireGroupTalkRoomListTitle_Click;
 
-            //各ListGroupにクリックイベントを設定
-            DialogueTalkRoomList.TalkRoomClickEventHandler = DialigueTalkRoomClickEventHandler;
-            GroupTalkRoomList.TalkRoomClickEventHandler = GroupTalkRoomClickEventHandler;
-            DesireDialogueTalkRoomList.TalkRoomClickEventHandler = DesireDialogueTalkRoomClickEventHandler;
-            DesireGroupTalkRoomList.TalkRoomClickEventHandler = DesireGroupTalkRoomClickEventHandler;
-
+            //高さの初期設定
             DialogueTalkRoomList.Height = 0;
             GroupTalkRoomList.Height = 0;
             DesireDialogueTalkRoomList.Height = 0;
@@ -141,8 +155,8 @@ namespace chat_winForm.Control
                 //コントロール作成
                 ShowDialogueTalkRoomGroupContents(modelLists[0]);
                 ShowGroupTalkRoomGroupContents(modelLists[1]);
-                ShowDesireGroupTalkRoomGroupContents(modelLists[2]);
-                ShowDesireDialogueTalkRoomGroupContents(modelLists[3]);
+                ShowDesireDialogueTalkRoomGroupContents(modelLists[2]);
+                ShowDesireGroupTalkRoomGroupContents(modelLists[3]);
 
                 //配置
                 Placement();
@@ -201,7 +215,7 @@ namespace chat_winForm.Control
             DesireDialogueTalkRoomListTitle.NoticeCount = modelList.Count;
             foreach (TalkRoomModel model in modelList)
             {
-                DialogueTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+                DesireDialogueTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
             }
         }
 

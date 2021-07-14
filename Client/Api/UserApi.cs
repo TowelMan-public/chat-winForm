@@ -54,10 +54,10 @@ namespace chat_winForm.Client.Api
         /// <summary>
         /// ユーザー情報を取得する
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
         /// <returns>ユーザー情報</returns>
-        static public UserEntity GetUser(String oauthToken, String userIdName)
+        static public UserEntity GetUser(String OauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -66,15 +66,15 @@ namespace chat_winForm.Client.Api
                 UserIdName = userIdName
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, UserEntity>(oauthToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, UserEntity>(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// ユーザーID名を変更する
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void UpdateUserIdName(String oauthToken, String userIdName)
+        static public void UpdateUserIdName(String OauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/update/id-name";
 
@@ -83,15 +83,15 @@ namespace chat_winForm.Client.Api
                 UserIdName = userIdName,
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// ユーザー名の変更
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userName">ユーザー名</param>
-        static public void UpdateUserName(String oauthToken, String userName)
+        static public void UpdateUserName(String OauthToken, String userName)
         {
             const String URL = ROOT_URL + "/update/name";
 
@@ -100,15 +100,15 @@ namespace chat_winForm.Client.Api
                 UserName = userName
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// パスワードの更新
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="password">パスワード</param>
-        static public void UpdatePassword(String oauthToken, String password)
+        static public void UpdatePassword(String OauthToken, String password)
         {
             const String URL = ROOT_URL + "/update/password";
 
@@ -117,20 +117,20 @@ namespace chat_winForm.Client.Api
                 Password = password
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// 退会
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
-        static public void DeleteUser(String oauthToken)
+        /// <param name="OauthToken">認証用トークン</param>
+        static public void DeleteUser(String OauthToken)
         {
             const String URL = ROOT_URL + "/delete";
 
             Dto dto = new Dto();
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>

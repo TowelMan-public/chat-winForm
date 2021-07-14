@@ -49,7 +49,8 @@ namespace chat_winForm.Control
             // 
             // LoadNewerTalkButtom
             // 
-            this.LoadNewerTalkButtom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadNewerTalkButtom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LoadNewerTalkButtom.BackColor = System.Drawing.Color.Maroon;
             this.LoadNewerTalkButtom.ForeColor = System.Drawing.Color.White;
             this.LoadNewerTalkButtom.Location = new System.Drawing.Point(0, 54);

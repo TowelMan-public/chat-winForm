@@ -16,10 +16,10 @@ namespace chat_winForm.Client.Api
         /// <summary>
         /// グループにユーザーを加入させるAPI
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void InsertUserInGroup(String oauthToken, int talkRoomId, String userIdName)
+        static public void InsertUserInGroup(String OauthToken, int talkRoomId, String userIdName)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -29,16 +29,16 @@ namespace chat_winForm.Client.Api
                 UserIdName = userIdName
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループ加入者リストの取得するAPI
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <returns>グループ加入者リスト</returns>
-        static public List<UserInGroupResponse> GetUsersInGroup(String oauthToken, int talkRoomId)
+        static public List<UserInGroupResponse> GetUsersInGroup(String OauthToken, int talkRoomId)
         {
             const String URL = ROOT_URL + "/gets";
 
@@ -47,16 +47,16 @@ namespace chat_winForm.Client.Api
                 TalkRoomId = talkRoomId
             };
 
-            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<UserInGroupResponse>>(oauthToken, URL, dto);
+            return s_RestTemplate.GetHttpMethodWhenLogined<Dto, List<UserInGroupResponse>>(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループ加入者をグループから抜けさせる
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void DeleteUserInGroup(String oauthToken, int talkRoomId, String userIdName)
+        static public void DeleteUserInGroup(String OauthToken, int talkRoomId, String userIdName)
         {
             const String URL = ROOT_URL + "/delete";
 
@@ -66,15 +66,15 @@ namespace chat_winForm.Client.Api
                 UserIdName = userIdName
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>
         /// グループから抜ける
         /// </summary>
-        /// <param name="oauthToken">認証用トークン</param>
+        /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
-        static public void ExitGroup(String oauthToken, int talkRoomId)
+        static public void ExitGroup(String OauthToken, int talkRoomId)
         {
             const String URL = ROOT_URL + "/exit";
 
@@ -83,7 +83,7 @@ namespace chat_winForm.Client.Api
                 TalkRoomId = talkRoomId
             };
 
-            s_RestTemplate.PostHttpMethodWhenLogined(oauthToken, URL, dto);
+            s_RestTemplate.PostHttpMethodWhenLogined(OauthToken, URL, dto);
         }
 
         /// <summary>

@@ -60,7 +60,7 @@ namespace chat_winForm.Forms
                     string outhToken = await Task.Run(() => UserService.Login(userIdName, password));
 
                     //後処理
-                    userCredentialsProvider.oauthToken = outhToken;
+                    userCredentialsProvider.OauthToken = outhToken;
                     OuthTokenUpdater.GetInstance().Start();
 
                     //画面遷移
@@ -116,7 +116,7 @@ namespace chat_winForm.Forms
                     userCredentialsProvider.Password = PasswordTextBox.Text;
                     OuthTokenUpdater.GetInstance().Start();
                 }
-                userCredentialsProvider.oauthToken = outhToken;
+                userCredentialsProvider.OauthToken = outhToken;
 
                 //画面遷移
                 HomeForm homeForm = new HomeForm();
@@ -160,7 +160,7 @@ namespace chat_winForm.Forms
             string errorMessage = new Validater(UserIdNameTextBox.Text)
                 .NotBlank()
                 .MaxString(100)
-                .getErrorMessage();
+                .GetErrorMessage();
 
             ValidationErrorProvider.SetError(UserIdNameTextBox, errorMessage);
         }
@@ -175,7 +175,7 @@ namespace chat_winForm.Forms
             string errorMessage = new Validater(PasswordTextBox.Text)
                 .NotBlank()
                 .MaxString(100)
-                .getErrorMessage();
+                .GetErrorMessage();
 
             ValidationErrorProvider.SetError(PasswordTextBox, errorMessage);
         }
