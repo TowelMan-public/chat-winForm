@@ -105,5 +105,16 @@ namespace chat_winForm.Control
 
             FinishSpinnerMode();
         }
+
+        public async void UpdateTalkList()
+        {
+            StartSpinnerMode();
+
+            int startIndex = BodyControl.NewestTalkIndex + 1;
+            List<TalkModel> talkModelList = await Task.Run(() => TalkListLoader(startIndex, 25));
+            BodyControl.AddNewerTalkList(talkModelList);
+
+            FinishSpinnerMode();
+        }
     }
 }

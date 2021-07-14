@@ -230,5 +230,22 @@ namespace chat_winForm.Control
             SpinnerBox.Visible = false;
             UseWaitCursor = false;
         }
+
+        public void UpdateTalkRoomList()
+        {
+            DialogueTalkRoomList.Reset();
+            GroupTalkRoomList.Reset();
+            DesireDialogueTalkRoomList.Reset();
+            DesireGroupTalkRoomList.Reset();
+
+            DialogueTalkRoomListTitle.NoticeCount = 0;
+            DialogueTalkRoomListTitle.IsOpend = true;
+            GroupTalkRoomListTitle.NoticeCount = 0;
+            GroupTalkRoomListTitle.IsOpend = true;
+            DesireDialogueTalkRoomListTitle.NoticeCount = 0;
+            DesireDialogueTalkRoomListTitle.IsOpend = true;
+            DesireGroupTalkRoomListTitle.NoticeCount = 0;
+            DesireGroupTalkRoomListTitle.IsOpend = true;
+        }
     }
 }

@@ -221,6 +221,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Name = "SignupForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SignupForm_FormClosed);
             this.Load += new System.EventHandler(this.SignupForm_Load);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label1, 0);

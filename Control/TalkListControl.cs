@@ -197,5 +197,14 @@ namespace chat_winForm.Control
 
             Height = LoadNewerTalkButtom.Location.Y + LoadNewerTalkButtom.Height;
         }
+
+        public void ResetTalkList()
+        {
+            foreach(var control in Controls)
+            {
+                if (!(control is Button))
+                    Controls.Remove(control as System.Windows.Forms.Control);
+            }
+        }
     }
 }

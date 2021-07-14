@@ -33,17 +33,17 @@ namespace chat_winForm.Forms
             this.TalkRoomListPanel = new System.Windows.Forms.Panel();
             this.TalkRoomList = new chat_winForm.Control.TalkRoomListControl();
             this.TalkListInTalkRoomPanel = new System.Windows.Forms.Panel();
+            this.SpinnerBox = new System.Windows.Forms.PictureBox();
             this.ShowAddDialogueButton = new System.Windows.Forms.Button();
             this.ShowAddGroupButton = new System.Windows.Forms.Button();
             this.ShowUserConfingButton = new System.Windows.Forms.Button();
             this.SendPanel = new System.Windows.Forms.Panel();
             this.SendTextBox = new System.Windows.Forms.TextBox();
             this.SendButton = new System.Windows.Forms.Button();
-            this.SpinnerBox = new System.Windows.Forms.PictureBox();
             this.TalkRoomListPanel.SuspendLayout();
             this.TalkListInTalkRoomPanel.SuspendLayout();
-            this.SendPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).BeginInit();
+            this.SendPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TalkRoomListPanel
@@ -81,6 +81,20 @@ namespace chat_winForm.Forms
             this.TalkListInTalkRoomPanel.Name = "TalkListInTalkRoomPanel";
             this.TalkListInTalkRoomPanel.Size = new System.Drawing.Size(445, 276);
             this.TalkListInTalkRoomPanel.TabIndex = 13;
+            // 
+            // SpinnerBox
+            // 
+            this.SpinnerBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SpinnerBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SpinnerBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.SpinnerBox.Image = ((System.Drawing.Image)(resources.GetObject("SpinnerBox.Image")));
+            this.SpinnerBox.Location = new System.Drawing.Point(28, 146);
+            this.SpinnerBox.Name = "SpinnerBox";
+            this.SpinnerBox.Size = new System.Drawing.Size(106, 106);
+            this.SpinnerBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SpinnerBox.TabIndex = 22;
+            this.SpinnerBox.TabStop = false;
+            this.SpinnerBox.Visible = false;
             // 
             // ShowAddDialogueButton
             // 
@@ -173,20 +187,6 @@ namespace chat_winForm.Forms
             this.SendButton.Text = "送信";
             this.SendButton.UseVisualStyleBackColor = false;
             // 
-            // SpinnerBox
-            // 
-            this.SpinnerBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SpinnerBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SpinnerBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.SpinnerBox.Image = ((System.Drawing.Image)(resources.GetObject("SpinnerBox.Image")));
-            this.SpinnerBox.Location = new System.Drawing.Point(28, 146);
-            this.SpinnerBox.Name = "SpinnerBox";
-            this.SpinnerBox.Size = new System.Drawing.Size(106, 106);
-            this.SpinnerBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.SpinnerBox.TabIndex = 22;
-            this.SpinnerBox.TabStop = false;
-            this.SpinnerBox.Visible = false;
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -199,6 +199,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.TalkListInTalkRoomPanel);
             this.Controls.Add(this.TalkRoomListPanel);
             this.Name = "HomeForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeForm_FormClosed);
             this.Load += new System.EventHandler(this.HomeForm_Load);
             this.Controls.SetChildIndex(this.TalkRoomListPanel, 0);
             this.Controls.SetChildIndex(this.TalkListInTalkRoomPanel, 0);
@@ -208,9 +209,9 @@ namespace chat_winForm.Forms
             this.Controls.SetChildIndex(this.SendPanel, 0);
             this.TalkRoomListPanel.ResumeLayout(false);
             this.TalkListInTalkRoomPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).EndInit();
             this.SendPanel.ResumeLayout(false);
             this.SendPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).EndInit();
             this.ResumeLayout(false);
 
         }

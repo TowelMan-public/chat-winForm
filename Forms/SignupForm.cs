@@ -4,16 +4,19 @@ using chat_winForm.Registry;
 using chat_winForm.Service;
 using System;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace chat_winForm.Forms
 {
     public partial class SignupForm : OuterForm
     {
         private static readonly UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
+        private bool IsClosedByThis;
 
         public SignupForm()
         {
             InitializeComponent();
+            IsClosedByThis = false;
         }
 
         private void SignupForm_Load(object sender, System.EventArgs e)
@@ -83,6 +86,8 @@ namespace chat_winForm.Forms
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+
+            IsClosedByThis = true;
             Close();
         }
 
@@ -136,6 +141,12 @@ namespace chat_winForm.Forms
             UseWaitCursor = false;
             LoginButton.Visible = true;
             SignupButton.Visible = true;
+        }
+
+        private void SignupForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!IsClosedByThis)
+                Application.Exit();
         }
     }
 }

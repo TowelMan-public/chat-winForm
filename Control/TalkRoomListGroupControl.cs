@@ -42,6 +42,12 @@ namespace chat_winForm.Control
 
         }
 
+        public void Reset()
+        {
+            Controls.Clear();
+            Height = 0;
+        }
+
         private void TalkRoomListGroupControl_Load(object sender, EventArgs e)
         {
 

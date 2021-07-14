@@ -167,7 +167,7 @@ namespace chat_winForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ExitButton_Click(object sender, EventArgs e)
+        protected void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

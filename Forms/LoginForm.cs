@@ -5,6 +5,7 @@ using chat_winForm.Regular;
 using chat_winForm.Service;
 using System;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace chat_winForm.Forms
 {
@@ -15,12 +16,15 @@ namespace chat_winForm.Forms
     {
         private static readonly UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
 
+        private bool IsClosedByThis;
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public LoginForm()
         {
             InitializeComponent();
+            IsClosedByThis = false;
         }
 
         /// <summary>
@@ -147,6 +151,8 @@ namespace chat_winForm.Forms
             //画面遷移
             SignupForm signupForm = new SignupForm();
             signupForm.Show();
+
+            IsClosedByThis = true;
             Close();
         }
 
@@ -201,6 +207,12 @@ namespace chat_winForm.Forms
             UseWaitCursor = false;
             LoginButton.Visible = true;
             SignupButton.Visible = true;
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(!IsClosedByThis)
+                Application.Exit();
         }
     }
 }

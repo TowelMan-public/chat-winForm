@@ -233,6 +233,8 @@ namespace chat_winForm.Forms
 
             SendTextBox.Text = "";
             FinishSpinnerMode();
+
+            UpdateTalkListInTalkRoom();
         }
 
         private async void GroupSendButton_Click(object sender, EventArgs e)
@@ -254,6 +256,8 @@ namespace chat_winForm.Forms
 
             SendTextBox.Text = "";
             FinishSpinnerMode();
+
+            UpdateTalkListInTalkRoom();
         }
 
         private void DialogueTalk_Click(object sender, EventArgs e)
@@ -279,6 +283,9 @@ namespace chat_winForm.Forms
             await Task.Run(() => { DialogueService.BrockDialogueTalkRoom(dialogueModel.HaveUserIdName); });
 
             FinishSpinnerMode();
+
+            ResetTalkListInTalkRoom();
+            UpdateTalkRoomList();
         }
 
         private async void DesireDialogueBrockButton_Click(object sender, EventArgs e)
@@ -289,6 +296,9 @@ namespace chat_winForm.Forms
             await Task.Run(() => { DialogueService.BrockDesireDialogueTalkRoom(desireDialogueModel.HaveUserIdName); });
 
             FinishSpinnerMode();
+
+            ResetTalkListInTalkRoom();
+            UpdateTalkRoomList();
         }
 
         private async void DesireDialogueAcceptButton_Click(object sender, EventArgs e)
@@ -299,6 +309,9 @@ namespace chat_winForm.Forms
             await Task.Run(() => { DialogueService.AcceptDesireDialogueTalkRoom(desireDialogueModel.HaveUserIdName); });
 
             FinishSpinnerMode();
+
+            ResetTalkListInTalkRoom();
+            UpdateTalkRoomList();
         }
 
         private async void DesireGroupBrockButton_Click(object sender, EventArgs e)
@@ -309,6 +322,9 @@ namespace chat_winForm.Forms
             await Task.Run(() => { GroupService.BrockDesireGroupTalkRoom(desireGroupModel.GroupTalkRoomId); });
 
             FinishSpinnerMode();
+
+            ResetTalkListInTalkRoom();
+            UpdateTalkRoomList();
         }
 
         private async void DesireGroupAcceptButton_Click(object sender, EventArgs e)
@@ -319,6 +335,9 @@ namespace chat_winForm.Forms
             await Task.Run(() => { GroupService.AcceptDesireGroupTalkRoom(desireGroupModel.GroupTalkRoomId); });
 
             FinishSpinnerMode();
+
+            ResetTalkListInTalkRoom();
+            UpdateTalkRoomList();
         }
 
         /*///////////////////// 部品（デリゲーター）として使うもの ////////////////////////////////////////////*/
@@ -334,6 +353,23 @@ namespace chat_winForm.Forms
         }
 
         /*///////////////// 小部品 /////////////////////////////////////////////////////*/
+
+        void UpdateTalkRoomList()
+        {
+            TalkRoomList.UpdateTalkRoomList();
+        }
+
+        void UpdateTalkListInTalkRoom()
+        {
+            TalkListInTalkRoom.UpdateTalkList();
+        }
+
+        void ResetTalkListInTalkRoom()
+        {
+            Controls.Remove(TalkListInTalkRoom);
+            TalkListInTalkRoom.Dispose();
+            TalkListInTalkRoom = null;
+        }
 
         void SetSendButtonClickEvent(EventHandler eventHandler)
         {
@@ -359,6 +395,11 @@ namespace chat_winForm.Forms
         {
             SpinnerBox.Visible = false;
             UseWaitCursor = false;
+        }
+
+        private void HomeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
