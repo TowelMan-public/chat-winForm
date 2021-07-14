@@ -59,6 +59,7 @@ namespace chat_winForm.Control
             this.OpenOrCloseLabel.Size = new System.Drawing.Size(28, 19);
             this.OpenOrCloseLabel.TabIndex = 1;
             this.OpenOrCloseLabel.Text = "＞";
+            this.OpenOrCloseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // NoticeCountColtrol
             // 
@@ -76,9 +77,7 @@ namespace chat_winForm.Control
             // 
             // TalkRoomListGroupTitleControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.NoticeCountColtrol);
             this.Controls.Add(this.OpenOrCloseLabel);

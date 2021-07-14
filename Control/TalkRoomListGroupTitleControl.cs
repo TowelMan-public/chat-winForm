@@ -88,7 +88,8 @@ namespace chat_winForm.Control
 
         private void TalkRoomControl_Load(object sender, EventArgs e)
         {
-            IsOpend = false;
+            IsOpend = true;
+            OpenOrCloseLabel.Visible = true;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace chat_winForm.Service
 {
     static class TalkRoomService
     {
-        private static readonly UserCredentialsProvider userCredentialsProvider;
+        private static readonly UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
 
         static public List<TalkRoomModel> GetDialogueTalkRoomModelList()
         {

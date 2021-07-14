@@ -90,7 +90,7 @@ namespace chat_winForm
             // 
             this.ReReSizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReReSizeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ReReSizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ReReSizeButton.BackColor = System.Drawing.Color.Transparent;
             this.ReReSizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReReSizeButton.BackgroundImage")));
             this.ReReSizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ReReSizeButton.Cursor = System.Windows.Forms.Cursors.Default;
@@ -109,7 +109,7 @@ namespace chat_winForm
             this.BottomSizeChanger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BottomSizeChanger.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BottomSizeChanger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BottomSizeChanger.BackColor = System.Drawing.Color.Transparent;
             this.BottomSizeChanger.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.BottomSizeChanger.Location = new System.Drawing.Point(15, 435);
             this.BottomSizeChanger.Margin = new System.Windows.Forms.Padding(0);
@@ -167,7 +167,7 @@ namespace chat_winForm
             // 
             this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ExitButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
             this.ExitButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitButton.BackgroundImage")));
             this.ExitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Default;
@@ -187,7 +187,7 @@ namespace chat_winForm
             // 
             this.ReSizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReSizeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ReSizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ReSizeButton.BackColor = System.Drawing.Color.Transparent;
             this.ReSizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReSizeButton.BackgroundImage")));
             this.ReSizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ReSizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -204,7 +204,7 @@ namespace chat_winForm
             // 
             this.ToMinButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ToMinButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ToMinButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ToMinButton.BackColor = System.Drawing.Color.Transparent;
             this.ToMinButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ToMinButton.BackgroundImage")));
             this.ToMinButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ToMinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

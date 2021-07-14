@@ -4,6 +4,7 @@ using chat_winForm.Model;
 using chat_winForm.Service;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,10 +31,10 @@ namespace chat_winForm.Control
             DesireGroupTalkRoomListTitle.Text = "グループ招待一覧";
 
             //各ListGroupTitleにクリックイベント
-            DialogueTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
-            GroupTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
-            DesireDialogueTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
-            DesireGroupTalkRoomListTitle.MyClick += TalkRoomListTitle_Click;
+            DialogueTalkRoomListTitle.MyClick += DialogueTalkRoomListTitle_Click;
+            GroupTalkRoomListTitle.MyClick += GroupTalkRoomListTitle_Click;
+            DesireDialogueTalkRoomListTitle.MyClick += DesireDialogueTalkRoomListTitle_Click;
+            DesireGroupTalkRoomListTitle.MyClick += DesireGroupTalkRoomListTitle_Click;
 
             //各ListGroupにクリックイベントを設定
             DialogueTalkRoomList.TalkRoomClickEventHandler = DialigueTalkRoomClickEventHandler;
@@ -41,13 +42,86 @@ namespace chat_winForm.Control
             DesireDialogueTalkRoomList.TalkRoomClickEventHandler = DesireDialogueTalkRoomClickEventHandler;
             DesireGroupTalkRoomList.TalkRoomClickEventHandler = DesireGroupTalkRoomClickEventHandler;
 
+            DialogueTalkRoomList.Height = 0;
+            GroupTalkRoomList.Height = 0;
+            DesireDialogueTalkRoomList.Height = 0;
+            DesireGroupTalkRoomList.Height = 0;
+
             //4つのListGroup全て生成・表示
             CreateAllListGroupContents();
         }
 
-        private void TalkRoomListTitle_Click(object sender, EventArgs e)
+        private void Placement()
         {
+            DialogueTalkRoomListTitle.Location = new Point(0);
+            DialogueTalkRoomList.Location = new Point
+            {
+                Y = DialogueTalkRoomListTitle.Location.Y + DialogueTalkRoomListTitle.Height,
+                X = 0
+            };
 
+            GroupTalkRoomListTitle.Location = new Point
+            {
+                Y = DialogueTalkRoomList.Location.Y + (DialogueTalkRoomList.Visible ? DialogueTalkRoomList.Height : 0),
+                X = 0
+            };
+            GroupTalkRoomList.Location = new Point
+            {
+                X = 0,
+                Y = GroupTalkRoomListTitle.Location.Y + GroupTalkRoomListTitle.Height
+            };
+
+            DesireDialogueTalkRoomListTitle.Location = new Point
+            {
+                X = 0,
+                Y = GroupTalkRoomList.Location.Y + (GroupTalkRoomList.Visible ? GroupTalkRoomList.Height : 0)
+            };
+            DesireDialogueTalkRoomList.Location = new Point
+            {
+                X = 0,
+                Y = DesireDialogueTalkRoomListTitle.Location.Y + DesireDialogueTalkRoomListTitle.Height
+            };
+
+            DesireGroupTalkRoomListTitle.Location = new Point
+            {
+                X = 0,
+                Y = DesireDialogueTalkRoomList.Location.Y + (DesireDialogueTalkRoomList.Visible ? DesireDialogueTalkRoomList.Height : 0),
+            };
+            DesireGroupTalkRoomList.Location = new Point
+            {
+                X = 0,
+                Y = DesireGroupTalkRoomListTitle.Location.Y + DesireGroupTalkRoomListTitle.Height
+            };
+
+            Height = DesireGroupTalkRoomList.Location.Y + DesireGroupTalkRoomList.Height;
+        }
+
+        private void DialogueTalkRoomListTitle_Click(object sender, EventArgs e)
+        {
+            DialogueTalkRoomListTitle.IsOpend ^= true;
+            DialogueTalkRoomList.Visible = DialogueTalkRoomListTitle.IsOpend;
+            Placement();
+        }
+
+        private void GroupTalkRoomListTitle_Click(object sender, EventArgs e)
+        {
+            GroupTalkRoomListTitle.IsOpend ^= true;
+            GroupTalkRoomList.Visible = GroupTalkRoomListTitle.IsOpend;
+            Placement();
+        }
+
+        private void DesireDialogueTalkRoomListTitle_Click(object sender, EventArgs e)
+        {
+            DesireDialogueTalkRoomListTitle.IsOpend ^= true;
+            DesireDialogueTalkRoomList.Visible = DesireDialogueTalkRoomListTitle.IsOpend;
+            Placement();
+        }
+
+        private void DesireGroupTalkRoomListTitle_Click(object sender, EventArgs e)
+        {
+            DesireGroupTalkRoomListTitle.IsOpend ^= true;
+            DesireGroupTalkRoomList.Visible = DesireGroupTalkRoomListTitle.IsOpend;
+            Placement();
         }
 
         private async void CreateAllListGroupContents()
@@ -69,6 +143,9 @@ namespace chat_winForm.Control
                 ShowGroupTalkRoomGroupContents(modelLists[1]);
                 ShowDesireGroupTalkRoomGroupContents(modelLists[2]);
                 ShowDesireDialogueTalkRoomGroupContents(modelLists[3]);
+
+                //配置
+                Placement();
             }
             catch (InvalidLoginException)
             {
@@ -89,22 +166,30 @@ namespace chat_winForm.Control
 
         private void ShowDialogueTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
+            DialogueTalkRoomListTitle.NoticeCount = 0;
+
             foreach (TalkRoomModel model in modelList)
             {
                 DialogueTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+                DialogueTalkRoomListTitle.NoticeCount += model.NoticeCount;
             }
         }
 
         private void ShowGroupTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
+            GroupTalkRoomListTitle.NoticeCount = 0;
+
             foreach (TalkRoomModel model in modelList)
             {
                 GroupTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
+                GroupTalkRoomListTitle.NoticeCount += model.NoticeCount;
             }
         }
 
         private void ShowDesireGroupTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
+            DesireGroupTalkRoomListTitle.NoticeCount = modelList.Count;
+
             foreach (TalkRoomModel model in modelList)
             {
                 DesireGroupTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
@@ -113,6 +198,7 @@ namespace chat_winForm.Control
 
         private void ShowDesireDialogueTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
+            DesireDialogueTalkRoomListTitle.NoticeCount = modelList.Count;
             foreach (TalkRoomModel model in modelList)
             {
                 DialogueTalkRoomList.AddTalkRoom(model.Name, model.NoticeCount, model);
