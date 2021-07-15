@@ -12,7 +12,6 @@ namespace chat_winForm.Registry
     {
         private const String REGISTRY_SUB_KEY = @"chat-app\user";
         private const String USER_ID_NAME_KEY = "userIdName";
-        private const String USER_NAME_KEY = "userName";
         private const String PASSWORD_KEY = "password";
 
         private const String ENCODE_KEY = @"ffffffawt89z@-0:A~W$t5raz;0349^q";
@@ -52,22 +51,6 @@ namespace chat_winForm.Registry
         }
 
         /// <summary>
-        /// ニックネーム（=ユーザー名）
-        /// レジストリに保存される
-        /// </summary>
-        public String UserName
-        {
-            get
-            {
-                return GetKeyValue(USER_NAME_KEY);
-            }
-            set
-            {
-                SetKeyValue(USER_NAME_KEY, value);
-            }
-        }
-
-        /// <summary>
         /// パースワード
         /// レジストリに保存される
         /// </summary>
@@ -95,14 +78,6 @@ namespace chat_winForm.Registry
         public void DeleteUserIdName()
         {
             DeleteKeyValue(USER_ID_NAME_KEY);
-        }
-
-        /// <summary>
-        /// UserNameの値の削除
-        /// </summary>
-        public void DeleteUserName()
-        {
-            DeleteKeyValue(USER_NAME_KEY);
         }
 
         /// <summary>

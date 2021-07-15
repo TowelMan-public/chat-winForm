@@ -65,8 +65,8 @@ namespace chat_winForm.Regular
         {
             try
             {
-                string outhToken = await Task.Run(() => UserService.Login(userCredentialsProvider.UserIdName, userCredentialsProvider.Password));
-                userCredentialsProvider.OauthToken = outhToken;
+                userCredentialsProvider.OauthToken =
+                    await Task.Run(() => UserService.Login(userCredentialsProvider.UserIdName, userCredentialsProvider.Password));
             }
             catch (LoginException)
             {
@@ -85,7 +85,8 @@ namespace chat_winForm.Regular
         /// </summary>
         public void Stop()
         {
-            timer.Dispose();
+            if (timer != null)
+                timer.Dispose();
         }
     }
 }

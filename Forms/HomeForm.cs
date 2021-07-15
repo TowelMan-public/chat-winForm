@@ -209,7 +209,8 @@ namespace chat_winForm.Forms
 
         private void ShowUserConfingButton_Click(object sender, EventArgs e)
         {
-            //TODO 画面遷移
+            var userConfingForm = new UserConfingForm();
+            userConfingForm.Show();
         }
 
         /*////////////////// 動的なクリックイベント //////////////////////////////////////*/

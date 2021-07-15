@@ -29,6 +29,9 @@ namespace chat_winForm.Forms
             ValidationErrorProvider.SetError(UserIdNameTextBox, ValidateMessage.INIT_MESSAGE);
             ValidationErrorProvider.SetError(UserNameTextBox, ValidateMessage.INIT_MESSAGE);
             ValidationErrorProvider.SetError(PasswordTextBox, ValidateMessage.INIT_MESSAGE);
+
+            //PasswordTextBox
+            PasswordTextBox.PasswordChar = '*';
         }
 
         private async void SignupButton_Click(object sender, System.EventArgs e)
@@ -58,7 +61,6 @@ namespace chat_winForm.Forms
                 if (CheckIsSavePassword.Checked)
                 {
                     userCredentialsProvider.UserIdName = userIdName;
-                    userCredentialsProvider.UserName = userName;
                     userCredentialsProvider.Password = password;
                 }
 

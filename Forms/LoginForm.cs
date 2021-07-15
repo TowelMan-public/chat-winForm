@@ -118,10 +118,10 @@ namespace chat_winForm.Forms
                 //後処理
                 if (ChackIsSavePassword.Checked)
                 {
-                    userCredentialsProvider.UserIdName = UserIdNameTextBox.Text;
                     userCredentialsProvider.Password = PasswordTextBox.Text;
                     OuthTokenUpdater.GetInstance().Start();
                 }
+                userCredentialsProvider.UserIdName = UserIdNameTextBox.Text;
                 userCredentialsProvider.OauthToken = outhToken;
 
                 //画面遷移
