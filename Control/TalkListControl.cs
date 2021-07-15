@@ -121,7 +121,7 @@ namespace chat_winForm.Control
                 }
                 else
                 {
-                    location.Y = oldestTalkControl.Location.Y - oldestTalkControl.Height - TALK_UP_AND_BOTTOM_MERGIN;
+                    location.Y = oldestTalkControl.Location.Y - talkControl.Height - TALK_UP_AND_BOTTOM_MERGIN;
                 }
 
                 talkControl.Location = location;
@@ -132,7 +132,7 @@ namespace chat_winForm.Control
             LoadOlderTalkButtom.Location = new Point
             {
                 X = 0,
-                Y = oldestTalkControl.Location.Y - TALK_UP_AND_BOTTOM_MERGIN
+                Y = oldestTalkControl.Location.Y - TALK_UP_AND_BOTTOM_MERGIN - LoadOlderTalkButtom.Height
             };
 
             int addLocationY = -LoadOlderTalkButtom.Location.Y;

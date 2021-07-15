@@ -70,6 +70,8 @@ namespace chat_winForm.Forms
                     //画面遷移
                     HomeForm homeForm = new HomeForm();
                     homeForm.Show();
+
+                    IsClosedByThis = true;
                     Close();
                 }
                 catch (LoginException)
@@ -125,6 +127,8 @@ namespace chat_winForm.Forms
                 //画面遷移
                 HomeForm homeForm = new HomeForm();
                 homeForm.Show();
+
+                IsClosedByThis = true;
                 Close();
             }
             catch (LoginException)

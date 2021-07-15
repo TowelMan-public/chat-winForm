@@ -169,7 +169,7 @@ namespace chat_winForm
         /// <param name="e"></param>
         protected void ExitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         /// <summary>

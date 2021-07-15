@@ -193,6 +193,12 @@
       <DependentUpon>NoticeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Commons\CommonMessageBoxs.cs" />
+    <Compile Include="Forms\GroupDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GroupDetailsForm.Designer.cs">
+      <DependentUpon>GroupDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RunForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,7 @@
     <Compile Include="Model\GroupTalkRoomModel.cs" />
     <Compile Include="Model\TalkModel.cs" />
     <Compile Include="Model\TalkRoomModel.cs" />
+    <Compile Include="Model\UserInGroupModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -285,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\OuterTalkRoomListControl.resx">
       <DependentUpon>OuterTalkRoomListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GroupDetailsForm.resx">
+      <DependentUpon>GroupDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>

@@ -55,7 +55,7 @@ namespace chat_winForm.Forms
                 Location = new Point(0),
                 Width = TalkListInTalkRoomPanel.Width,
                 Height = TalkListInTalkRoomPanel.Height,
-                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom,
                 Model = dialogueTalkRoomModel,
                 SubContentControl = new DialogueMenuControl
                 {
@@ -97,7 +97,7 @@ namespace chat_winForm.Forms
                 Location = new Point(0),
                 Width = TalkListInTalkRoomPanel.Width,
                 Height = TalkListInTalkRoomPanel.Height,
-                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom,
                 Model = groupTalkRoomModel,
                 SubContentControl = new GroupMenuControl
                 {
@@ -137,7 +137,7 @@ namespace chat_winForm.Forms
                 Location = new Point(0),
                 Width = TalkListInTalkRoomPanel.Width,
                 Height = TalkListInTalkRoomPanel.Height,
-                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom,
                 Model = desireDialogueTalkRoomModel,
                 SubContentControl = new DesireMenuControl
                 {
@@ -176,7 +176,7 @@ namespace chat_winForm.Forms
                 Location = new Point(0),
                 Width = TalkListInTalkRoomPanel.Width,
                 Height = TalkListInTalkRoomPanel.Height,
-                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom,
                 Model = desireGroupTalkRoomModel,
                 SubContentControl = new DesireMenuControl
                 {
@@ -272,7 +272,11 @@ namespace chat_winForm.Forms
 
         private void ShowGroupDetailsButton_Click(object sender, EventArgs e)
         {
-            //TODO 画面遷移
+            var groupDetailsForm = new GroupDetailsForm
+            {
+                Model = TalkListInTalkRoom.Model as GroupTalkRoomModel
+            };
+            groupDetailsForm.Show();
         }
 
         private async void DialogueBrockButton_Click(object sender, EventArgs e)
