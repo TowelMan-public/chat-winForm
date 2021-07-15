@@ -15,6 +15,10 @@ namespace chat_winForm.Forms
     public partial class GroupDetailsForm : chat_winForm.OuterForm
     {
         public GroupTalkRoomModel Model { get; set; }
+        public delegate void Prosess();
+
+        public Prosess OtherThanDeleteAction_After { get; set; }
+        public Prosess DeleteAction_After { get; set; }
 
         public GroupDetailsForm()
         {
@@ -81,8 +85,9 @@ namespace chat_winForm.Forms
 
             await Task.Run(() => { GroupService.DeleteGroup(Model.GroupTalkRoomId);});
 
-            //TODO
             FinishSpinnerMode();
+            DeleteAction_After();
+            Close();
         }
 
         private async void ChangeGroupNameButton_Click(object sender, EventArgs e)
@@ -99,8 +104,10 @@ namespace chat_winForm.Forms
             StartSpinnerMode();
 
             await Task.Run(() => { GroupService.UpdateGroupName(Model.GroupTalkRoomId, GroupNameTextBox.Text); });
+            Model.Name = GroupNameTextBox.Text;
 
             FinishSpinnerMode();
+            OtherThanDeleteAction_After();
         }
 
         private async void InvitationUserButton_Click(object sender, EventArgs e)
@@ -121,6 +128,7 @@ namespace chat_winForm.Forms
             InvitationUserIdNameTextBox.Text = "";
 
             FinishSpinnerMode();
+            OtherThanDeleteAction_After();
         }
 
         private void GroupNameTextBox_Validating(object sender, CancelEventArgs e)
@@ -148,6 +156,8 @@ namespace chat_winForm.Forms
             await Task.Run(() => { GroupService.BrockGroupTalkRoom(Model.GroupTalkRoomId); });
 
             FinishSpinnerMode();
+            DeleteAction_After();
+            Close();
         }
 
         private async void DeleteUserInGroupButton_Click(object sender, EventArgs e)

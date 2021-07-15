@@ -12,6 +12,10 @@ namespace chat_winForm.Forms
 {
     public partial class MakeGroupForm : chat_winForm.OuterForm
     {
+        public delegate void Prosess ();
+
+        public Prosess MakeGroup_After { get; set; }
+
         public MakeGroupForm()
         {
             InitializeComponent();
@@ -25,9 +29,9 @@ namespace chat_winForm.Forms
             StartSpinnerMode();
 
             GroupService.MakeGroup(GroupNameTextBox.Text);
-            //TODO
 
             FinishSpinnerMode();
+            MakeGroup_After();
         }
 
         private void GroupNameTextBox_Validated(object sender, EventArgs e)
@@ -56,6 +60,11 @@ namespace chat_winForm.Forms
         {
             SpinnerBox.Visible = false;
             UseWaitCursor = false;
+        }
+
+        private void MakeGroupForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

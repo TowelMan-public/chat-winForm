@@ -14,6 +14,7 @@ namespace chat_winForm.Forms
     {
         private TalkListInTalkRoomControl TalkListInTalkRoom;
 
+
         public HomeForm()
         {
             InitializeComponent();
@@ -77,6 +78,8 @@ namespace chat_winForm.Forms
 
             SendPanel.Visible = true;
             SetSendButtonClickEvent(DialogueSendButton_Click);
+
+            UpdateTalkRoomList();
         }
 
         private void GroupTalkRoom_Click(object sender, EventArgs e)
@@ -117,6 +120,8 @@ namespace chat_winForm.Forms
 
             SendPanel.Visible = true;
             SetSendButtonClickEvent(GroupSendButton_Click);
+
+            UpdateTalkRoomList();
         }
 
         private void DesireDialigueTalkRoom_Click(object sender, EventArgs e)
@@ -156,6 +161,7 @@ namespace chat_winForm.Forms
             TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
 
             SendPanel.Visible = false;
+            UpdateTalkRoomList();
         }
 
         private void DesireGroupTalkRoom_Click(object sender, EventArgs e)
@@ -195,17 +201,20 @@ namespace chat_winForm.Forms
             TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
 
             SendPanel.Visible = false;
+            UpdateTalkRoomList();
         }
 
         private void ShowAddDialogueButton_Click(object sender, EventArgs e)
         {
             var addDialogueForm = new AddDialogueForm();
+            addDialogueForm.AddDialogue_After = UpdateTalkRoomList;
             addDialogueForm.Show();
         }
 
         private void ShowMakeGroupButton_Click(object sender, EventArgs e)
         {
             var makeGroupForm = new MakeGroupForm();
+            makeGroupForm.MakeGroup_After = UpdateTalkRoomList;
             makeGroupForm.Show();
         }
 
@@ -213,6 +222,18 @@ namespace chat_winForm.Forms
         {
             var userConfingForm = new UserConfingForm();
             userConfingForm.Show();
+        }
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            if(TalkListInTalkRoom == null)
+            {
+                UpdateTalkRoomList();
+            }
+            else
+            {
+                ReCreateTalkListInTalkRoom();
+            }
         }
 
         /*////////////////// 動的なクリックイベント //////////////////////////////////////*/
@@ -275,19 +296,29 @@ namespace chat_winForm.Forms
 
             var talkEditorForm = new TalkEditorForm
             {
-                Model = talkControl.Model
+                Model = talkControl.Model,
+                Action_After = ReCreateTalkListInTalkRoom
             };
             talkEditorForm.Show();
-
-            //TODO
         }
 
         private void ShowGroupDetailsButton_Click(object sender, EventArgs e)
         {
             var groupDetailsForm = new GroupDetailsForm
             {
-                Model = TalkListInTalkRoom.Model as GroupTalkRoomModel
+                Model = TalkListInTalkRoom.Model as GroupTalkRoomModel,
+                DeleteAction_After = () =>
+                {
+                    UpdateTalkRoomList();
+                    DeleteTalkListInTalkRoom();
+                }
             };
+            groupDetailsForm.OtherThanDeleteAction_After = () =>
+            {
+                UpdateTalkRoomList();
+                ReCreateTalkListInTalkRoom(groupDetailsForm.Model.Name);
+            };
+
             groupDetailsForm.Show();
         }
 
@@ -378,6 +409,47 @@ namespace chat_winForm.Forms
         void UpdateTalkListInTalkRoom()
         {
             TalkListInTalkRoom.UpdateTalkList();
+            UpdateTalkRoomList();
+        }
+
+        void ReCreateTalkListInTalkRoom()
+        {
+            if(TalkListInTalkRoom.NewestTalkIndex != -1)
+                TalkListInTalkRoom.Model.LastTalkIndex = TalkListInTalkRoom.NewestTalkIndex;
+
+            TalkListInTalkRoomControl talkListInTalkRoom = new TalkListInTalkRoomControl
+            {
+                Location = new Point(0),
+                Width = TalkListInTalkRoomPanel.Width,
+                Height = TalkListInTalkRoomPanel.Height,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom,
+                Model = TalkListInTalkRoom.Model,
+                SubContentControl = TalkListInTalkRoom.SubContentControl,
+                TalkClickEventHandler = TalkListInTalkRoom.TalkClickEventHandler,
+                TalkListLoader = TalkListInTalkRoom.TalkListLoader
+            };
+
+            TalkListInTalkRoomPanel.Controls.Clear();
+            TalkListInTalkRoom.Dispose();
+
+            TalkListInTalkRoom = talkListInTalkRoom;
+            TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
+
+            UpdateTalkRoomList();
+        }
+
+        void ReCreateTalkListInTalkRoom(String newName)
+        {
+            TalkListInTalkRoom.Model.Name = newName;
+            ReCreateTalkListInTalkRoom();
+        }
+
+        void DeleteTalkListInTalkRoom()
+        {
+            SendPanel.Visible = false;
+            TalkListInTalkRoomPanel.Controls.Remove(TalkListInTalkRoom);
+            TalkListInTalkRoom.Dispose();
+            TalkListInTalkRoom = null;
         }
 
         void ResetTalkListInTalkRoom()

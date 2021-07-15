@@ -11,6 +11,11 @@ namespace chat_winForm.Control
     {
         public delegate List<TalkModel> LoadTalkList(int startIndex, int maxSize);
 
+        public int NewestTalkIndex
+        {
+            get => BodyControl.NewestTalkIndex;
+        }
+
         public UserControl SubContentControl
         {
             get => subContentControl;

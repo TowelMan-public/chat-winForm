@@ -16,6 +16,10 @@ namespace chat_winForm.Forms
     {
         public TalkModel Model { get; set; }
 
+        public delegate void Prosess();
+
+        public Prosess Action_After { get; set; }
+
         public TalkEditorForm()
         {
             InitializeComponent();
@@ -51,8 +55,8 @@ namespace chat_winForm.Forms
             }
 
             FinishSpinnerMode();
-
-            //TODO
+            Action_After();
+            Close();
         }
 
         private async void UpdateTalkButton_Click(object sender, EventArgs e)
@@ -78,8 +82,7 @@ namespace chat_winForm.Forms
             }
 
             FinishSpinnerMode();
-
-            //TODO
+            Action_After();
         }
 
         private void TalkContentTextBox_Validated(object sender, EventArgs e)

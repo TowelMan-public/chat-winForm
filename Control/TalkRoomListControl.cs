@@ -246,6 +246,8 @@ namespace chat_winForm.Control
             DesireDialogueTalkRoomListTitle.IsOpend = true;
             DesireGroupTalkRoomListTitle.NoticeCount = 0;
             DesireGroupTalkRoomListTitle.IsOpend = true;
+
+            CreateAllListGroupContents();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace chat_winForm.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.TalkRoomListPanel = new System.Windows.Forms.Panel();
             this.TalkRoomList = new chat_winForm.Control.TalkRoomListControl();
@@ -40,6 +41,7 @@ namespace chat_winForm.Forms
             this.SendPanel = new System.Windows.Forms.Panel();
             this.SendTextBox = new System.Windows.Forms.TextBox();
             this.SendButton = new System.Windows.Forms.Button();
+            this.UpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.TalkRoomListPanel.SuspendLayout();
             this.TalkListInTalkRoomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).BeginInit();
@@ -187,6 +189,11 @@ namespace chat_winForm.Forms
             this.SendButton.Text = "送信";
             this.SendButton.UseVisualStyleBackColor = false;
             // 
+            // UpdateTimer
+            // 
+            this.UpdateTimer.Interval = 300000;
+            this.UpdateTimer.Tick += new System.EventHandler(this.UpdateTimer_Tick);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -228,5 +235,6 @@ namespace chat_winForm.Forms
         private System.Windows.Forms.TextBox SendTextBox;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.PictureBox SpinnerBox;
+        private System.Windows.Forms.Timer UpdateTimer;
     }
 }

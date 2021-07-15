@@ -32,10 +32,10 @@ namespace chat_winForm.Control
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TalkListInTalkRoomControl));
             this.SwitchButton = new System.Windows.Forms.Button();
             this.SpinnerBox = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.TalkRoomListPanel = new System.Windows.Forms.Panel();
             this.BodyControl = new chat_winForm.Control.TalkListControl();
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.TalkRoomListPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SwitchButton
@@ -67,18 +67,18 @@ namespace chat_winForm.Control
             this.SpinnerBox.TabStop = false;
             this.SpinnerBox.Visible = false;
             // 
-            // panel1
+            // TalkRoomListPanel
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TalkRoomListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.SpinnerBox);
-            this.panel1.Controls.Add(this.BodyControl);
-            this.panel1.Location = new System.Drawing.Point(3, 43);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(482, 418);
-            this.panel1.TabIndex = 34;
+            this.TalkRoomListPanel.AutoScroll = true;
+            this.TalkRoomListPanel.Controls.Add(this.SpinnerBox);
+            this.TalkRoomListPanel.Controls.Add(this.BodyControl);
+            this.TalkRoomListPanel.Location = new System.Drawing.Point(3, 43);
+            this.TalkRoomListPanel.Name = "TalkRoomListPanel";
+            this.TalkRoomListPanel.Size = new System.Drawing.Size(482, 418);
+            this.TalkRoomListPanel.TabIndex = 34;
             // 
             // BodyControl
             // 
@@ -100,13 +100,13 @@ namespace chat_winForm.Control
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.TalkRoomListPanel);
             this.Controls.Add(this.SwitchButton);
             this.Name = "TalkListInTalkRoomControl";
             this.Size = new System.Drawing.Size(488, 464);
             this.Load += new System.EventHandler(this.TalkListInTalkRoomControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.TalkRoomListPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -115,7 +115,7 @@ namespace chat_winForm.Control
 
         private System.Windows.Forms.Button SwitchButton;
         private System.Windows.Forms.PictureBox SpinnerBox;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TalkRoomListPanel;
         private TalkListControl BodyControl;
     }
 }

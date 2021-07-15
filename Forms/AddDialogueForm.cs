@@ -12,6 +12,10 @@ namespace chat_winForm.Forms
 {
     public partial class AddDialogueForm : chat_winForm.OuterForm
     {
+        public delegate void Prosess();
+
+        public Prosess AddDialogue_After { get; set; }
+
         public AddDialogueForm()
         {
             InitializeComponent();
@@ -25,9 +29,9 @@ namespace chat_winForm.Forms
             StartSpinnerMode();
 
             DialogueService.AddUserInDialogue(UserIdNameTextBox.Text);
-            //TODO
 
             FinishSpinnerMode();
+            AddDialogue_After();
         }
 
         private void UserIdNameTextBox_Validated(object sender, EventArgs e)
@@ -56,6 +60,11 @@ namespace chat_winForm.Forms
         {
             SpinnerBox.Visible = false;
             UseWaitCursor = false;
+        }
+
+        private void AddDialogueForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
