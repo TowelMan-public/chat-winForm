@@ -35,7 +35,7 @@ namespace chat_winForm.Forms
             this.TalkListInTalkRoomPanel = new System.Windows.Forms.Panel();
             this.SpinnerBox = new System.Windows.Forms.PictureBox();
             this.ShowAddDialogueButton = new System.Windows.Forms.Button();
-            this.ShowAddGroupButton = new System.Windows.Forms.Button();
+            this.ShowMakeGroupButton = new System.Windows.Forms.Button();
             this.ShowUserConfingButton = new System.Windows.Forms.Button();
             this.SendPanel = new System.Windows.Forms.Panel();
             this.SendTextBox = new System.Windows.Forms.TextBox();
@@ -113,22 +113,22 @@ namespace chat_winForm.Forms
             this.ShowAddDialogueButton.UseVisualStyleBackColor = false;
             this.ShowAddDialogueButton.Click += new System.EventHandler(this.ShowAddDialogueButton_Click);
             // 
-            // ShowAddGroupButton
+            // ShowMakeGroupButton
             // 
-            this.ShowAddGroupButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ShowAddGroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ShowAddGroupButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShowAddGroupButton.BackgroundImage")));
-            this.ShowAddGroupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ShowAddGroupButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ShowAddGroupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.ShowAddGroupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
-            this.ShowAddGroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowAddGroupButton.Location = new System.Drawing.Point(18, 302);
-            this.ShowAddGroupButton.Name = "ShowAddGroupButton";
-            this.ShowAddGroupButton.Size = new System.Drawing.Size(53, 53);
-            this.ShowAddGroupButton.TabIndex = 14;
-            this.ShowAddGroupButton.UseVisualStyleBackColor = false;
-            this.ShowAddGroupButton.Click += new System.EventHandler(this.ShowAddGroupButton_Click);
+            this.ShowMakeGroupButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ShowMakeGroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ShowMakeGroupButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShowMakeGroupButton.BackgroundImage")));
+            this.ShowMakeGroupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ShowMakeGroupButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ShowMakeGroupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.ShowMakeGroupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
+            this.ShowMakeGroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShowMakeGroupButton.Location = new System.Drawing.Point(18, 302);
+            this.ShowMakeGroupButton.Name = "ShowMakeGroupButton";
+            this.ShowMakeGroupButton.Size = new System.Drawing.Size(53, 53);
+            this.ShowMakeGroupButton.TabIndex = 14;
+            this.ShowMakeGroupButton.UseVisualStyleBackColor = false;
+            this.ShowMakeGroupButton.Click += new System.EventHandler(this.ShowMakeGroupButton_Click);
             // 
             // ShowUserConfingButton
             // 
@@ -194,7 +194,7 @@ namespace chat_winForm.Forms
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SendPanel);
             this.Controls.Add(this.ShowUserConfingButton);
-            this.Controls.Add(this.ShowAddGroupButton);
+            this.Controls.Add(this.ShowMakeGroupButton);
             this.Controls.Add(this.ShowAddDialogueButton);
             this.Controls.Add(this.TalkListInTalkRoomPanel);
             this.Controls.Add(this.TalkRoomListPanel);
@@ -204,7 +204,7 @@ namespace chat_winForm.Forms
             this.Controls.SetChildIndex(this.TalkRoomListPanel, 0);
             this.Controls.SetChildIndex(this.TalkListInTalkRoomPanel, 0);
             this.Controls.SetChildIndex(this.ShowAddDialogueButton, 0);
-            this.Controls.SetChildIndex(this.ShowAddGroupButton, 0);
+            this.Controls.SetChildIndex(this.ShowMakeGroupButton, 0);
             this.Controls.SetChildIndex(this.ShowUserConfingButton, 0);
             this.Controls.SetChildIndex(this.SendPanel, 0);
             this.TalkRoomListPanel.ResumeLayout(false);
@@ -221,7 +221,7 @@ namespace chat_winForm.Forms
         private System.Windows.Forms.Panel TalkRoomListPanel;
         private System.Windows.Forms.Panel TalkListInTalkRoomPanel;
         private System.Windows.Forms.Button ShowAddDialogueButton;
-        private System.Windows.Forms.Button ShowAddGroupButton;
+        private System.Windows.Forms.Button ShowMakeGroupButton;
         private System.Windows.Forms.Button ShowUserConfingButton;
         private System.Windows.Forms.Panel SendPanel;
         private Control.TalkRoomListControl TalkRoomList;

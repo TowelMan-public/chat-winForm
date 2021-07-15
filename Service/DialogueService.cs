@@ -1,5 +1,6 @@
 ﻿using chat_winForm.Client.Api;
 using chat_winForm.Registry;
+using System;
 
 namespace chat_winForm.Service
 {
@@ -20,6 +21,11 @@ namespace chat_winForm.Service
         static public void AcceptDesireDialogueTalkRoom(string haveUserIdName)
         {
             DesireUserApi.JoinUser(userCredentialsProvider.OauthToken, haveUserIdName);
+        }
+
+        internal static void AddUserInDialogue(string userIdName)
+        {
+            UserInDialogueApi.JnsertUserInDiarogue(userCredentialsProvider.OauthToken, userIdName);
         }
     }
 }

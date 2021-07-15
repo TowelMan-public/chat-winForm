@@ -192,12 +192,24 @@
     <Compile Include="Control\NoticeControl.Designer.cs">
       <DependentUpon>NoticeControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddDialogueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDialogueForm.Designer.cs">
+      <DependentUpon>AddDialogueForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Commons\CommonMessageBoxs.cs" />
     <Compile Include="Forms\GroupDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\GroupDetailsForm.Designer.cs">
       <DependentUpon>GroupDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MakeGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MakeGroupForm.Designer.cs">
+      <DependentUpon>MakeGroupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RunForm.cs">
       <SubType>Form</SubType>
@@ -311,11 +323,17 @@
     <EmbeddedResource Include="Control\OuterTalkRoomListControl.resx">
       <DependentUpon>OuterTalkRoomListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddDialogueForm.resx">
+      <DependentUpon>AddDialogueForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\GroupDetailsForm.resx">
       <DependentUpon>GroupDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MakeGroupForm.resx">
+      <DependentUpon>MakeGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RunForm.resx">
       <DependentUpon>RunForm.cs</DependentUpon>

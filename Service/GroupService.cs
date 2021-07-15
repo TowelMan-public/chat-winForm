@@ -20,6 +20,11 @@ namespace chat_winForm.Service
             DesireGroupApi.DeleteDesireGroup(userCredentialsProvider.OauthToken, groupTalkRoomId);
         }
 
+        static public void MakeGroup(string groupName)
+        {
+            GroupApi.InsertGroup(userCredentialsProvider.OauthToken, groupName);
+        }
+
         static public void AcceptDesireGroupTalkRoom(int groupTalkRoomId)
         {
             DesireGroupApi.JoinGroup(userCredentialsProvider.OauthToken, groupTalkRoomId);

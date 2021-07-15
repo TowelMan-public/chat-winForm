@@ -23,7 +23,7 @@ namespace chat_winForm.Forms
         {
             //画像の透過処置
             (ShowAddDialogueButton.BackgroundImage as Bitmap).MakeTransparent();
-            (ShowAddGroupButton.BackgroundImage as Bitmap).MakeTransparent();
+            (ShowMakeGroupButton.BackgroundImage as Bitmap).MakeTransparent();
             (ShowUserConfingButton.BackgroundImage as Bitmap).MakeTransparent();
 
             //TalkRoomListのクリックイベント登録
@@ -199,12 +199,14 @@ namespace chat_winForm.Forms
 
         private void ShowAddDialogueButton_Click(object sender, EventArgs e)
         {
-            //TODO 画面遷移
+            var addDialogueForm = new AddDialogueForm();
+            addDialogueForm.Show();
         }
 
-        private void ShowAddGroupButton_Click(object sender, EventArgs e)
+        private void ShowMakeGroupButton_Click(object sender, EventArgs e)
         {
-            //TODO 画面遷移
+            var makeGroupForm = new MakeGroupForm();
+            makeGroupForm.Show();
         }
 
         private void ShowUserConfingButton_Click(object sender, EventArgs e)

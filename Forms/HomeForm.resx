@@ -914,7 +914,7 @@
         /////////////////////////////////////////////////////////////////wA=
 </value>
   </data>
-  <data name="ShowAddGroupButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ShowMakeGroupButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk02RwAAAAAAADYAAAAoAAAAVQAAAEcAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////
         ////////////////////////////////////////////////////////////////////////////////
