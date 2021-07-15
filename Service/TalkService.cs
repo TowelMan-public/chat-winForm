@@ -49,5 +49,25 @@ namespace chat_winForm.Service
 
             return talkModelList;
         }
+
+        public static void DeleteDialogueTalk(string haveUserIdName, int talkIndex)
+        {
+            DialogueTalkApi.DeleteTalk(userCredentialsProvider.OauthToken, haveUserIdName, talkIndex);
+        }
+
+        public static void DeleteGroupTalk(int groupTalkRoomId, int talkIndex)
+        {
+            GroupTalkApi.DeleteTalk(userCredentialsProvider.OauthToken, groupTalkRoomId, talkIndex);
+        }
+
+        public static void UpdateGroupTalk(int groupTalkRoomId, int talkIndex, string contentText)
+        {
+            GroupTalkApi.UpdateTalk(userCredentialsProvider.OauthToken, groupTalkRoomId, talkIndex, contentText);
+        }
+
+        public static void UpdateDialogueTalk(string haveUserIdName, int talkIndex, string contentText)
+        {
+            DialogueTalkApi.UpdateTalk(userCredentialsProvider.OauthToken, haveUserIdName, talkIndex, contentText);
+        }
     }
 }

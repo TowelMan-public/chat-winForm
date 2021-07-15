@@ -55,12 +55,12 @@ namespace chat_winForm.Service
             GroupApi.DeleteGroup(userCredentialsProvider.OauthToken, groupTalkRoomId);
         }
 
-        internal static void UpdateGroupName(int groupTalkRoomId, string groupName)
+        static public void UpdateGroupName(int groupTalkRoomId, string groupName)
         {
             GroupApi.UpdateGroupName(userCredentialsProvider.OauthToken, groupTalkRoomId, groupName);
         }
 
-        internal static void InvitationUserInGroup(int groupTalkRoomId, string userIdName)
+        static public void InvitationUserInGroup(int groupTalkRoomId, string userIdName)
         {
             UserInGroupApi.InsertUserInGroup(userCredentialsProvider.OauthToken, groupTalkRoomId, userIdName);
         }

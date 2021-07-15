@@ -63,7 +63,7 @@ namespace chat_winForm.Forms
                     UserNameText = dialogueTalkRoomModel.Name,
                     BrockButtonClick = DialogueBrockButton_Click
                 },
-                TalkClickEventHandler = DialogueTalk_Click,
+                TalkClickEventHandler = Talk_Click,
                 TalkListLoader = (startIndex, maxSize) => { return LoadDialogueTalkList(startIndex, maxSize, dialogueTalkRoomModel.HaveUserIdName); }
             };
 
@@ -103,7 +103,7 @@ namespace chat_winForm.Forms
                 {
                     ShowGroupDetailsButtonClick = ShowGroupDetailsButton_Click
                 },
-                TalkClickEventHandler = GroupTalk_Click,
+                TalkClickEventHandler = Talk_Click,
                 TalkListLoader = (startIndex, maxSize) => { return LoadGroupTalkList(startIndex, maxSize, groupTalkRoomModel.GroupTalkRoomId); }
             };
 
@@ -260,14 +260,23 @@ namespace chat_winForm.Forms
             UpdateTalkListInTalkRoom();
         }
 
-        private void DialogueTalk_Click(object sender, EventArgs e)
+        private void Talk_Click(object sender, EventArgs e)
         {
-            //TODO 画面遷移
-        }
+            TalkControl talkControl;
 
-        private void GroupTalk_Click(object sender, EventArgs e)
-        {
-            //TODO 画面遷移
+            var control = sender as System.Windows.Forms.Control;
+            while(!(control is TalkControl))
+                control = control.Parent;
+
+            talkControl = control as TalkControl;
+
+            var talkEditorForm = new TalkEditorForm
+            {
+                Model = talkControl.Model
+            };
+            talkEditorForm.Show();
+
+            //TODO
         }
 
         private void ShowGroupDetailsButton_Click(object sender, EventArgs e)
