@@ -270,6 +270,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("MS UI Gothic", 13F);
             this.ForeColor = System.Drawing.Color.White;
+            this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "UserConfingForm";
             this.Load += new System.EventHandler(this.UserConfingForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);

@@ -55,6 +55,7 @@ namespace chat_winForm.Forms
             // 
             // MakeGrolupButton
             // 
+            this.MakeGrolupButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MakeGrolupButton.BackColor = System.Drawing.Color.Blue;
             this.MakeGrolupButton.Font = new System.Drawing.Font("MS UI Gothic", 20F);
             this.MakeGrolupButton.ForeColor = System.Drawing.Color.White;
@@ -68,6 +69,7 @@ namespace chat_winForm.Forms
             // 
             // GroupNameTextBox
             // 
+            this.GroupNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GroupNameTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.GroupNameTextBox.Location = new System.Drawing.Point(321, 183);
             this.GroupNameTextBox.Name = "GroupNameTextBox";
@@ -77,6 +79,7 @@ namespace chat_winForm.Forms
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
@@ -113,6 +116,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.MakeGrolupButton);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(670, 420);
             this.Name = "MakeGroupForm";
             this.Load += new System.EventHandler(this.MakeGroupForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);

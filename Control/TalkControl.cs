@@ -60,5 +60,10 @@ namespace chat_winForm.Control
                 oldWidth = Width;
             }
         }
+
+        private void TalkControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

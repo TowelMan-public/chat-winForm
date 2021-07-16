@@ -92,7 +92,7 @@ namespace chat_winForm.Control
 
                 ContentTextLabel.Location = new Point
                 {
-                    X = Width - ContentTextLabel.Width,
+                    X = 0,
                     Y = SenderLabel.Height + 1
                 };
                 TimeStampLabel.Location = new Point

@@ -35,6 +35,7 @@ namespace chat_winForm.Control
             // Inner
             // 
             this.Inner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Inner.AutoSize = true;
             this.Inner.BackColor = System.Drawing.Color.Transparent;
             this.Inner.ForeColor = System.Drawing.Color.White;
             this.Inner.Location = new System.Drawing.Point(11, 0);
@@ -53,8 +54,10 @@ namespace chat_winForm.Control
             this.Controls.Add(this.Inner);
             this.Name = "TalkControl";
             this.Size = new System.Drawing.Size(262, 150);
+            this.Load += new System.EventHandler(this.TalkControl_Load);
             this.SizeChanged += new System.EventHandler(this.TalkControl_SizeChanged);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

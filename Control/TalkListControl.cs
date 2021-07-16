@@ -50,7 +50,9 @@ namespace chat_winForm.Control
                     Model = model,
                     Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
                 };
-                talkControl.TalkClickEventHandler += TalkControlClick;
+
+                if(model.IsMyTake)
+                    talkControl.TalkClickEventHandler += TalkControlClick;
 
                 Point location = new Point(0);
 
@@ -109,7 +111,9 @@ namespace chat_winForm.Control
                     Model = model,
                     Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
                 };
-                talkControl.TalkClickEventHandler += TalkControlClick;
+
+                if (model.IsMyTake)
+                    talkControl.TalkClickEventHandler += TalkControlClick;
 
                 Point location = new Point(0);
 
@@ -158,7 +162,9 @@ namespace chat_winForm.Control
                     Model = model,
                     Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
                 };
-                talkControl.TalkClickEventHandler += TalkControlClick;
+
+                if (model.IsMyTake)
+                    talkControl.TalkClickEventHandler += TalkControlClick;
 
                 Point location = new Point(0);
 

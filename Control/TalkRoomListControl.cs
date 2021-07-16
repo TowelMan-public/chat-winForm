@@ -158,6 +158,16 @@ namespace chat_winForm.Control
                 ShowDesireDialogueTalkRoomGroupContents(modelLists[2]);
                 ShowDesireGroupTalkRoomGroupContents(modelLists[3]);
 
+                //各TalkRoomListGroupを折りたたむ
+                DialogueTalkRoomList.Visible = false;
+                DialogueTalkRoomListTitle.IsOpend = false;
+                GroupTalkRoomList.Visible = false;
+                GroupTalkRoomListTitle.IsOpend = false;
+                DesireDialogueTalkRoomList.Visible = false;
+                DesireDialogueTalkRoomListTitle.IsOpend = false;
+                DesireGroupTalkRoomList.Visible = false;
+                DesireGroupTalkRoomListTitle.IsOpend = false;
+
                 //配置
                 Placement();
             }

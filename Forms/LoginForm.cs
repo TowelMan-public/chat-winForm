@@ -4,6 +4,7 @@ using chat_winForm.Registry;
 using chat_winForm.Regular;
 using chat_winForm.Service;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,8 +36,14 @@ namespace chat_winForm.Forms
         private async void LoginForm_Load(object sender, EventArgs e)
         {
             //大枠のサイズ
-            Width = 320;
-            Height = 500;
+            var formSize = new Size
+            {
+                Width = 320,
+                Height = 500
+            };
+
+            this.Size = formSize;
+            this.MinimumSize = formSize;
 
             //PasswordTextBox
             PasswordTextBox.PasswordChar = '*';

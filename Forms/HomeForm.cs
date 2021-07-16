@@ -14,6 +14,8 @@ namespace chat_winForm.Forms
     {
         private TalkListInTalkRoomControl TalkListInTalkRoom;
 
+        private GroupDetailsForm GroupDetailsForm;
+        private TalkEditorForm TalkEditorForm;
 
         public HomeForm()
         {
@@ -286,6 +288,8 @@ namespace chat_winForm.Forms
 
         private void Talk_Click(object sender, EventArgs e)
         {
+            CloseTalkEditorForm();
+
             TalkControl talkControl;
 
             var control = sender as System.Windows.Forms.Control;
@@ -300,10 +304,14 @@ namespace chat_winForm.Forms
                 Action_After = ReCreateTalkListInTalkRoom
             };
             talkEditorForm.Show();
+
+            TalkEditorForm = talkEditorForm;
         }
 
         private void ShowGroupDetailsButton_Click(object sender, EventArgs e)
         {
+            CloseGroupDetailsForm();
+
             var groupDetailsForm = new GroupDetailsForm
             {
                 Model = TalkListInTalkRoom.Model as GroupTalkRoomModel,
@@ -320,6 +328,7 @@ namespace chat_winForm.Forms
             };
 
             groupDetailsForm.Show();
+            GroupDetailsForm = groupDetailsForm;
         }
 
         private async void DialogueBrockButton_Click(object sender, EventArgs e)
@@ -401,18 +410,18 @@ namespace chat_winForm.Forms
 
         /*///////////////// 小部品 /////////////////////////////////////////////////////*/
 
-        void UpdateTalkRoomList()
+        private void UpdateTalkRoomList()
         {
             TalkRoomList.UpdateTalkRoomList();
         }
 
-        void UpdateTalkListInTalkRoom()
+        private void UpdateTalkListInTalkRoom()
         {
             TalkListInTalkRoom.UpdateTalkList();
             UpdateTalkRoomList();
         }
 
-        void ReCreateTalkListInTalkRoom()
+        private void ReCreateTalkListInTalkRoom()
         {
             if(TalkListInTalkRoom.NewestTalkIndex != -1)
                 TalkListInTalkRoom.Model.LastTalkIndex = TalkListInTalkRoom.NewestTalkIndex;
@@ -436,15 +445,17 @@ namespace chat_winForm.Forms
             TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
 
             UpdateTalkRoomList();
+            CloseGroupDetailsForm();
+            CloseTalkEditorForm();
         }
 
-        void ReCreateTalkListInTalkRoom(String newName)
+        private void ReCreateTalkListInTalkRoom(String newName)
         {
             TalkListInTalkRoom.Model.Name = newName;
             ReCreateTalkListInTalkRoom();
         }
 
-        void DeleteTalkListInTalkRoom()
+        private void DeleteTalkListInTalkRoom()
         {
             SendPanel.Visible = false;
             TalkListInTalkRoomPanel.Controls.Remove(TalkListInTalkRoom);
@@ -452,18 +463,36 @@ namespace chat_winForm.Forms
             TalkListInTalkRoom = null;
         }
 
-        void ResetTalkListInTalkRoom()
+        private void ResetTalkListInTalkRoom()
         {
             Controls.Remove(TalkListInTalkRoom);
             TalkListInTalkRoom.Dispose();
             TalkListInTalkRoom = null;
         }
 
-        void SetSendButtonClickEvent(EventHandler eventHandler)
+        private void SetSendButtonClickEvent(EventHandler eventHandler)
         {
             SendButton.Click -= DialogueSendButton_Click;
             SendButton.Click -= GroupSendButton_Click;
             SendButton.Click += eventHandler;
+        }
+
+        private void CloseTalkEditorForm()
+        {
+            if(TalkEditorForm != null)
+            {
+                TalkEditorForm.Dispose();
+                TalkEditorForm = null;
+            }
+        }
+
+        private void CloseGroupDetailsForm()
+        {
+            if (GroupDetailsForm != null)
+            {
+                GroupDetailsForm.Dispose();
+                GroupDetailsForm = null;
+            }
         }
 
         /// <summary>

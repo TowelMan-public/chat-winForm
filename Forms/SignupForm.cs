@@ -24,6 +24,7 @@ namespace chat_winForm.Forms
             //大枠のサイズ
             Width = 320;
             Height = 500;
+            MinimumSize = Size;
 
             //ValidationErrorProviderの初期状態作成
             ValidationErrorProvider.SetError(UserIdNameTextBox, ValidateMessage.INIT_MESSAGE);

@@ -58,6 +58,10 @@ namespace chat_winForm.Control
 
         private async void TalkListInTalkRoomControl_Load(object sender, EventArgs e)
         {
+            TalkRoomListPanel.Controls.Remove(SpinnerBox);
+            Controls.Add(SpinnerBox);
+            SpinnerBox.BringToFront();
+
             StartSpinnerMode();
 
             SwitchButton.Text = Model.Name;

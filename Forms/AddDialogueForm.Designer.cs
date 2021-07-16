@@ -55,6 +55,7 @@ namespace chat_winForm.Forms
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
@@ -66,6 +67,7 @@ namespace chat_winForm.Forms
             // 
             // UserIdNameTextBox
             // 
+            this.UserIdNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserIdNameTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F);
             this.UserIdNameTextBox.Location = new System.Drawing.Point(309, 181);
             this.UserIdNameTextBox.Name = "UserIdNameTextBox";
@@ -75,6 +77,7 @@ namespace chat_winForm.Forms
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.Blue;
             this.button1.Font = new System.Drawing.Font("MS UI Gothic", 20F);
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -115,6 +118,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.UserIdNameTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(670, 390);
             this.Name = "AddDialogueForm";
             this.Load += new System.EventHandler(this.AddDialogueForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);

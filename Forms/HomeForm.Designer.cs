@@ -80,6 +80,7 @@ namespace chat_winForm.Forms
             this.TalkListInTalkRoomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TalkListInTalkRoomPanel.Controls.Add(this.SpinnerBox);
             this.TalkListInTalkRoomPanel.Location = new System.Drawing.Point(343, 29);
+            this.TalkListInTalkRoomPanel.MinimumSize = new System.Drawing.Size(430, 250);
             this.TalkListInTalkRoomPanel.Name = "TalkListInTalkRoomPanel";
             this.TalkListInTalkRoomPanel.Size = new System.Drawing.Size(445, 276);
             this.TalkListInTalkRoomPanel.TabIndex = 13;
@@ -205,6 +206,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.ShowAddDialogueButton);
             this.Controls.Add(this.TalkListInTalkRoomPanel);
             this.Controls.Add(this.TalkRoomListPanel);
+            this.MinimumSize = new System.Drawing.Size(780, 415);
             this.Name = "HomeForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomeForm_FormClosed);
             this.Load += new System.EventHandler(this.HomeForm_Load);

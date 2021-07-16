@@ -31,7 +31,7 @@ namespace chat_winForm.Forms
             TalkContentTextBox.Text = Model.ContentText;
 
             if(Model is DialogueTalkModel)
-                TitleLabel.Text = $"「{Model.SenderUserName}」さんとのトークを編集します";
+                TitleLabel.Text = $"「{(Model as DialogueTalkModel).HaveUserIdName}」さんとのトークを編集します";
             else
                 TitleLabel.Text = $"とあるグループでのトークを編集します";
         }

@@ -56,7 +56,7 @@ namespace chat_winForm.Forms
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -69,7 +69,7 @@ namespace chat_winForm.Forms
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.ForeColor = System.Drawing.Color.White;
@@ -81,7 +81,7 @@ namespace chat_winForm.Forms
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.ForeColor = System.Drawing.Color.White;
@@ -93,7 +93,7 @@ namespace chat_winForm.Forms
             // 
             // GroupNameTextBox
             // 
-            this.GroupNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.GroupNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GroupNameTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.GroupNameTextBox.Location = new System.Drawing.Point(221, 89);
             this.GroupNameTextBox.Name = "GroupNameTextBox";
@@ -103,7 +103,7 @@ namespace chat_winForm.Forms
             // 
             // InvitationUserIdNameTextBox
             // 
-            this.InvitationUserIdNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.InvitationUserIdNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InvitationUserIdNameTextBox.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.InvitationUserIdNameTextBox.Location = new System.Drawing.Point(221, 144);
             this.InvitationUserIdNameTextBox.Name = "InvitationUserIdNameTextBox";
@@ -113,7 +113,7 @@ namespace chat_winForm.Forms
             // 
             // ChangeGroupNameButton
             // 
-            this.ChangeGroupNameButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ChangeGroupNameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ChangeGroupNameButton.BackColor = System.Drawing.Color.Blue;
             this.ChangeGroupNameButton.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ChangeGroupNameButton.ForeColor = System.Drawing.Color.White;
@@ -127,7 +127,7 @@ namespace chat_winForm.Forms
             // 
             // DeleteGroupButton
             // 
-            this.DeleteGroupButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.DeleteGroupButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DeleteGroupButton.BackColor = System.Drawing.Color.Red;
             this.DeleteGroupButton.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.DeleteGroupButton.ForeColor = System.Drawing.Color.White;
@@ -141,7 +141,7 @@ namespace chat_winForm.Forms
             // 
             // InvitationUserButton
             // 
-            this.InvitationUserButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.InvitationUserButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InvitationUserButton.BackColor = System.Drawing.Color.Blue;
             this.InvitationUserButton.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.InvitationUserButton.ForeColor = System.Drawing.Color.White;
@@ -155,7 +155,7 @@ namespace chat_winForm.Forms
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label5.ForeColor = System.Drawing.Color.White;
@@ -167,6 +167,7 @@ namespace chat_winForm.Forms
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.UserInGroupList);
             this.panel1.Location = new System.Drawing.Point(141, 259);
@@ -189,7 +190,7 @@ namespace chat_winForm.Forms
             this.UserInGroupList.Name = "UserInGroupList";
             this.UserInGroupList.RowCount = 1;
             this.UserInGroupList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.UserInGroupList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.UserInGroupList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.UserInGroupList.Size = new System.Drawing.Size(486, 54);
             this.UserInGroupList.TabIndex = 25;
             // 
@@ -243,7 +244,7 @@ namespace chat_winForm.Forms
             // 
             // BrockGroupButton
             // 
-            this.BrockGroupButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.BrockGroupButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BrockGroupButton.BackColor = System.Drawing.Color.Red;
             this.BrockGroupButton.ForeColor = System.Drawing.Color.White;
             this.BrockGroupButton.Location = new System.Drawing.Point(258, 177);
@@ -284,6 +285,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "GroupDetailsForm";
             this.Load += new System.EventHandler(this.GroupDetailsForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);

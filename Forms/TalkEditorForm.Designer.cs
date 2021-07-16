@@ -58,6 +58,7 @@ namespace chat_winForm.Forms
             // 
             // UpdateTalkButton
             // 
+            this.UpdateTalkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateTalkButton.Font = new System.Drawing.Font("MS UI Gothic", 14F);
             this.UpdateTalkButton.Location = new System.Drawing.Point(627, 395);
             this.UpdateTalkButton.Name = "UpdateTalkButton";
@@ -69,6 +70,7 @@ namespace chat_winForm.Forms
             // 
             // DeleteTalkButton
             // 
+            this.DeleteTalkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteTalkButton.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.DeleteTalkButton.Location = new System.Drawing.Point(466, 395);
             this.DeleteTalkButton.Name = "DeleteTalkButton";
@@ -118,6 +120,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.DeleteTalkButton);
             this.Controls.Add(this.UpdateTalkButton);
             this.Controls.Add(this.TalkContentTextBox);
+            this.MinimumSize = new System.Drawing.Size(700, 350);
             this.Name = "TalkEditorForm";
             this.Load += new System.EventHandler(this.TalkEditorForm_Load);
             this.Controls.SetChildIndex(this.TalkContentTextBox, 0);
