@@ -1,0 +1,3033 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>chat-winForm</name>
+    </assembly>
+    <members>
+        <member name="T:chat_winForm.Client.Api.ApiUrlRootConfing">
+            <summary>
+            APIのルートURLのやつ
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DesireGroupApi">
+            <summary>
+            グループ加入してほしい申請に関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireGroupApi.GetDesireUserList(System.String)">
+            <summary>
+            グループに加入してほしい申請リストの取得
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <returns>グループに加入してほしい申請リスト</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireGroupApi.GetDesireUser(System.String,System.Int32)">
+            <summary>
+            グループに加入してほしい申請を取得する
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルーム</param>
+            <returns>グループに加入してほしい申請</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireGroupApi.DeleteDesireGroup(System.String,System.Int32)">
+            <summary>
+            グループ加入してほしい申請を断る
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルーム</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireGroupApi.JoinGroup(System.String,System.Int32)">
+            <summary>
+            グループ加入してほしい申請を受ける
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルーム</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DesireGroupApi.Dto">
+            <summary>
+            友達追加申請に関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DesireUserApi">
+            <summary>
+            友達追加申請に関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireUserApi.GetDesireUserList(System.String)">
+            <summary>
+            友達追加申請リストを取得するAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <returns>友達追加申請リスト</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireUserApi.GetDesireUser(System.String,System.String)">
+            <summary>
+            友達追加申請を取得するAPi
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="userIdName">ユーザーID名</param>
+            <returns>友達追加申請</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireUserApi.DeleteDesireUser(System.String,System.String)">
+            <summary>
+            友達追加申請を断るAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DesireUserApi.JoinUser(System.String,System.String)">
+            <summary>
+            友達追加申請を受けるAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DesireUserApi.Dto">
+            <summary>
+            友達追加申請に関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DialogueApi">
+            <summary>
+            友達トークに関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DialogueApi.GetDiarogueTalks(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            友達トークリストの取得をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン認証用トークン</param>
+            <param name="userIdName">ユーザーID名</param>
+            <param name="maxSize">最大取得件数</param>
+            <param name="startIndex">取得開始トークインデックス</param>
+            <returns>友達トークリスト</returns>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DialogueApi.Dto">
+            <summary>
+            友達トークに関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DialogueTalkApi">
+            <summary>
+            友達トーク単体に関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DialogueTalkApi.InsertTalk(System.String,System.String,System.String)">
+            <summary>
+            友達トークの作成をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="haveUserIdName">友達ユーザーのID名</param>
+            <param name="talkContentText">トークテキスト</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DialogueTalkApi.GetTalk(System.String,System.String,System.Int32)">
+            <summary>
+            友達トークの取得をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="haveUserIdName">友達ユーザーのID名</param>
+            <param name="talkIndex">トークインデックス</param>
+            <returns>友達トーク</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DialogueTalkApi.UpdateTalk(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            友達トークの更新をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="haveUserIdName">友達ユーザーのID名</param>
+            <param name="talkIndex">トークインデックス</param>
+            <param name="talkContentText">トークテキスト</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.DialogueTalkApi.DeleteTalk(System.String,System.String,System.Int32)">
+            <summary>
+            友達トークの削除をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="haveUserIdName">友達ユーザーのID名</param>
+            <param name="talkIndex">トークインデックス</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.DialogueTalkApi.Dto">
+            <summary>
+            友達トーク単体に関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.GroupApi">
+            <summary>
+            グループに関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupApi.GetGroup(System.String,System.Int32)">
+            <summary>
+            グループ情報を取得するAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <returns>グループ情報</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupApi.GetGroups(System.String)">
+            <summary>
+            加入してるグループリストの取得をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <returns>加入してるグループリストの取得</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupApi.GetGroupTalks(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            グループトークリストの取得をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="startIndex">最初のトークインデックス</param>
+            <param name="maxSize">最大件数</param>
+            <returns>グループトークリスト</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupApi.UpdateGroupName(System.String,System.Int32,System.String)">
+            <summary>
+            グループ名の更新をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="groupName">グループ名</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupApi.DeleteGroup(System.String,System.Int32)">
+            <summary>
+            グループの削除
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomid">グループトークルームID</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupApi.InsertGroup(System.String,System.String)">
+            <summary>
+            グループの作成
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="groupName">グループ名</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.GroupApi.Dto">
+            <summary>
+            友達トークに関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.GroupTalkApi">
+            <summary>
+            グループトーク単体に関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupTalkApi.InsertTalk(System.String,System.Int32,System.String)">
+            <summary>
+            グループトークの作成をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="talkContentText">トークテキスト</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupTalkApi.GetTalk(System.String,System.Int32,System.Int32)">
+            <summary>
+            グループトークの取得をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="talkIndex"> トークインデクス</param>
+            <returns>グループトーク</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupTalkApi.UpdateTalk(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            グループトークの更新をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="talkIndex"> トークインデクス</param>
+            <param name="talkContentText">トークテキスト</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.GroupTalkApi.DeleteTalk(System.String,System.Int32,System.Int32)">
+            <summary>
+            グループトークの作成をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="talkIndex"> トークインデクス</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.GroupTalkApi.Dto">
+            <summary>
+            グループトーク単体に関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.UserApi">
+            <summary>
+            ユーザー情報に関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserApi.Login(System.String,System.String)">
+            <summary>
+            ログインをするためのAPI
+            </summary>
+            <param name="userIdName">ユーザーID名</param>
+            <param name="password">パスワード</param>
+            <returns>認証用トークン</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserApi.InsertUser(System.String,System.String,System.String)">
+            <summary>
+            ユーザー登録をするAPI
+            </summary>
+            <param name="userName">ユーザー名（ニックネーム）</param>
+            <param name="userIdName">ユーザーID名</param>
+            <param name="password">パスワード</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserApi.GetUser(System.String,System.String)">
+            <summary>
+            ユーザー情報を取得する
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="userIdName">ユーザーID名</param>
+            <returns>ユーザー情報</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserApi.UpdateUserIdName(System.String,System.String)">
+            <summary>
+            ユーザーID名を変更する
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserApi.UpdateUserName(System.String,System.String)">
+            <summary>
+            ユーザー名の変更
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="userName">ユーザー名</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserApi.UpdatePassword(System.String,System.String)">
+            <summary>
+            パスワードの更新
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="password">パスワード</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserApi.DeleteUser(System.String)">
+            <summary>
+            退会
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.UserApi.Dto">
+            <summary>
+            ユーザー情報に関するapiのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.UserInDialogueApi">
+            <summary>
+            ユーザーが持っている友達に関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInDialogueApi.GetUserInDiarogueList(System.String)">
+            <summary>
+            友達リストの取得をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <returns>友達リスト</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInDialogueApi.GetUserInDiarogue(System.String,System.String)">
+            <summary>
+            友達を取得する
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+            <returns></returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInDialogueApi.JnsertUserInDiarogue(System.String,System.String)">
+            <summary>
+            友達追加をするAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInDialogueApi.DeleteUserInDiarogue(System.String,System.String)">
+            <summary>
+            友達を削除する
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.UserInDialogueApi.Dto">
+            <summary>
+            友達追加申請に関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Api.UserInGroupApi">
+            <summary>
+            グループ加入者に関するAPIを呼び出すクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInGroupApi.InsertUserInGroup(System.String,System.Int32,System.String)">
+            <summary>
+            グループにユーザーを加入させるAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInGroupApi.GetUsersInGroup(System.String,System.Int32)">
+            <summary>
+            グループ加入者リストの取得するAPI
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <returns>グループ加入者リスト</returns>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInGroupApi.DeleteUserInGroup(System.String,System.Int32,System.String)">
+            <summary>
+            グループ加入者をグループから抜けさせる
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Client.Api.UserInGroupApi.ExitGroup(System.String,System.Int32)">
+            <summary>
+            グループから抜ける
+            </summary>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="talkRoomId">グループトークルームID</param>
+        </member>
+        <member name="T:chat_winForm.Client.Api.UserInGroupApi.Dto">
+            <summary>
+            グループ加入者に関するAPIのパラメターを送るためのDtoクラス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.AlreadyHaveUserException">
+            <summary>
+            既に友達登録されているユーザーが不正に指定された
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.AlreadyInsertedGroupDesireException">
+            <summary>
+            既にグループに勧誘されている
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.AlreadyInsertedGroupException">
+            <summary>
+            既にグループに加入してる
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.AlreadyUsedUserIdNameException">
+            <summary>
+            指定されたユーザーID名が既に使われている
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.BadRequestFormException">
+            <summary>
+            リクエストが不正な使われ方をした。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.InvalidLoginException">
+            <summary>
+            認証エラー（認証用トークンが不正・再ログインが必要）
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.LoginException">
+            <summary>
+            ログインでエラーが発生した。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.NotFoundException">
+            <summary>
+            指定された項目の値が存在しない。見つからない。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.NotHaveUserException">
+            <summary>
+            指定したユーザーが友達でない
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.NotInsertedGroupDesireException">
+            <summary>
+            グループに勧誘されていない
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.Exception.NotJoinGroupException">
+            <summary>
+            加入してないグループが指定された
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.DesireHaveUserResponse">
+            <summary>
+            友達追加申請リストを取得するAPIのレスポンスとして返すエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.DesireUserInGroupResponce">
+            <summary>
+            グループ加入申請リストを取得するAPIのレスポンスとして返すエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.GroupTalkRoomEntity">
+            <summary>
+            グループトークルームを取得するAPIのエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.GroupTalkRoomResponse">
+            <summary>
+            グループを取得するAPIのレスポンスとして返すエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.HaveUserResponse">
+            <summary>
+            友達リストを取得するAPIのレスポンスとして返すエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.TalkResponse">
+            <summary>
+            トークを取得するAPIのレスポンスとして返すエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.UserEntity">
+            <summary>
+            ユーザー情報を表すエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.ResponseEntity.UserInGroupResponse">
+            <summary>
+            グループ加入者リストを取得するAPIのレスポンスとして返すエンティティー
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Client.RestTemplate">
+            <summary>
+            外部WebAPIを呼ぶのを楽にするクラス。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.GetInstance">
+            <summary>
+            RestTemplateのインスタンスを返す。
+            </summary>
+            <returns>RestTemplateのインスタンス</returns>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.#ctor">
+            <summary>
+            初期設定
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.GetHttpMethodWhenLogined``2(System.String,System.String,``0)">
+            <summary>
+            ログインされているときにGETメソッドを呼ぶ
+            </summary>
+            <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
+            <typeparam name="Responce">レスポンスクラス</typeparam>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="url">APiのURL</param>
+            <param name="paramaters">DTOクラス（パラメター）</param>
+            <returns>レスポンスクラスに指定された型のレスポンス</returns>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.PostHttpMethodWhenLogined``1(System.String,System.String,``0)">
+            <summary>
+            ログインされているときにPOSTメソッドを呼ぶ
+            </summary>
+            <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
+            <param name="OauthToken">認証用トークン</param>
+            <param name="url">APiのURL</param>
+            <param name="paramaters">DTOクラス（パラメター）</param>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.PostHttpMethod``1(System.String,``0)">
+            <summary>
+            ログインされてないときのPOSTメソッドの呼び出し
+            </summary>
+            <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
+            <param name="url">APiのURL</param>
+            <param name="paramaters">DTOクラス（パラメター）</param>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.PostHttpMethodForLogin``1(System.String,``0)">
+            <summary>
+            ログインされてないときのPOSTメソッドの呼び出し（ログイン時専用）
+            </summary>
+            <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
+            <param name="url">APiのURL</param>
+            <param name="paramaters">DTOクラス（パラメター）</param>
+            <returns>文字列（認証用トークン）</returns>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.CreateRequestParamaterUrl``1(``0)">
+            <summary>
+            パラメータURLの作成
+            </summary>
+            <typeparam name="Paramater">DTOクラス（パラメター）</typeparam>
+            <param name="paramaters">DTOクラス（パラメター）</param>
+            <returns>パラメータURL</returns>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.JsonStringToObject``1(System.String)">
+            <summary>
+            JSON文字列から指定されたクラスに変換する
+            </summary>
+            <typeparam name="ObjectType">変換したいクラスの型</typeparam>
+            <param name="jsonString">JSON文字列</param>
+            <returns>指定されたクラス</returns>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplate.ObjectToJsonString``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="ObjectType">JSON文字列に変換したいクラスの型</typeparam>
+            <param name="objectClass">クラス</param>
+            <returns>JSON文字列</returns>
+        </member>
+        <member name="T:chat_winForm.Client.RestTemplateErrorHandler">
+            <summary>
+            RestTemplateクラスのエラーハンドリングクラス。
+            </summary>
+            <see cref="T:chat_winForm.Client.RestTemplate"/>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplateErrorHandler.GetInstance">
+            <summary>
+            RestTemplateErrorHandlerのインスタンスを返す。
+            </summary>
+            <returns>RestTemplateErrorHandlerのインスタンス</returns>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplateErrorHandler.#ctor">
+            <summary>
+            使わない
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplateErrorHandler.CheckErrorAndThrows(System.String,System.Net.HttpStatusCode)">
+            <summary>
+            エラーハンドリングをするところ。（正確にはエラーかどうかを検証し、エラーであった場合は適切な例外を投げるところ）
+            </summary>
+            <param name="jsonString">JSON形式の文字列のレスポンスボディー</param>
+            <param name="httpStatusCode">Httpコード</param>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplateErrorHandler.HasError(System.Net.HttpStatusCode)">
+            <summary>
+            
+            </summary>
+            <param name="httpStatusCode">Httpコード</param>
+            <returns>エラーがあ有ればtrue, 無ければfalse</returns>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplateErrorHandler.ThrowsException(chat_winForm.Client.RestTemplateErrorHandler.ErrorResponse,System.Net.HttpStatusCode)">
+            <summary>
+            適した例外を投げる
+            </summary>
+            <param name="errorResponse">エラーレスポンスボディー</param>
+            <param name="httpStatusCode">Httpコード</param>
+        </member>
+        <member name="M:chat_winForm.Client.RestTemplateErrorHandler.ParseJson(System.String)">
+            <summary>
+            JSON形式のレスポンスボディーをErrorResponseに変換する。（解析の役割）
+            </summary>
+            <param name="jsonString">JSON形式のレスポンスボディー</param>
+            <returns>エラーレスポンス</returns>
+        </member>
+        <member name="T:chat_winForm.Client.RestTemplateErrorHandler.ErrorResponse">
+            <summary>
+            エラーレスポンス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.DesireMenuControl">
+            <summary>
+            グループ勧誘・友達追加申請のトークリスト画面に表示するメニュー画面
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.DesireMenuControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.DesireMenuControl.BrockButtonClick">
+            <summary>
+            ブロックボタンがクリックされたときのイベントをセット・取得する
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.DesireMenuControl.AcceptButtonClick">
+            <summary>
+            受け入れるボタンが押されたときのイベントをセット・取得する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Control.DesireMenuControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.DesireMenuControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.DesireMenuControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.DialogueMenuControl">
+            <summary>
+            友達トークリスト画面のメニュー画面
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.DialogueMenuControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.DialogueMenuControl.BrockButtonClick">
+            <summary>
+            ブロックボタンが押されたときのクリックイベントのセット・取得をする
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.DialogueMenuControl.UserIdNameText">
+            <summary>
+            メニュー画面に表示されるユーザーID名
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.DialogueMenuControl.UserNameText">
+            <summary>
+            メニュー画面に表示されるユーザー名
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Control.DialogueMenuControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.DialogueMenuControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.DialogueMenuControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.GroupMenuControl">
+            <summary>
+            グループトークルームリスト画面のメニュー画面
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.GroupMenuControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.GroupMenuControl.ShowGroupDetailsButtonClick">
+            <summary>
+            グループ詳細画面表示ボタンクリック時のイベントのセット・取得
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Control.GroupMenuControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.GroupMenuControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.GroupMenuControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkControl">
+            <summary>
+            トークコントロール（1件のトーク）
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkControl.Model">
+            <summary>
+            このコントロールで使うデータセット
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkControl.TalkClickEventHandler">
+            <summary>
+            トークをクリックしたときのイベントのセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkControl.AdaptWide">
+            <summary>
+            幅によるサイズ、位置の調節
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkControl.TalkControl_SizeChanged(System.Object,System.EventArgs)">
+            <summary>
+            サイズが変更されたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使うデータ等</param>
+        </member>
+        <member name="F:chat_winForm.Control.TalkControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkInnerControl">
+            <summary>
+            TalkControlの中身の部分
+            </summary>
+            <see cref="T:chat_winForm.Control.TalkControl"/>
+        </member>
+        <member name="P:chat_winForm.Control.TalkInnerControl.Model">
+            <summary>
+            このコントロールで使うデータセットのセット・取得
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkInnerControl.TalkClickEventHandler">
+            <summary>
+            トークの内容の部分がクリックされたときのイベント
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkInnerControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkInnerControl.PaintAll">
+            <summary>
+            トークの全てを表示する
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkInnerControl.GetRoundRect(System.Drawing.Rectangle,System.Int32)">
+            <summary>
+            角丸四角形の形を作る
+            </summary>
+            <param name="rect">四角形の位置とサイズ</param>
+            <param name="radius">丸みの度合い</param>
+            <returns></returns>
+        </member>
+        <member name="M:chat_winForm.Control.TalkInnerControl.PeintImae(System.Drawing.Color)">
+            <summary>
+            トークの内容部分の四角形を描画する
+            </summary>
+            <param name="fillColor">四角形の色</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkInnerControl.TalkControl_SizeChanged(System.Object,System.EventArgs)">
+            <summary>
+            リサイズされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="F:chat_winForm.Control.TalkInnerControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkInnerControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkInnerControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkListControl">
+            <summary>
+            トークリストコントロール
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkListControl.LoadOlderTalkButtonClick">
+            <summary>
+            もっと古いトークを読み込むボタンをクリックしたときのイベントのセット・取得
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkListControl.LoadNewerTalkButtonClick">
+            <summary>
+            もっと新しいトークを読み込むボタンをクリックしたときのイベントのセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListControl.TalkControlClick">
+            <summary>
+            トークコントロールをクリックしたときのイベントのセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListControl.OldestTalkIndex">
+            <summary>
+            読み込んだ中で一番古いトークインデックスの取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListControl.NewestTalkIndex">
+            <summary>
+            読み込んだ中で一番新しいトークインデックスの取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListControl.ShowTalkList(System.Collections.Generic.List{chat_winForm.Model.TalkModel})">
+            <summary>
+            トークリストを表示する（初回のみ実行する。後はAdd○○と命名された関数で）
+            </summary>
+            <param name="modelList">表示するトークリストのデータ</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListControl.AddOlderTalkList(System.Collections.Generic.List{chat_winForm.Model.TalkModel})">
+            <summary>
+            もっと古いトークの追加・表示
+            </summary>
+            <param name="modelList">表示するトークリストのデータ</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListControl.AddNewerTalkList(System.Collections.Generic.List{chat_winForm.Model.TalkModel})">
+            <summary>
+            もっと新しいトークの追加・表示
+            </summary>
+            <param name="modelList">表示するトークリストのデータ</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListControl.TalkListControl_Load(System.Object,System.EventArgs)">
+            <summary>
+            このコントロールが読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使う情報</param>
+        </member>
+        <member name="F:chat_winForm.Control.TalkListControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkListInTalkRoomControl">
+            <summary>
+            １つのトークルームのメニューとトークリスト画面のコントロール
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListInTalkRoomControl.NewestTalkIndex">
+            <summary>
+            一番新しいトークインデックスの取得のセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListInTalkRoomControl.Model">
+            <summary>
+            このコントロールで使うデータセットのセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListInTalkRoomControl.TalkListLoader">
+            <summary>
+            トークリストを読み込む為の処理が書いてあるデリゲーターのセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListInTalkRoomControl.TalkClickEventHandler">
+            <summary>
+            トークをクリックしたときのイベント
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkListInTalkRoomControl.SubContentControl">
+            <summary>
+            メニュー画面のコントロールクラスのセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.UpdateTalkList">
+            <summary>
+            新しいトークリストを読み込む
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.TalkListInTalkRoomControl_Load(System.Object,System.EventArgs)">
+            <summary>
+            このコントロールが読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.SwitchButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニュー画面を表示する活かしないかを切り替えているボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.BodyControl_LoadNewerTalkButtonClick(System.Object,System.EventArgs)">
+            <summary>
+            もっと新しいトークをロードするボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.BodyControl_LoadOlderTalkButtonClick(System.Object,System.EventArgs)">
+            <summary>
+            もっと古いトークをロードするボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.StartSpinnerMode">
+            <summary>
+            スピナーを表示させる
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.FinishSpinnerMode">
+            <summary>
+            スピナーを非表示にする
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Control.TalkListInTalkRoomControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkListInTalkRoomControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkRoomColtrol">
+            <summary>
+            トークルーム単体を表すコントロール
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkRoomColtrol.Model">
+            <summary>
+            このコントロールに保持されるデータセットのセット・取得
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkRoomColtrol.MyClick">
+            <summary>
+            トークルームをクリックしたときのクリックイベント
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkRoomColtrol.Text">
+            <summary>
+            トークルーム名のセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkRoomColtrol.NoticeCount">
+            <summary>
+            通知数のセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomColtrol.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Control.TalkRoomColtrol.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomColtrol.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomColtrol.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkRoomListControl">
+            <summary>
+            トークルームリストコントロール
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkRoomListControl.DialigueTalkRoomClickEventHandler">
+            <summary>
+            友達トークルームリストの見出しのクリックイベント
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkRoomListControl.GroupTalkRoomClickEventHandler">
+            <summary>
+            グループトークルームリストの見出しのクリックイベント
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkRoomListControl.DesireDialogueTalkRoomClickEventHandler">
+            <summary>
+            友達追加申請のトークルームリストの見出しのクリックイベント
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkRoomListControl.DesireGroupTalkRoomClickEventHandler">
+            <summary>
+            グループ勧誘のトーークルームリストの見出しのクリックイベント
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.UpdateTalkRoomList">
+            <summary>
+            トークルームリストたちを最新の状態に更新する
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.TalkRoomListControl_Load(System.Object,System.EventArgs)">
+            <summary>
+            読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.Placement">
+            <summary>
+            各子コントロールの配置をする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.DialogueTalkRoomListTitle_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達トークルームの見出しがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.GroupTalkRoomListTitle_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループトークルームの見出しがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.DesireDialogueTalkRoomListTitle_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達追加申請者とのトークルームの見出しがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.DesireGroupTalkRoomListTitle_Click(System.Object,System.EventArgs)">
+            <summary>
+            勧誘されているグループトークルームの見出しがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.CreateAllListGroupContents">
+            <summary>
+            全てのトークルームリストを読み込んでそれを表示させる
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.ShowDialogueTalkRoomGroupContents(System.Collections.Generic.List{chat_winForm.Model.TalkRoomModel})">
+            <summary>
+            友達トークルームリストを表示する
+            </summary>
+            <param name="modelList">トークルームを格納したクラスのリスト</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.ShowGroupTalkRoomGroupContents(System.Collections.Generic.List{chat_winForm.Model.TalkRoomModel})">
+            <summary>
+            グループトークルームリストを表示させる
+            </summary>
+            <param name="modelList">トークルームを格納したクラスのリスト</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.ShowDesireGroupTalkRoomGroupContents(System.Collections.Generic.List{chat_winForm.Model.TalkRoomModel})">
+            <summary>
+            勧誘されているグループトークルームリストを表示させる
+            </summary>
+            <param name="modelList">トークルームを格納したクラスのリスト</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.ShowDesireDialogueTalkRoomGroupContents(System.Collections.Generic.List{chat_winForm.Model.TalkRoomModel})">
+            <summary>
+            友達追加申請者とのトークルームリストを表示させる
+            </summary>
+            <param name="modelList">トークルームを格納したクラスのリスト</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.StartSpinnerMode">
+            <summary>
+            スピナーを表示させる
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.FinishSpinnerMode">
+            <summary>
+            スピナーを非表示にする
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Control.TalkRoomListControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkRoomListGroupControl">
+            <summary>
+            トークルームリストグループコントロール
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkRoomListGroupControl.TalkRoomClickEventHandler">
+            <summary>
+            トークルームをクリックしたときのイベントハンドラーのセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupControl.AddTalkRoom(System.String,System.Int32,chat_winForm.Model.TalkRoomModel)">
+            <summary>
+            トークルームを追加する
+            </summary>
+            <param name="name">トークルーム名</param>
+            <param name="noticeCount">通知数</param>
+            <param name="model">トークルームのデータが格納されたクラス</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupControl.Reset">
+            <summary>
+            このコントロール内を全てリセットする
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Control.TalkRoomListGroupControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.TalkRoomListGroupTitleControl">
+            <summary>
+            トークルームリストの見出しのコントロール
+            </summary>
+        </member>
+        <member name="E:chat_winForm.Control.TalkRoomListGroupTitleControl.MyClick">
+            <summary>
+            このコントロールがクリックされたときのイベント。
+            わざわざ作ってあるのはこのコントロールの子コントロールにも同じイベントを登録するため
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkRoomListGroupTitleControl.Text">
+            <summary>
+            トークルームリストの見出しの文字列のセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkRoomListGroupTitleControl.NoticeCount">
+            <summary>
+            この見出しに対応する1つのトークルームリストグループの合計通知数のセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.TalkRoomListGroupTitleControl.IsOpend">
+            <summary>
+            この見出しに対応するトークルームリストグループが表示されているかどうかのセット・取得
+            trueなら表示されている、falseなら表示されていない表示されていない
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupTitleControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupTitleControl.TalkRoomControl_Load(System.Object,System.EventArgs)">
+            <summary>
+            このコントロールが読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="F:chat_winForm.Control.TalkRoomListGroupTitleControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupTitleControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.TalkRoomListGroupTitleControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Control.NoticeControl">
+            <summary>
+            通知コントロール
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.NoticeControl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.NoticeControl.FontSize">
+            <summary>
+            通知の文字列のサイズのセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Control.NoticeControl.Text">
+            <summary>
+            通知の文字列のセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.NoticeControl.NoticeControl_Load(System.Object,System.EventArgs)">
+            <summary>
+            通知コントロールが読み込まれたときの処理
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="F:chat_winForm.Control.NoticeControl.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Control.NoticeControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Control.NoticeControl.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.AddDialogueForm">
+            <summary>
+            友達追加画面
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Forms.AddDialogueForm.AddDialogue_After">
+            <summary>
+            友達追加の後処理のセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.AddDialogueForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.AddDialogueForm.AddDialogueButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            登録ボタンが押された
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.AddDialogueForm.UserIdNameTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>
+            ユーザーID名のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.AddDialogueForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.AddDialogueForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.AddDialogueForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.AddDialogueForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.AddDialogueForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.Commons.CommonMessageBoxs">
+            <summary>
+            よく使うであろうメッセージボックス集
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.CommonMessageBoxs.ValidationMessageBox">
+            <summary>
+            バリデーションエラーのメッセージボックス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.CommonMessageBoxs.UnexpectedErrorMessageBox">
+            <summary>
+            予期しないエラーのメッセージボックス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.CommonMessageBoxs.FailureLoginMessageBox">
+            <summary>
+            ログインに失敗したときのメッセージボックス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.CommonMessageBoxs.FailureUpdateOuthTokenMessageBox">
+            <summary>
+            認証の更新に失敗したときのメッセージボックス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.CommonMessageBoxs.InvalidLoginExceptionMessageBox">
+            <summary>
+            再ログインが必要な時のメッセージボックス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.CommonMessageBoxs.AlreadyUsedUserIdNameErrorMessageBox">
+            <summary>
+            既に使われているユーザーIDが指定されたときのメッセージボックス
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.Commons.ValidateMessage">
+            <summary>
+            定数化されたエラーメッセージ
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.Commons.Validater">
+            <summary>
+            Formクラスでバリデーションチェックをするためのクラス。
+            ErrorProviderコントロールを使用している前提。
+            メソッドチェーン形式
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.Validater.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="value">バリデーションチェック対象の文字列</param>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.Validater.NotBlank">
+            <summary>
+            空っぽはだめ（未入力等）
+            </summary>
+            <returns>自分自身</returns>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.Validater.MaxString(System.Int32)">
+            <summary>
+            最大文字数の指定
+            </summary>
+            <param name="max">最大の文字数</param>
+            <returns>自分自身</returns>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.Validater.IntType">
+            <summary>
+            整数であることのチェック
+            </summary>
+            <returns>自分自身</returns>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.Validater.GetErrorMessage">
+            <summary>
+            このクラスの終着点。
+            ErrorProviderコントロール向けのエラーメッセージを返す。
+            </summary>
+            <returns>エラーがあれば一番最初に引っかかったエラーメッセージ。なければnull。</returns>
+        </member>
+        <member name="M:chat_winForm.Forms.Commons.Validater.Check">
+            <summary>
+            このクラスの終着点。
+            エラーがあるか無いかを判定し、結果を返す
+            </summary>
+            <returns>エラーがあればfalse, 無ければtrue</returns>
+        </member>
+        <member name="T:chat_winForm.Forms.GroupDetailsForm">
+            <summary>
+            グループ詳細画面
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Forms.GroupDetailsForm.Model">
+            <summary>
+            この画面で使われるデータが格納されているクラスのセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Forms.GroupDetailsForm.OtherThanDeleteAction_After">
+            <summary>
+            グループから脱退するのとグループを削除したとき以外の処理の時の後処理のセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Forms.GroupDetailsForm.DeleteAction_After">
+            <summary>
+            グループから脱退するのとグループを削除したときの後処理のセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.GroupDetailsForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            この画面が読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.DeleteGroupButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループ削除ボタンがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.ChangeGroupNameButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループ名変更ボタンがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.InvitationUserButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            ユーザーをグループに勧誘するボタンがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.BrockGroupButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループから脱退するボタンがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.DeleteUserInGroupButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループ加入者を脱退させるボタンがクリックされたときのイベント
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.GroupNameTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            グループ名のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.InvitationUserIdNameTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            勧誘するユーザーIDのバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.GroupDetailsForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.GroupDetailsForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.MakeGroupForm">
+            <summary>
+            グループ作成画面
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Forms.MakeGroupForm.MakeGroup_After">
+            <summary>
+            グループを作成した後の後処理
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.MakeGroupForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.MakeGroupForm.MakeGrolupButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループ作成ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.MakeGroupForm.GroupNameTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>
+            グループ名のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.MakeGroupForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.MakeGroupForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.MakeGroupForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.MakeGroupForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.MakeGroupForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.RunForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.RunForm.RunForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            このフォームが読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.RunForm.RunForm_Activated(System.Object,System.EventArgs)">
+            <summary>
+            このフォームがアクティブになったときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="F:chat_winForm.Forms.RunForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.RunForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:chat_winForm.Forms.RunForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.HomeForm">
+            <summary>
+            ホーム画面
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.HomeForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            この画面が読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DialigueTalkRoom_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達トークルームがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.GroupTalkRoom_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループトークルームがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DesireDialigueTalkRoom_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達追加申請者とのトークルームがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DesireGroupTalkRoom_Click(System.Object,System.EventArgs)">
+            <summary>
+            勧誘されているグループトークルームがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.ShowAddDialogueButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達追加ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.ShowMakeGroupButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループ作成ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.ShowUserConfingButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            ユーザー設定ボタンが押されたときのときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.UpdateTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            定期更新の時間が来たときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.HomeForm_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            この画面が閉じられたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DialogueSendButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達トークルームのトーク送信ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.GroupSendButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループトークルームのトーク送信ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.Talk_Click(System.Object,System.EventArgs)">
+            <summary>
+            トークがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.ShowGroupDetailsButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループ詳細ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DialogueBrockButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達ブロックボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DesireDialogueBrockButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達追加申請を断るボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DesireDialogueAcceptButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            友達追加申請を受け入れるボタンがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DesireGroupBrockButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループからの勧誘を断るボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DesireGroupAcceptButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            グループからの勧誘を受け入れるボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.NoneCatchedEception_Throw(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            ホーム画面の管理下で投げられた例外のうち、キャッチされなかった例外を処理するイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.LoadDialogueTalkList(System.Int32,System.Int32,System.String)">
+            <summary>
+            友達トークリストを読み込む
+            </summary>
+            <param name="startIndex">読み始めのトークルームインデックス</param>
+            <param name="maxSize">読み込む最大件数</param>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+            <returns>友達トークリスト</returns>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.LoadGroupTalkList(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            グループトークリストを読み込む
+            </summary>
+            <param name="startIndex">読み始めのトークルームインデックス</param>
+            <param name="maxSize">読み込む最大件数</param>
+            <param name="GroupTalkRoomId">グループトークルームID</param>
+            <returns>グループトークリスト</returns>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.UpdateTalkRoomList">
+            <summary>
+            トークルームリストを更新する
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.UpdateTalkListInTalkRoom">
+            <summary>
+            トークリストにもっと新しいトークを読み込ませる
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.ReCreateTalkListInTalkRoom">
+            <summary>
+            トークリストを作り直させる
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.ReCreateTalkListInTalkRoom(System.String)">
+            <summary>
+            トークリストを作り直させる
+            </summary>
+            <param name="newName">新しいトークルーム名</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.DeleteTalkListInTalkRoom">
+            <summary>
+            トークルームリスト（GUI）を壊す
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.SetSendButtonClickEvent(System.EventHandler)">
+            <summary>
+            送信ボタンのイベントをセットする
+            </summary>
+            <param name="eventHandler">クリックイベントハンドラー</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.CloseTalkEditorForm">
+            <summary>
+            トーク編集画面を閉じる
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.CloseGroupDetailsForm">
+            <summary>
+            グループ詳細画面を閉じる
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.HomeForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.HomeForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.LoginForm">
+            <summary>
+            ログイン画面のフォーム
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.LoginForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            初期化
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.LoginButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            ログインボタンが押されたときの処理
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.SignupButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            新規登録ボタンが押されたときの処理
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.UserIdNameTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            ユーザーID(UserIdName)のバリデーションチェック
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.PasswordTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            パスワードのバリデーションチェック
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.LoginForm_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            このフォームが閉じられた時のイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.NoneCatchedEception_Throw(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            このフォームの管理下で投げられた例外で、キャッチされなかった例外を処理するイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.LoginForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.LoginForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.SignupForm">
+            <summary>
+            ユーザーの新規登録画面
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.SignupForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            このフォームが読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.SignupButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            ユーザー登録ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.LoginButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            ログインボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.UserIdNameTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            ユーザーID名のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.UserNameTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            ユーザー名のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.PasswordTextBox_Validating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            パスワードのバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.SignupForm_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            この画面が閉じられた時のイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.NoneCatchedEception_Throw(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            このフォームの管理下で投げられた例外の内キャッチされなかった例外を処理するイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.SignupForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.SignupForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.TalkEditorForm">
+            <summary>
+            トーク編集画面
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Forms.TalkEditorForm.Model">
+            <summary>
+            この画面で使われるデータが格納されているクラスのセット・取得
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Forms.TalkEditorForm.Action_After">
+            <summary>
+            この画面で、ユーザー操作による処理の後処理のセット・取得
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.TalkEditorForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            この画面が読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.DeleteTalkButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            トークを削除するボタンがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.UpdateTalkButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            トークを変更するボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.TalkContentTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>
+            トークの内容のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.TalkEditorForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.TalkEditorForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.UserConfingForm">
+            <summary>
+            ユーザー設定画面
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.UserConfingForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            この画面が読み込まれたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.UpdateUserNameButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            ユーザー名を変更するボタンがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.UpdateUserIdNameButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            ユーザーID名を変更するボタンがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.UpdatePasswordButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            パスワードを変更するボタンがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.ShowWithdrawalFormButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            退会確認表示ボタンがクリックされたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.DeleteUserMemoButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            この機種からユーザー情報を削除するボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.UserNameTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>
+            ユーザー名のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.UserIdNameTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>
+            ユーザーID名のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.PasswordTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>
+            パスワードのバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.OneMorePasswordTextBox_Validated(System.Object,System.EventArgs)">
+            <summary>
+            パスワード（もう一回）のバリデーションチェックのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.StartSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードにする
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.FinishSpinnerMode">
+            <summary>
+            このフォームで、スピナーを表示するモードを終了する
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Forms.UserConfingForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.UserConfingForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Forms.WithdrawalForm">
+            <summary>
+            退会確認画面
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.WithdrawalForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.WithdrawalForm.WithdrawalButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            退会ボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.Forms.WithdrawalForm.BackButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            戻るボタンが押されたときのイベントハンドラー
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="F:chat_winForm.Forms.WithdrawalForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Forms.WithdrawalForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.Forms.WithdrawalForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.OuterForm">
+            <summary>
+            このアプリで使うフォームの大枠。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.OuterForm.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.OuterForm.OuterForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            初期化
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.OuterForm_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            このフォームでマウスが押されたときのイベント（マウスポイント等の記憶）
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.OuterForm_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            このフォームでマウスがドラッグされたときのイベント
+            フォームの移動用
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.TopSizeChanger_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            このフォームのTopSizeChangerでマウスがドラッグされたときのイベント
+            リサイズ用
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.BottomSizeChanger_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            このフォームのBottomSizeChangerでマウスがドラッグされたときのイベント
+            リサイズ用
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.RightSizeChanger_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            このフォームのRightSizeChangerでマウスがドラッグされたときのイベント
+            リサイズ用
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.LeftSizeChanger_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            このフォームのLeftSizeChangerでマウスがドラッグされたときのイベント
+            リサイズ用
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.ExitButton_MouseEnter(System.Object,System.EventArgs)">
+            <summary>
+            閉じるボタンの上にカーソルが乗った
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.Button_MouseLeave(System.Object,System.EventArgs)">
+            <summary>
+            閉じるボタンからカーソルが出て行った
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.ExitButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            閉じるボタンが押された
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.ReSizeButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            最大化ボタン(ReSizeButton)が押された
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.ToMinButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            最小化ボタンが押された
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.ReReSizeButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            リサイズボタン(ReReSize)が押された
+            </summary>
+            <param name="sender">イベント発生主</param>
+            <param name="e">イベントで使われる情報</param>
+        </member>
+        <member name="F:chat_winForm.OuterForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:chat_winForm.OuterForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:chat_winForm.OuterForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Model.DesireDialogueTalkRoomModel">
+            <summary>
+            追加申請が出てる友達トークルームのモデルクラス。
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.DesireDialogueTalkRoomModel.HaveUserIdName">
+            <summary>
+            友達のユーザーID（UserIdName）
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.DesireDialogueTalkRoomModel.#ctor(System.String,System.Int32,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name">トークルームの名前</param>
+            <param name="myLastTalkIndex">ラストトークインデックス</param>
+            <param name="haveUserIdName">友達のユーザーID（UserIdName）</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:chat_winForm.Model.DesireGroupTalkRoomModel" -->
+        <member name="P:chat_winForm.Model.DesireGroupTalkRoomModel.GroupTalkRoomId">
+            <summary>
+            グループトークルームID
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.DesireGroupTalkRoomModel.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name">トークルームの名前</param>
+            <param name="myLastTalkIndex">ラストトークインデックス</param>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+        </member>
+        <member name="T:chat_winForm.Model.DialogueTalkModel">
+            <summary>
+            友達トーク
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.DialogueTalkModel.HaveUserIdName">
+            <summary>
+            友達のユーザーID名
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.DialogueTalkModel.#ctor(System.String,System.Int32,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="HaveUserIdName">友達のユーザーID名</param>
+            <param name="talkIndex">トークインデックス</param>
+            <param name="senderUserName">送信者のユーザー名</param>
+            <param name="isMyTake">自分のトークかそうでないか</param>
+            <param name="contentText">トークの内容</param>
+            <param name="timeStamp">トークが送信された日時</param>
+        </member>
+        <member name="T:chat_winForm.Model.DialogueTalkRoomModel">
+            <summary>
+            友達トークルームのモデルクラス。
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.DialogueTalkRoomModel.HaveUserIdName">
+            <summary>
+            友達のユーザーID（UserIdName）
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.DialogueTalkRoomModel.#ctor(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name">トークルームの名前</param>
+            <param name="myLastTalkIndex">ユーザーのラストトークインデックス</param>
+            <param name="lastTalkIndex">ラストトークインデックス</param>
+            <param name="noticeCount">通知数</param>
+        </member>
+        <member name="T:chat_winForm.Model.GroupTalkModel">
+            <summary>
+            グループトークのモデルクラス
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.GroupTalkModel.GroupTalkRoomId">
+            <summary>
+            グループトークルームID
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.GroupTalkModel.#ctor(System.Int32,System.Int32,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <param name="talkIndex">トークインデックス</param>
+            <param name="senderUserName">送信者のユーザー名</param>
+            <param name="isMyTake">自分のトークかそうでないか</param>
+            <param name="contentText">トークの内容</param>
+            <param name="timeStamp">トークが送信された日時</param>
+        </member>
+        <member name="T:chat_winForm.Model.GroupTalkRoomModel">
+            <summary>
+            グループトークルームのモデルクラス。
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.GroupTalkRoomModel.GroupTalkRoomId">
+            <summary>
+            グループトークルームID
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.GroupTalkRoomModel.#ctor(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name">トークルームの名前</param>
+            <param name="myLastTalkIndex">ユーザーのラストトークインデックス</param>
+            <param name="lastTalkIndex">ラストトークインデックス</param>
+            <param name="noticeCount">通知数</param>
+        </member>
+        <member name="T:chat_winForm.Model.TalkModel">
+            <summary>
+            トークのモデルクラス。
+            実際には継承して使う
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkModel.TalkIndex">
+            <summary>
+            トークインデックス
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkModel.SenderUserName">
+            <summary>
+            送信者のユーザー名
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkModel.IsMyTake">
+            <summary>
+            自分のトークかそうでないか。自分のトークならtrue、違えばfalse
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkModel.ContentText">
+            <summary>
+            トークの内容
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkModel.TimeStamp">
+            <summary>
+            トークが送信された日時
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.TalkModel.#ctor(System.Int32,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="talkIndex">トークインデックス</param>
+            <param name="senderUserName">トークの送信者のユーザー名</param>
+            <param name="isMyTake">トークの送信者が自分であるかそうでないか</param>
+            <param name="contentText">トークの内容</param>
+            <param name="timeStamp">トークが送信された日時</param>
+        </member>
+        <member name="T:chat_winForm.Model.TalkRoomModel">
+            <summary>
+            トークルームのモデルクラス。
+            実際にはこのクラスを継承したものを使う。
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkRoomModel.Name">
+            <summary>
+            トークルームの名前
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkRoomModel.LastTalkIndex">
+            <summary>
+            ラストトークインデックス
+            ユーザー側にもラストトークインデックスがある場合はユーザー側のラストトークインデックス
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.TalkRoomModel.NoticeCount">
+            <summary>
+            通知数
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Model.TalkRoomModel.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name">トークルームの名前</param>
+            <param name="lastTalkIndex">ラストトークインデックス</param>
+            <param name="noticeCount">通知数</param>
+        </member>
+        <member name="T:chat_winForm.Model.UserInGroupModel">
+            <summary>
+            グループ加入者のモデルクラス。
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.UserInGroupModel.GropuTalkRoomId">
+            <summary>
+            グループトークルームID
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.UserInGroupModel.UserIdName">
+            <summary>
+            ユーザーID名
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.UserInGroupModel.UserName">
+            <summary>
+            ユーザー名
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Model.UserInGroupModel.isMe">
+            <summary>
+            このトークが自分のものであるか否か。
+            自分のものであればtrue、そうでなければfalse
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Program.Main">
+            <summary>
+            アプリケーションのメイン エントリ ポイントです。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Properties.Resources.Culture">
+            <summary>
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Registry.UserCredentialsProvider">
+            <summary>
+            ユーザー情報を提供するクラス
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.#ctor">
+            <summary>
+            コンストラクタ（外部で使わない）
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.GetInstance">
+            <summary>
+            UserCredentialsProviderのインスタンスを返す
+            </summary>
+            <returns>UserCredentialsProviderのインスタンス</returns>
+        </member>
+        <member name="P:chat_winForm.Registry.UserCredentialsProvider.UserIdName">
+            <summary>
+            ユーザーId (正確にはユーザーID名)
+            レジストリに保存される
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Registry.UserCredentialsProvider.Password">
+            <summary>
+            パースワード
+            レジストリに保存される
+            </summary>
+        </member>
+        <member name="P:chat_winForm.Registry.UserCredentialsProvider.OauthToken">
+            <summary>
+            認証用トークン
+            レジストリに保存されない
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.DeleteUserIdName">
+            <summary>
+            UserIdNameの値の削除
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.DeletePassword">
+            <summary>
+            Passwordの値の削除
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.DeleteOuthToken">
+            <summary>
+            OuthTokenの値の削除
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.DeleteKeyValue(System.String)">
+            <summary>
+            キーの中身を削除する
+            </summary>
+            <param name="keyName">キー名</param>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.AllDelete">
+            <summary>
+            この機種に格納されているすべてのユーザーに関する情報を削除する
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.SetKeyValue(System.String,System.String)">
+            <summary>
+            レジストリのキーの中に値を格納する
+            </summary>
+            <param name="keyName">キーの名前</param>
+            <param name="keyValue">値</param>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.GetKeyValue(System.String)">
+            <summary>
+            キーの値を取得する
+            </summary>
+            <param name="keyName">キーの名前</param>
+            <returns>キーの値</returns>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.Encrypt(System.String,System.String,System.String)">
+            <summary>
+            暗号化する
+            </summary>
+            <param name="text">暗号化する対象の生文字列</param>
+            <param name="iv">暗号化に使うもの</param>
+            <param name="key">暗号化キー</param>
+            <returns>暗号化された文字列</returns>
+        </member>
+        <member name="M:chat_winForm.Registry.UserCredentialsProvider.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            復号化する
+            </summary>
+            <param name="cipher">暗号化された文字列</param>
+            <param name="iv">暗号化に使うもの</param>
+            <param name="key">暗号化キー</param>
+            <returns>復号化された生文字列</returns>
+        </member>
+        <member name="T:chat_winForm.Regular.OuthTokenUpdater">
+            <summary>
+            認証用トークンを定期実行で更新するクラス
+            </summary>
+        </member>
+        <member name="F:chat_winForm.Regular.OuthTokenUpdater.PERIOD">
+            <summary>
+            認証用トークンを更新する間隔
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Regular.OuthTokenUpdater.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Regular.OuthTokenUpdater.GetInstance">
+            <summary>
+            OuthTokenUpdaterのインスタンスを取得する
+            </summary>
+            <returns>OuthTokenUpdaterのインスタンス</returns>
+        </member>
+        <member name="M:chat_winForm.Regular.OuthTokenUpdater.Finalize">
+            <summary>
+            デストラクタ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Regular.OuthTokenUpdater.Start">
+            <summary>
+            定期実行を始める
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Regular.OuthTokenUpdater.RunUpdae">
+            <summary>
+            定期事項の内容
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Regular.OuthTokenUpdater.Stop">
+            <summary>
+            定期実行をやめる
+            </summary>
+        </member>
+        <member name="T:chat_winForm.Service.DialogueService">
+            <summary>
+            友達トークに関する処理を書くところ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Service.DialogueService.BrockDialogueTalkRoom(System.String)">
+            <summary>
+            友達をブロックする
+            </summary>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Service.DialogueService.BrockDesireDialogueTalkRoom(System.String)">
+            <summary>
+            友達追加申請を断る
+            </summary>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Service.DialogueService.AcceptDesireDialogueTalkRoom(System.String)">
+            <summary>
+            友達追加申請を受け入れる
+            </summary>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Service.DialogueService.AddUserInDialogue(System.String)">
+            <summary>
+            友達を追加する
+            </summary>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="T:chat_winForm.Service.GroupService">
+            <summary>
+            グループトークルームに関する処理を書くところ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.BrockGroupTalkRoom(System.Int32)">
+            <summary>
+            グループから脱退する
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.BrockDesireGroupTalkRoom(System.Int32)">
+            <summary>
+            グループからの勧誘を断る
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.MakeGroup(System.String)">
+            <summary>
+            グループを作成する
+            </summary>
+            <param name="groupName">グループ名</param>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.AcceptDesireGroupTalkRoom(System.Int32)">
+            <summary>
+            グループからの勧誘を受け入れる
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.GetUserInGroupList(System.Int32)">
+            <summary>
+            グループ加入者リストを取得する
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <returns>グループ加入者リスト</returns>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.DeleteUserInGroup(System.Int32,System.String)">
+            <summary>
+            グループに加入しているユーザーを脱退させる
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.DeleteGroup(System.Int32)">
+            <summary>
+            グループを削除する
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.UpdateGroupName(System.Int32,System.String)">
+            <summary>
+            グループ名を更新する
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <param name="groupName">グループ名</param>
+        </member>
+        <member name="M:chat_winForm.Service.GroupService.InvitationUserInGroup(System.Int32,System.String)">
+            <summary>
+            グループにユーザーを勧誘する
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="T:chat_winForm.Service.TalkRoomService">
+            <summary>
+            トークルームに関する処理を書くところ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Service.TalkRoomService.GetDialogueTalkRoomModelList">
+            <summary>
+            友達トークルームリストを取得する
+            </summary>
+            <returns>友達トークルームリスト</returns>
+        </member>
+        <member name="M:chat_winForm.Service.TalkRoomService.GetGroupTalkRoomModelList">
+            <summary>
+            グループトークルームリストを取得する
+            </summary>
+            <returns>グループトークルームリスト</returns>
+        </member>
+        <member name="M:chat_winForm.Service.TalkRoomService.GetDesireDialogueTalkRoomModelList">
+            <summary>
+            友達追加申請者とのトークルームリストの取得
+            </summary>
+            <returns>友達追加申請者とのトークルームリスト</returns>
+        </member>
+        <member name="M:chat_winForm.Service.TalkRoomService.GetDesireGroupTalkRoomModelList">
+            <summary>
+            勧誘されているグループトークルームリストの取得
+            </summary>
+            <returns>勧誘されているグループトークルームリスト</returns>
+        </member>
+        <member name="T:chat_winForm.Service.TalkService">
+            <summary>
+            トークに関する処理を書くところろ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.SendDialogueTalk(System.String,System.String)">
+            <summary>
+            友達トークを送る
+            </summary>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+            <param name="contentText">トークの内容</param>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.SendGroupTalk(System.Int32,System.String)">
+            <summary>
+            グループトークを送る
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <param name="contentText">トークの内容</param>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.GetDialogueTalkList(System.String,System.Int32,System.Int32)">
+            <summary>
+            友達トークリストの取得
+            </summary>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+            <param name="startIndex">取得を開始するトークインデックス</param>
+            <param name="mazSize">最大取得件数</param>
+            <returns>友達トークリスト</returns>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.GetGroupTalkList(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            グループトークリストの取得
+            </summary>
+            <param name="GroupTalkRoomId">グループトークルームID</param>
+            <param name="startIndex">取得を開始するトークインデックス</param>
+            <param name="mazSize">最大取得件数</param>
+            <returns></returns>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.DeleteDialogueTalk(System.String,System.Int32)">
+            <summary>
+            友達トークの削除
+            </summary>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+            <param name="talkIndex">トークインデックス</param>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.DeleteGroupTalk(System.Int32,System.Int32)">
+            <summary>
+            グループトークの削除
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <param name="talkIndex">トークインデックス</param>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.UpdateGroupTalk(System.Int32,System.Int32,System.String)">
+            <summary>
+            グループトークの更新
+            </summary>
+            <param name="groupTalkRoomId">グループトークルームID</param>
+            <param name="talkIndex">トークインデックス</param>
+            <param name="contentText">トークの内容</param>
+        </member>
+        <member name="M:chat_winForm.Service.TalkService.UpdateDialogueTalk(System.String,System.Int32,System.String)">
+            <summary>
+            友達トークの更新
+            </summary>
+            <param name="haveUserIdName">友達のユーザーID名</param>
+            <param name="talkIndex">トークインデックス</param>
+            <param name="contentText">トークの内容</param>
+        </member>
+        <member name="T:chat_winForm.Service.UserService">
+            <summary>
+            ユーザーに関する処理を書くところ
+            </summary>
+        </member>
+        <member name="M:chat_winForm.Service.UserService.Login(System.String,System.String)">
+            <summary>
+            ログインする（認証用トークンの取得）
+            </summary>
+            <param name="userIdName">ユーザーID</param>
+            <param name="password">パスワード</param>
+            <returns></returns>
+        </member>
+        <member name="M:chat_winForm.Service.UserService.InsertUser(System.String,System.String,System.String)">
+            <summary>
+            ユーザーの登録
+            </summary>
+            <param name="userIdName">ユーザーID</param>
+            <param name="userName">ニックネーム</param>
+            <param name="password">パスワード</param>
+        </member>
+        <member name="M:chat_winForm.Service.UserService.UpdateUserName(System.String)">
+            <summary>
+            ユーザー名を更新する
+            </summary>
+            <param name="userName">ユーザー名</param>
+        </member>
+        <member name="M:chat_winForm.Service.UserService.GetMyUserName">
+            <summary>
+            自分のユーザー名を取得する
+            </summary>
+            <returns>自分のユーザー名</returns>
+        </member>
+        <member name="M:chat_winForm.Service.UserService.UpdateUserIdName(System.String)">
+            <summary>
+            ユーザーID名を更新する
+            </summary>
+            <param name="userIdName">ユーザーID名</param>
+        </member>
+        <member name="M:chat_winForm.Service.UserService.UpdatePassword(System.String)">
+            <summary>
+            パスワードを更新する
+            </summary>
+            <param name="password">パスワード</param>
+        </member>
+    </members>
+</doc>
