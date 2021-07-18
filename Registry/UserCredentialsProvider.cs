@@ -17,8 +17,8 @@ namespace chat_winForm.Registry
         private const String ENCODE_KEY = @"ffffffawt89z@-0:A~W$t5raz;0349^q";
         private const String ENCODE_IV = @"SZDtyp0ioeawet%&";
 
-        readonly static UserCredentialsProvider s_userCredentialsProvider = new UserCredentialsProvider();
-        readonly static private RijndaelManaged s_rijndael = new RijndaelManaged();
+        static readonly UserCredentialsProvider s_userCredentialsProvider = new UserCredentialsProvider();
+        private static readonly RijndaelManaged s_rijndael = new RijndaelManaged();
 
         /// <summary>
         /// コンストラクタ（外部で使わない）
@@ -29,7 +29,7 @@ namespace chat_winForm.Registry
         /// UserCredentialsProviderのインスタンスを返す
         /// </summary>
         /// <returns>UserCredentialsProviderのインスタンス</returns>
-        static public UserCredentialsProvider GetInstance()
+        public static UserCredentialsProvider GetInstance()
         {
             return s_userCredentialsProvider;
         }
@@ -106,11 +106,19 @@ namespace chat_winForm.Registry
             regstryKey.DeleteValue(keyName, false);
         }
 
+        /// <summary>
+        /// この機種に格納されているすべてのユーザーに関する情報を削除する
+        /// </summary>
         public void AllDelete()
         {
             Microsoft.Win32.Registry.CurrentUser.DeleteSubKeyTree(REGISTRY_SUB_KEY);
         }
 
+        /// <summary>
+        /// レジストリのキーの中に値を格納する
+        /// </summary>
+        /// <param name="keyName">キーの名前</param>
+        /// <param name="keyValue">値</param>
         private void SetKeyValue(String keyName, String keyValue)
         {
             Microsoft.Win32.RegistryKey regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, true);
@@ -126,6 +134,11 @@ namespace chat_winForm.Registry
             }
         }
 
+        /// <summary>
+        /// キーの値を取得する
+        /// </summary>
+        /// <param name="keyName">キーの名前</param>
+        /// <returns>キーの値</returns>
         private String GetKeyValue(String keyName)
         {
             Microsoft.Win32.RegistryKey regstryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(REGISTRY_SUB_KEY, false);
@@ -147,7 +160,13 @@ namespace chat_winForm.Registry
                 regstryKey.Close();
             }
         }
-
+        /// <summary>
+        /// 暗号化する
+        /// </summary>
+        /// <param name="text">暗号化する対象の生文字列</param>
+        /// <param name="iv">暗号化に使うもの</param>
+        /// <param name="key">暗号化キー</param>
+        /// <returns>暗号化された文字列</returns>
         private string Encrypt(string text, string iv, string key)
         {
             s_rijndael.KeySize = key.Length * 4;
@@ -174,6 +193,13 @@ namespace chat_winForm.Registry
             return System.Convert.ToBase64String(encrypted);
         }
 
+        /// <summary>
+        /// 復号化する
+        /// </summary>
+        /// <param name="cipher">暗号化された文字列</param>
+        /// <param name="iv">暗号化に使うもの</param>
+        /// <param name="key">暗号化キー</param>
+        /// <returns>復号化された生文字列</returns>
         private String Decrypt(string cipher, string iv, string key)
         {
             s_rijndael.KeySize = key.Length * 4;

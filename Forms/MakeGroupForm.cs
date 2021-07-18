@@ -1,39 +1,60 @@
 ﻿using chat_winForm.Forms.Commons;
 using chat_winForm.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace chat_winForm.Forms
 {
+    /// <summary>
+    /// グループ作成画面
+    /// </summary>
     public partial class MakeGroupForm : chat_winForm.OuterForm
     {
-        public delegate void Prosess ();
+        public delegate void Prosess();
 
+        /// <summary>
+        /// グループを作成した後の後処理
+        /// </summary>
         public Prosess MakeGroup_After { get; set; }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public MakeGroupForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// グループ作成ボタンが押されたときのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void MakeGrolupButton_Click(object sender, EventArgs e)
         {
-            if (MakeGroupErrorProvider.GetError(GroupNameTextBox) == null)
+            if (MakeGroupErrorProvider.GetError(GroupNameTextBox) != "")
+            {
+                CommonMessageBoxs.ValidationMessageBox();
                 return;
+            }
 
-            StartSpinnerMode();
+            try
+            {
+                StartSpinnerMode();
 
-            GroupService.MakeGroup(GroupNameTextBox.Text);
-
-            FinishSpinnerMode();
-            MakeGroup_After();
+                GroupService.MakeGroup(GroupNameTextBox.Text);
+            }
+            finally
+            {
+                FinishSpinnerMode();
+                MakeGroup_After();
+            }
         }
 
+        /// <summary>
+        /// グループ名のバリデーションチェックのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void GroupNameTextBox_Validated(object sender, EventArgs e)
         {
             MakeGroupErrorProvider.SetError(GroupNameTextBox,
@@ -60,11 +81,6 @@ namespace chat_winForm.Forms
         {
             SpinnerBox.Visible = false;
             UseWaitCursor = false;
-        }
-
-        private void MakeGroupForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

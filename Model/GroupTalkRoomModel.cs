@@ -17,7 +17,8 @@ namespace chat_winForm.Model
         /// </summary>
         /// <param name="name">トークルームの名前</param>
         /// <param name="myLastTalkIndex">ユーザーのラストトークインデックス</param>
-        /// <param name="groupTalkRoomId">グループトークルームID</param>
+        /// <param name="lastTalkIndex">ラストトークインデックス</param>
+        /// <param name="noticeCount">通知数</param>
         public GroupTalkRoomModel(String name, int lastTalkIndex, int groupTalkRoomId, int noticeCount)
             : base(name, lastTalkIndex, noticeCount)
         {

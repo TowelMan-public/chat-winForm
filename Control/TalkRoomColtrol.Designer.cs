@@ -68,7 +68,6 @@ namespace chat_winForm.Control
             this.Controls.Add(this.TalkRoomLabel);
             this.Name = "TalkRoomColtrol";
             this.Size = new System.Drawing.Size(160, 28);
-            this.Load += new System.EventHandler(this.TalkRoomColtrol_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -88,11 +88,8 @@ namespace chat_winForm.Control
             this.BodyControl.Location = new System.Drawing.Point(0, 3);
             this.BodyControl.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.BodyControl.Name = "BodyControl";
-            this.BodyControl.NewestTalkIndex = -1;
-            this.BodyControl.OldestTalkIndex = -1;
             this.BodyControl.Size = new System.Drawing.Size(482, 412);
             this.BodyControl.TabIndex = 3;
-            this.BodyControl.TalkClick = null;
             this.BodyControl.TalkControlClick = null;
             // 
             // TalkListInTalkRoomControl

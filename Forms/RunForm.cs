@@ -15,10 +15,10 @@ namespace chat_winForm.Forms
         }
 
         /// <summary>
-        /// 初期化
+        /// このフォームが読み込まれたときのイベントハンドラー
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void RunForm_Load(object sender, EventArgs e)
         {
             //一番最初に表示するフォーム
@@ -26,6 +26,11 @@ namespace chat_winForm.Forms
             form.Show();
         }
 
+        /// <summary>
+        /// このフォームがアクティブになったときのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void RunForm_Activated(object sender, EventArgs e)
         {
             Hide();

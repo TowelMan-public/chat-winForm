@@ -69,7 +69,7 @@ namespace chat_winForm.Control
             this.BrockButton.Text = "ブロックする";
             this.BrockButton.UseVisualStyleBackColor = false;
             // 
-            // DialogueMenu
+            // DialogueMenuControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -77,9 +77,8 @@ namespace chat_winForm.Control
             this.Controls.Add(this.BrockButton);
             this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.UserIdNameLabel);
-            this.Name = "DialogueMenu";
+            this.Name = "DialogueMenuControl";
             this.Size = new System.Drawing.Size(410, 94);
-            this.Load += new System.EventHandler(this.DialogueMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

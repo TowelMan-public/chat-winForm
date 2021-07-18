@@ -8,43 +8,54 @@ using System.Windows.Forms;
 
 namespace chat_winForm.Control
 {
+    /// <summary>
+    /// TalkControlの中身の部分
+    /// </summary>
+    /// <see cref="TalkControl"/>
     public partial class TalkInnerControl : UserControl
     {
         private const int TIME_STAMP_HEIGHT = 15;
         private const int YOUR_TALK_LABEL_LOCATION_Y = 20;
-        private bool AlreadyPringtAll;
+        private static readonly Color MY_TAKL_COLOR = Color.FromArgb(128, 255, 128);
+        private static readonly Color YOUR_TAKL_COLOR = Color.Gray;
 
+        /// <summary>
+        /// このコントロールで使うデータセットのセット・取得
+        /// </summary>
         public TalkModel Model
         {
-            get => model;
+            get => _model;
             set
             {
-                model = value;
+                _model = value;
                 PaintAll();
             }
         }
 
+        /// <summary>
+        /// トークの内容の部分がクリックされたときのイベント
+        /// </summary>
         public event EventHandler TalkClickEventHandler
         {
             add => ContentTextLabel.Click += value;
             remove => ContentTextLabel.Click -= value;
         }
 
-        private static readonly Color MY_TAKL_COLOR = Color.FromArgb(128, 255, 128);
-        private static readonly Color YOUR_TAKL_COLOR = Color.Gray;
+        private bool alreadyPringtAll;
+        private TalkModel _model;
 
-        private TalkModel model;
-
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public TalkInnerControl()
         {
             InitializeComponent();
-            AlreadyPringtAll = false;
+            alreadyPringtAll = false;
         }
 
-        private void TalkControl_Load(object sender, EventArgs e)
-        {
-        }
-
+        /// <summary>
+        /// トークの全てを表示する
+        /// </summary>
         public void PaintAll()
         {
             //プロパティーが足りない
@@ -105,11 +116,17 @@ namespace chat_winForm.Control
                 ContentTextLabel.ForeColor = Color.White;
                 PeintImae(YOUR_TAKL_COLOR);
             }
-            AlreadyPringtAll = true;
+
+            alreadyPringtAll = true;
         }
 
-        //四角形の形を作る
-        public GraphicsPath GetRoundRect(Rectangle rect, int radius)
+        /// <summary>
+        /// 角丸四角形の形を作る
+        /// </summary>
+        /// <param name="rect">四角形の位置とサイズ</param>
+        /// <param name="radius">丸みの度合い</param>
+        /// <returns></returns>
+        private GraphicsPath GetRoundRect(Rectangle rect, int radius)
         {
             GraphicsPath path = new GraphicsPath();
 
@@ -149,7 +166,10 @@ namespace chat_winForm.Control
             return path;
         }
 
-        //四角形を描画する
+        /// <summary>
+        /// トークの内容部分の四角形を描画する
+        /// </summary>
+        /// <param name="fillColor">四角形の色</param>
         private void PeintImae(Color fillColor)
         {
             Rectangle rect = new Rectangle(0, 0, ContentTextLabel.Width, ContentTextLabel.Height);
@@ -162,9 +182,14 @@ namespace chat_winForm.Control
             graphics.FillPath(new SolidBrush(fillColor), path);
         }
 
+        /// <summary>
+        /// リサイズされたときのイベント
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void TalkControl_SizeChanged(object sender, EventArgs e)
         {
-            if (AlreadyPringtAll)
+            if (alreadyPringtAll)
             {
                 PaintAll();
             }

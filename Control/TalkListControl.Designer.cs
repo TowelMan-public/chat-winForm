@@ -69,7 +69,6 @@ namespace chat_winForm.Control
             this.Controls.Add(this.LoadOlderTalkButtom);
             this.Name = "TalkListControl";
             this.Size = new System.Drawing.Size(543, 80);
-            this.Load += new System.EventHandler(this.TalkListControl_Load);
             this.ResumeLayout(false);
 
         }

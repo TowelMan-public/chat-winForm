@@ -18,7 +18,7 @@ namespace chat_winForm.Client.Api
         /// <param name="userIdName">ユーザーID名</param>
         /// <param name="password">パスワード</param>
         /// <returns>認証用トークン</returns>
-        static public String Login(String userIdName, String password)
+        public static String Login(String userIdName, String password)
         {
             const String URL = ROOT_URL + "/login";
 
@@ -37,7 +37,7 @@ namespace chat_winForm.Client.Api
         /// <param name="userName">ユーザー名（ニックネーム）</param>
         /// <param name="userIdName">ユーザーID名</param>
         /// <param name="password">パスワード</param>
-        static public void InsertUser(String userName, String userIdName, String password)
+        public static void InsertUser(String userName, String userIdName, String password)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -57,7 +57,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
         /// <returns>ユーザー情報</returns>
-        static public UserEntity GetUser(String OauthToken, String userIdName)
+        public static UserEntity GetUser(String OauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -74,7 +74,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void UpdateUserIdName(String OauthToken, String userIdName)
+        public static void UpdateUserIdName(String OauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/update/id-name";
 
@@ -91,7 +91,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userName">ユーザー名</param>
-        static public void UpdateUserName(String OauthToken, String userName)
+        public static void UpdateUserName(String OauthToken, String userName)
         {
             const String URL = ROOT_URL + "/update/name";
 
@@ -108,7 +108,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="password">パスワード</param>
-        static public void UpdatePassword(String OauthToken, String password)
+        public static void UpdatePassword(String OauthToken, String password)
         {
             const String URL = ROOT_URL + "/update/password";
 
@@ -124,7 +124,7 @@ namespace chat_winForm.Client.Api
         /// 退会
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
-        static public void DeleteUser(String OauthToken)
+        public static void DeleteUser(String OauthToken)
         {
             const String URL = ROOT_URL + "/delete";
 

@@ -8,7 +8,7 @@ namespace chat_winForm.Client.Api
     /// </summary>
     class DialogueTalkApi
     {
-        readonly static RestTemplate s_RestTemplate = RestTemplate.GetInstance();
+        static readonly RestTemplate s_RestTemplate = RestTemplate.GetInstance();
 
         const String ROOT_URL = ApiUrlRootConfing.ROOT_URL + "/dialogue/talk";
 
@@ -18,7 +18,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="haveUserIdName">友達ユーザーのID名</param>
         /// <param name="talkContentText">トークテキスト</param>
-        static public void InsertTalk(String OauthToken, String haveUserIdName, String talkContentText)
+        public static void InsertTalk(String OauthToken, String haveUserIdName, String talkContentText)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -38,7 +38,7 @@ namespace chat_winForm.Client.Api
         /// <param name="haveUserIdName">友達ユーザーのID名</param>
         /// <param name="talkIndex">トークインデックス</param>
         /// <returns>友達トーク</returns>
-        static public TalkResponse GetTalk(String OauthToken, String haveUserIdName, int talkIndex)
+        public static TalkResponse GetTalk(String OauthToken, String haveUserIdName, int talkIndex)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -58,7 +58,7 @@ namespace chat_winForm.Client.Api
         /// <param name="haveUserIdName">友達ユーザーのID名</param>
         /// <param name="talkIndex">トークインデックス</param>
         /// <param name="talkContentText">トークテキスト</param>
-        static public void UpdateTalk(String OauthToken, String haveUserIdName, int talkIndex, String talkContentText)
+        public static void UpdateTalk(String OauthToken, String haveUserIdName, int talkIndex, String talkContentText)
         {
             const String URL = ROOT_URL + "/update";
 
@@ -78,7 +78,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="haveUserIdName">友達ユーザーのID名</param>
         /// <param name="talkIndex">トークインデックス</param>
-        static public void DeleteTalk(String OauthToken, String haveUserIdName, int talkIndex)
+        public static void DeleteTalk(String OauthToken, String haveUserIdName, int talkIndex)
         {
             const String URL = ROOT_URL + "/delete";
 

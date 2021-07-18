@@ -17,7 +17,8 @@ namespace chat_winForm.Model
         /// </summary>
         /// <param name="name">トークルームの名前</param>
         /// <param name="myLastTalkIndex">ユーザーのラストトークインデックス</param>
-        /// <param name="haveUserIdName">友達のユーザーID（UserIdName）</param>
+        /// <param name="lastTalkIndex">ラストトークインデックス</param>
+        /// <param name="noticeCount">通知数</param>
         public DialogueTalkRoomModel(String name, int lastTalkIndex, String haveUserIdName, int noticeCount)
             : base(name, lastTalkIndex, noticeCount)
         {

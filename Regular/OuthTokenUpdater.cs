@@ -32,7 +32,7 @@ namespace chat_winForm.Regular
         /// OuthTokenUpdaterのインスタンスを取得する
         /// </summary>
         /// <returns>OuthTokenUpdaterのインスタンス</returns>
-        static public OuthTokenUpdater GetInstance()
+        public static OuthTokenUpdater GetInstance()
         {
             return outhTokenUpdater;
         }
@@ -86,7 +86,9 @@ namespace chat_winForm.Regular
         public void Stop()
         {
             if (timer != null)
+            {
                 timer.Dispose();
+            }
         }
     }
 }

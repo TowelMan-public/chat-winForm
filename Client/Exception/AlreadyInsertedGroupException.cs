@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// 既にグループに加入してる
+    /// </summary>
     [Serializable()]
     class AlreadyInsertedGroupException : HttpException
     {

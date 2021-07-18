@@ -70,7 +70,6 @@ namespace chat_winForm.Control
             this.Controls.Add(this.BrockButton);
             this.Name = "DesireMenuControl";
             this.Size = new System.Drawing.Size(413, 89);
-            this.Load += new System.EventHandler(this.DesireMenuControl_Load);
             this.ResumeLayout(false);
 
         }

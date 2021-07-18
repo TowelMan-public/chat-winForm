@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// 指定したユーザーが友達でない
+    /// </summary>
     [Serializable()]
     class NotHaveUserException : HttpException
     {

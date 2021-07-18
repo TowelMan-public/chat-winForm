@@ -9,7 +9,7 @@ namespace chat_winForm.Client.Api
     /// </summary>
     class UserInDialogueApi
     {
-        readonly static RestTemplate s_RestTemplate = RestTemplate.GetInstance();
+        static readonly RestTemplate s_RestTemplate = RestTemplate.GetInstance();
 
         const String ROOT_URL = ApiUrlRootConfing.ROOT_URL + "/diarogue/user";
 
@@ -18,7 +18,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <returns>友達リスト</returns>
-        static public List<HaveUserResponse> GetUserInDiarogueList(String OauthToken)
+        public static List<HaveUserResponse> GetUserInDiarogueList(String OauthToken)
         {
             const String URL = ROOT_URL + "/gets";
 
@@ -33,7 +33,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="haveUserIdName">友達のユーザーID名</param>
         /// <returns></returns>
-        static public HaveUserResponse GetUserInDiarogue(String OauthToken, String haveUserIdName)
+        public static HaveUserResponse GetUserInDiarogue(String OauthToken, String haveUserIdName)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -50,7 +50,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="haveUserIdName">友達のユーザーID名</param>
-        static public void JnsertUserInDiarogue(String OauthToken, String haveUserIdName)
+        public static void JnsertUserInDiarogue(String OauthToken, String haveUserIdName)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -67,7 +67,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="haveUserIdName">友達のユーザーID名</param>
-        static public void DeleteUserInDiarogue(String OauthToken, String haveUserIdName)
+        public static void DeleteUserInDiarogue(String OauthToken, String haveUserIdName)
         {
             const String URL = ROOT_URL + "/delete";
 

@@ -9,7 +9,7 @@ namespace chat_winForm.Client.Api
     /// </summary>
     class DesireUserApi
     {
-        readonly static RestTemplate s_RestTemplate = RestTemplate.GetInstance();
+        static readonly RestTemplate s_RestTemplate = RestTemplate.GetInstance();
 
         const String ROOT_URL = ApiUrlRootConfing.ROOT_URL + "/desire/user";
 
@@ -18,7 +18,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <returns>友達追加申請リスト</returns>
-        static public List<DesireHaveUserResponse> GetDesireUserList(String OauthToken)
+        public static List<DesireHaveUserResponse> GetDesireUserList(String OauthToken)
         {
             const String URL = ROOT_URL + "/gets";
 
@@ -33,7 +33,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
         /// <returns>友達追加申請</returns>
-        static public DesireHaveUserResponse GetDesireUser(String OauthToken, String userIdName)
+        public static DesireHaveUserResponse GetDesireUser(String OauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -50,7 +50,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void DeleteDesireUser(String OauthToken, String userIdName)
+        public static void DeleteDesireUser(String OauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/delete";
 
@@ -67,7 +67,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="userIdName">ユーザーID名</param>
-        static public void JoinUser(String OauthToken, String userIdName)
+        public static void JoinUser(String OauthToken, String userIdName)
         {
             const String URL = ROOT_URL + "/join";
 

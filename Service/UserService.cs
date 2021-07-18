@@ -38,21 +38,37 @@ namespace chat_winForm.Service
             UserApi.InsertUser(userName, userIdName, password);
         }
 
+        /// <summary>
+        /// ユーザー名を更新する
+        /// </summary>
+        /// <param name="userName">ユーザー名</param>
         public static void UpdateUserName(string userName)
         {
             UserApi.UpdateUserName(userCredentialsProvider.OauthToken, userName);
         }
 
+        /// <summary>
+        /// 自分のユーザー名を取得する
+        /// </summary>
+        /// <returns>自分のユーザー名</returns>
         public static String GetMyUserName()
         {
             return UserApi.GetUser(userCredentialsProvider.OauthToken, userCredentialsProvider.UserIdName).UserName;
         }
 
+        /// <summary>
+        /// ユーザーID名を更新する
+        /// </summary>
+        /// <param name="userIdName">ユーザーID名</param>
         public static void UpdateUserIdName(string userIdName)
         {
             UserApi.UpdateUserIdName(userCredentialsProvider.OauthToken, userIdName);
         }
 
+        /// <summary>
+        /// パスワードを更新する
+        /// </summary>
+        /// <param name="password">パスワード</param>
         public static void UpdatePassword(string password)
         {
             UserApi.UpdatePassword(userCredentialsProvider.OauthToken, password);

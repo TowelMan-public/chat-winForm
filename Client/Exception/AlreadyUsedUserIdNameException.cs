@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// 指定されたユーザーID名が既に使われている
+    /// </summary>
     [Serializable()]
     class AlreadyUsedUserIdNameException : HttpException
     {

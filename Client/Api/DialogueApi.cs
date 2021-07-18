@@ -21,7 +21,7 @@ namespace chat_winForm.Client.Api
         /// <param name="maxSize">最大取得件数</param>
         /// <param name="startIndex">取得開始トークインデックス</param>
         /// <returns>友達トークリスト</returns>
-        static public List<TalkResponse> GetDiarogueTalks(String OauthToken, String userIdName, int maxSize, int startIndex)
+        public static List<TalkResponse> GetDiarogueTalks(String OauthToken, String userIdName, int maxSize, int startIndex)
         {
             const String URL = ROOT_URL + "/gets/talks";
 

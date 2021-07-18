@@ -5,6 +5,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// 指定された項目の値が存在しない。見つからない。
+    /// </summary>
     [Serializable()]
     class NotFoundException : HttpException
     {

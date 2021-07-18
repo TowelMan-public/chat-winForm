@@ -4,9 +4,19 @@ using System.Windows.Forms;
 
 namespace chat_winForm.Control
 {
+    /// <summary>
+    /// トークルーム単体を表すコントロール
+    /// </summary>
     public partial class TalkRoomColtrol : UserControl
     {
+        /// <summary>
+        /// このコントロールに保持されるデータセットのセット・取得
+        /// </summary>
         public TalkRoomModel Model { get; set; }
+
+        /// <summary>
+        /// トークルームをクリックしたときのクリックイベント
+        /// </summary>
         public event EventHandler MyClick
         {
             add
@@ -23,6 +33,9 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// トークルーム名のセット・取得
+        /// </summary>
         public new String Text
         {
             get
@@ -35,6 +48,9 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// 通知数のセット・取得
+        /// </summary>
         public int NoticeCount
         {
             get
@@ -62,13 +78,12 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public TalkRoomColtrol()
         {
             InitializeComponent();
-        }
-
-        private void TalkRoomColtrol_Load(object sender, EventArgs e)
-        {
         }
     }
 }

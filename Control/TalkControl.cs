@@ -5,11 +5,28 @@ using System.Windows.Forms;
 
 namespace chat_winForm.Control
 {
+    /// <summary>
+    /// トークコントロール（1件のトーク）
+    /// </summary>
     public partial class TalkControl : UserControl
     {
         private const int TALK_WIDTH_ONE_MERGIN = 130;
-        private bool AlreadyAdaptWide;
+        private bool alreadyAdaptWide;
+        private int oldWidth;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public TalkControl()
+        {
+            InitializeComponent();
+            alreadyAdaptWide = false;
+            oldWidth = -1;
+        }
+
+        /// <summary>
+        /// このコントロールで使うデータセット
+        /// </summary>
         public TalkModel Model
         {
             get => Inner.Model;
@@ -20,20 +37,18 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// トークをクリックしたときのイベントのセット・取得
+        /// </summary>
         public event EventHandler TalkClickEventHandler
         {
             add => Inner.TalkClickEventHandler += value;
             remove => Inner.TalkClickEventHandler -= value;
         }
 
-        private int oldWidth = -1;
-
-        public TalkControl()
-        {
-            InitializeComponent();
-            AlreadyAdaptWide = false;
-        }
-
+        /// <summary>
+        /// 幅によるサイズ、位置の調節
+        /// </summary>
         private void AdaptWide()
         {
             Inner.Width = Width - TALK_WIDTH_ONE_MERGIN;
@@ -49,21 +64,21 @@ namespace chat_winForm.Control
             }
 
             Height = Inner.Height;
-            AlreadyAdaptWide = true;
+            alreadyAdaptWide = true;
         }
 
+        /// <summary>
+        /// サイズが変更されたときのイベント
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使うデータ等</param>
         private void TalkControl_SizeChanged(object sender, EventArgs e)
         {
-            if (AlreadyAdaptWide && oldWidth != Width)
+            if (alreadyAdaptWide && oldWidth != Width)
             {
                 AdaptWide();
                 oldWidth = Width;
             }
-        }
-
-        private void TalkControl_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

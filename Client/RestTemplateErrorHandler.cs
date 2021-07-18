@@ -13,13 +13,13 @@ namespace chat_winForm.Client
     /// <see cref="RestTemplate"/>
     class RestTemplateErrorHandler
     {
-        static readonly private RestTemplateErrorHandler s_RestTemplateErrorHandler = new RestTemplateErrorHandler();
+        private static readonly RestTemplateErrorHandler s_RestTemplateErrorHandler = new RestTemplateErrorHandler();
 
         /// <summary>
         /// RestTemplateErrorHandlerのインスタンスを返す。
         /// </summary>
         /// <returns>RestTemplateErrorHandlerのインスタンス</returns>
-        static public RestTemplateErrorHandler GetInstance()
+        public static RestTemplateErrorHandler GetInstance()
         {
             return s_RestTemplateErrorHandler;
 

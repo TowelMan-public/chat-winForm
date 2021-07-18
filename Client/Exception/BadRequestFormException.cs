@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// リクエストが不正な使われ方をした。
+    /// </summary>
     [Serializable()]
     class BadRequestFormException : HttpException
     {

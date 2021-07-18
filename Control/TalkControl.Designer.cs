@@ -54,7 +54,6 @@ namespace chat_winForm.Control
             this.Controls.Add(this.Inner);
             this.Name = "TalkControl";
             this.Size = new System.Drawing.Size(262, 150);
-            this.Load += new System.EventHandler(this.TalkControl_Load);
             this.SizeChanged += new System.EventHandler(this.TalkControl_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

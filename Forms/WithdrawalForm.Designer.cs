@@ -32,8 +32,8 @@ namespace chat_winForm.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.WithdrawalButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -69,55 +69,54 @@ namespace chat_winForm.Forms
             this.label3.TabIndex = 14;
             this.label3.Text = "この処理は取り消せません！！";
             // 
-            // button1
+            // WithdrawalButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(200, 347);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 68);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "退会する";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.WithdrawalButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.WithdrawalButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.WithdrawalButton.FlatAppearance.BorderSize = 3;
+            this.WithdrawalButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.WithdrawalButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.WithdrawalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WithdrawalButton.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.WithdrawalButton.ForeColor = System.Drawing.Color.White;
+            this.WithdrawalButton.Location = new System.Drawing.Point(200, 347);
+            this.WithdrawalButton.Name = "WithdrawalButton";
+            this.WithdrawalButton.Size = new System.Drawing.Size(190, 68);
+            this.WithdrawalButton.TabIndex = 15;
+            this.WithdrawalButton.Text = "退会する";
+            this.WithdrawalButton.UseVisualStyleBackColor = false;
+            this.WithdrawalButton.Click += new System.EventHandler(this.WithdrawalButton_Click);
             // 
-            // button2
+            // BackButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(396, 347);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 68);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "戻る";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.BackButton.ForeColor = System.Drawing.Color.White;
+            this.BackButton.Location = new System.Drawing.Point(396, 347);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(182, 68);
+            this.BackButton.TabIndex = 16;
+            this.BackButton.Text = "戻る";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // WithdrawalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BackButton);
+            this.Controls.Add(this.WithdrawalButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "WithdrawalForm";
-            this.Load += new System.EventHandler(this.WithdrawalForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
+            this.Controls.SetChildIndex(this.WithdrawalButton, 0);
+            this.Controls.SetChildIndex(this.BackButton, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,7 +127,7 @@ namespace chat_winForm.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button WithdrawalButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

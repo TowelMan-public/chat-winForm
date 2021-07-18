@@ -10,37 +10,82 @@ using System.Windows.Forms;
 
 namespace chat_winForm.Control
 {
+    /// <summary>
+    /// トークルームリストコントロール
+    /// </summary>
     public partial class TalkRoomListControl : UserControl
     {
+        /// <summary>
+        /// 友達トークルームリストの見出しのクリックイベント
+        /// </summary>
         public event EventHandler DialigueTalkRoomClickEventHandler
         {
             add => DialogueTalkRoomList.TalkRoomClickEventHandler += value;
             remove => DialogueTalkRoomList.TalkRoomClickEventHandler -= value;
         }
 
+        /// <summary>
+        /// グループトークルームリストの見出しのクリックイベント
+        /// </summary>
         public event EventHandler GroupTalkRoomClickEventHandler
         {
             add => GroupTalkRoomList.TalkRoomClickEventHandler += value;
             remove => GroupTalkRoomList.TalkRoomClickEventHandler -= value;
         }
 
+        /// <summary>
+        /// 友達追加申請のトークルームリストの見出しのクリックイベント
+        /// </summary>
         public event EventHandler DesireDialogueTalkRoomClickEventHandler
         {
             add => DesireDialogueTalkRoomList.TalkRoomClickEventHandler += value;
             remove => DesireDialogueTalkRoomList.TalkRoomClickEventHandler -= value;
         }
 
+        /// <summary>
+        /// グループ勧誘のトーークルームリストの見出しのクリックイベント
+        /// </summary>
         public event EventHandler DesireGroupTalkRoomClickEventHandler
         {
             add => DesireGroupTalkRoomList.TalkRoomClickEventHandler += value;
             remove => DesireGroupTalkRoomList.TalkRoomClickEventHandler -= value;
         }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public TalkRoomListControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// トークルームリストたちを最新の状態に更新する
+        /// </summary>
+        public void UpdateTalkRoomList()
+        {
+            DialogueTalkRoomList.Reset();
+            GroupTalkRoomList.Reset();
+            DesireDialogueTalkRoomList.Reset();
+            DesireGroupTalkRoomList.Reset();
+
+            DialogueTalkRoomListTitle.NoticeCount = 0;
+            DialogueTalkRoomListTitle.IsOpend = true;
+            GroupTalkRoomListTitle.NoticeCount = 0;
+            GroupTalkRoomListTitle.IsOpend = true;
+            DesireDialogueTalkRoomListTitle.NoticeCount = 0;
+            DesireDialogueTalkRoomListTitle.IsOpend = true;
+            DesireGroupTalkRoomListTitle.NoticeCount = 0;
+            DesireGroupTalkRoomListTitle.IsOpend = true;
+
+            CreateAllListGroupContents();
+        }
+
+        /// <summary>
+        /// 読み込まれたときのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void TalkRoomListControl_Load(object sender, EventArgs e)
         {
             //各ListGroupにタイトルを指定
@@ -65,6 +110,9 @@ namespace chat_winForm.Control
             CreateAllListGroupContents();
         }
 
+        /// <summary>
+        /// 各子コントロールの配置をする
+        /// </summary>
         private void Placement()
         {
             DialogueTalkRoomListTitle.Location = new Point(0);
@@ -110,6 +158,11 @@ namespace chat_winForm.Control
             Height = DesireGroupTalkRoomList.Location.Y + DesireGroupTalkRoomList.Height;
         }
 
+        /// <summary>
+        /// 友達トークルームの見出しがクリックされたときのイベント
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void DialogueTalkRoomListTitle_Click(object sender, EventArgs e)
         {
             DialogueTalkRoomListTitle.IsOpend ^= true;
@@ -117,6 +170,11 @@ namespace chat_winForm.Control
             Placement();
         }
 
+        /// <summary>
+        /// グループトークルームの見出しがクリックされたときのイベント
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void GroupTalkRoomListTitle_Click(object sender, EventArgs e)
         {
             GroupTalkRoomListTitle.IsOpend ^= true;
@@ -124,6 +182,11 @@ namespace chat_winForm.Control
             Placement();
         }
 
+        /// <summary>
+        /// 友達追加申請者とのトークルームの見出しがクリックされたときのイベント
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void DesireDialogueTalkRoomListTitle_Click(object sender, EventArgs e)
         {
             DesireDialogueTalkRoomListTitle.IsOpend ^= true;
@@ -131,6 +194,11 @@ namespace chat_winForm.Control
             Placement();
         }
 
+        /// <summary>
+        /// 勧誘されているグループトークルームの見出しがクリックされたときのイベント
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void DesireGroupTalkRoomListTitle_Click(object sender, EventArgs e)
         {
             DesireGroupTalkRoomListTitle.IsOpend ^= true;
@@ -138,6 +206,9 @@ namespace chat_winForm.Control
             Placement();
         }
 
+        /// <summary>
+        /// 全てのトークルームリストを読み込んでそれを表示させる
+        /// </summary>
         private async void CreateAllListGroupContents()
         {
             try
@@ -188,6 +259,10 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// 友達トークルームリストを表示する
+        /// </summary>
+        /// <param name="modelList">トークルームを格納したクラスのリスト</param>
         private void ShowDialogueTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
             DialogueTalkRoomListTitle.NoticeCount = 0;
@@ -199,6 +274,10 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// グループトークルームリストを表示させる
+        /// </summary>
+        /// <param name="modelList">トークルームを格納したクラスのリスト</param>
         private void ShowGroupTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
             GroupTalkRoomListTitle.NoticeCount = 0;
@@ -210,6 +289,10 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// 勧誘されているグループトークルームリストを表示させる
+        /// </summary>
+        /// <param name="modelList">トークルームを格納したクラスのリスト</param>
         private void ShowDesireGroupTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
             DesireGroupTalkRoomListTitle.NoticeCount = modelList.Count;
@@ -220,6 +303,10 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// 友達追加申請者とのトークルームリストを表示させる
+        /// </summary>
+        /// <param name="modelList">トークルームを格納したクラスのリスト</param>
         private void ShowDesireDialogueTalkRoomGroupContents(List<TalkRoomModel> modelList)
         {
             DesireDialogueTalkRoomListTitle.NoticeCount = modelList.Count;
@@ -229,35 +316,22 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// スピナーを表示させる
+        /// </summary>
         private void StartSpinnerMode()
         {
             SpinnerBox.Visible = true;
             UseWaitCursor = true;
         }
 
+        /// <summary>
+        /// スピナーを非表示にする
+        /// </summary>
         private void FinishSpinnerMode()
         {
             SpinnerBox.Visible = false;
             UseWaitCursor = false;
-        }
-
-        public void UpdateTalkRoomList()
-        {
-            DialogueTalkRoomList.Reset();
-            GroupTalkRoomList.Reset();
-            DesireDialogueTalkRoomList.Reset();
-            DesireGroupTalkRoomList.Reset();
-
-            DialogueTalkRoomListTitle.NoticeCount = 0;
-            DialogueTalkRoomListTitle.IsOpend = true;
-            GroupTalkRoomListTitle.NoticeCount = 0;
-            GroupTalkRoomListTitle.IsOpend = true;
-            DesireDialogueTalkRoomListTitle.NoticeCount = 0;
-            DesireDialogueTalkRoomListTitle.IsOpend = true;
-            DesireGroupTalkRoomListTitle.NoticeCount = 0;
-            DesireGroupTalkRoomListTitle.IsOpend = true;
-
-            CreateAllListGroupContents();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace chat_winForm.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.UserIdNameTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddDialogueButton = new System.Windows.Forms.Button();
             this.AddDialogueErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.SpinnerBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.AddDialogueErrorProvider)).BeginInit();
@@ -75,19 +75,19 @@ namespace chat_winForm.Forms
             this.UserIdNameTextBox.TabIndex = 14;
             this.UserIdNameTextBox.Validated += new System.EventHandler(this.UserIdNameTextBox_Validated);
             // 
-            // button1
+            // AddDialogueButton
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(259, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 76);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "友達に追加";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddDialogueButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AddDialogueButton.BackColor = System.Drawing.Color.Blue;
+            this.AddDialogueButton.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.AddDialogueButton.ForeColor = System.Drawing.Color.White;
+            this.AddDialogueButton.Location = new System.Drawing.Point(259, 303);
+            this.AddDialogueButton.Name = "AddDialogueButton";
+            this.AddDialogueButton.Size = new System.Drawing.Size(255, 76);
+            this.AddDialogueButton.TabIndex = 15;
+            this.AddDialogueButton.Text = "友達に追加";
+            this.AddDialogueButton.UseVisualStyleBackColor = false;
+            this.AddDialogueButton.Click += new System.EventHandler(this.AddDialogueButton_Click);
             // 
             // AddDialogueErrorProvider
             // 
@@ -114,17 +114,16 @@ namespace chat_winForm.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SpinnerBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddDialogueButton);
             this.Controls.Add(this.UserIdNameTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(670, 390);
             this.Name = "AddDialogueForm";
-            this.Load += new System.EventHandler(this.AddDialogueForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.UserIdNameTextBox, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.AddDialogueButton, 0);
             this.Controls.SetChildIndex(this.SpinnerBox, 0);
             ((System.ComponentModel.ISupportInitialize)(this.AddDialogueErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpinnerBox)).EndInit();
@@ -138,7 +137,7 @@ namespace chat_winForm.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox UserIdNameTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddDialogueButton;
         private System.Windows.Forms.ErrorProvider AddDialogueErrorProvider;
         private System.Windows.Forms.PictureBox SpinnerBox;
     }

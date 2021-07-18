@@ -5,6 +5,7 @@ using chat_winForm.Regular;
 using chat_winForm.Service;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,19 +32,21 @@ namespace chat_winForm.Forms
         /// <summary>
         /// 初期化
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private async void LoginForm_Load(object sender, EventArgs e)
         {
+            Thread.GetDomain().UnhandledException += NoneCatchedEception_Throw;
+
             //大枠のサイズ
-            var formSize = new Size
+            Size formSize = new Size
             {
                 Width = 320,
                 Height = 500
             };
 
-            this.Size = formSize;
-            this.MinimumSize = formSize;
+            Size = formSize;
+            MinimumSize = formSize;
 
             //PasswordTextBox
             PasswordTextBox.PasswordChar = '*';
@@ -83,11 +86,7 @@ namespace chat_winForm.Forms
                 }
                 catch (LoginException)
                 {
-                    userCredentialsProvider.DeletePassword();
-                }
-                catch (Exception)
-                {
-                    CommonMessageBoxs.UnexpectedErrorMessageBox();
+                    CommonMessageBoxs.FailureLoginMessageBox();
                 }
                 finally
                 {
@@ -100,8 +99,8 @@ namespace chat_winForm.Forms
         /// <summary>
         /// ログインボタンが押されたときの処理
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private async void LoginButton_Click(object sender, EventArgs e)
         {
             //バリデーションチェック
@@ -111,6 +110,7 @@ namespace chat_winForm.Forms
                 CommonMessageBoxs.ValidationMessageBox();
                 return;
             }
+
             try
             {
                 StartSpinnerMode();
@@ -142,10 +142,6 @@ namespace chat_winForm.Forms
             {
                 CommonMessageBoxs.FailureLoginMessageBox();
             }
-            catch (Exception)
-            {
-                CommonMessageBoxs.UnexpectedErrorMessageBox();
-            }
             finally
             {
                 FinishSpinnerMode();
@@ -155,8 +151,8 @@ namespace chat_winForm.Forms
         /// <summary>
         /// 新規登録ボタンが押されたときの処理
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void SignupButton_Click(object sender, EventArgs e)
         {
             //画面遷移
@@ -170,8 +166,8 @@ namespace chat_winForm.Forms
         /// <summary>
         /// ユーザーID(UserIdName)のバリデーションチェック
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void UserIdNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string errorMessage = new Validater(UserIdNameTextBox.Text)
@@ -185,8 +181,8 @@ namespace chat_winForm.Forms
         /// <summary>
         /// パスワードのバリデーションチェック
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void PasswordTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string errorMessage = new Validater(PasswordTextBox.Text)
@@ -195,6 +191,32 @@ namespace chat_winForm.Forms
                 .GetErrorMessage();
 
             ValidationErrorProvider.SetError(PasswordTextBox, errorMessage);
+        }
+
+        /// <summary>
+        /// このフォームが閉じられた時のイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!IsClosedByThis)
+            {
+                Application.Exit();
+            }
+            Thread.GetDomain().UnhandledException -= NoneCatchedEception_Throw;
+        }
+
+        /// <summary>
+        /// このフォームの管理下で投げられた例外で、キャッチされなかった例外を処理するイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void NoneCatchedEception_Throw(object sender, UnhandledExceptionEventArgs e)
+        {
+            object exceptionObject = e.ExceptionObject;
+
+            CommonMessageBoxs.UnexpectedErrorMessageBox();
         }
 
         /// <summary>
@@ -218,12 +240,6 @@ namespace chat_winForm.Forms
             UseWaitCursor = false;
             LoginButton.Visible = true;
             SignupButton.Visible = true;
-        }
-
-        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if(!IsClosedByThis)
-                Application.Exit();
         }
     }
 }

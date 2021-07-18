@@ -54,7 +54,6 @@ namespace chat_winForm.Control
             this.Controls.Add(this.ShowGroupDetailsButton);
             this.Name = "GroupMenuControl";
             this.Size = new System.Drawing.Size(421, 74);
-            this.Load += new System.EventHandler(this.GroupMenuControl_Load);
             this.ResumeLayout(false);
 
         }

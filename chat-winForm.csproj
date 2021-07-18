@@ -180,12 +180,6 @@
     <Compile Include="Control\TalkRoomListGroupTitleControl.Designer.cs">
       <DependentUpon>TalkRoomListGroupTitleControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\OuterTalkRoomListControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Control\OuterTalkRoomListControl.Designer.cs">
-      <DependentUpon>OuterTalkRoomListControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Control\NoticeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -320,11 +314,9 @@
     <EmbeddedResource Include="Control\TalkRoomListGroupTitleControl.resx">
       <DependentUpon>TalkRoomListGroupTitleControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\OuterTalkRoomListControl.resx">
-      <DependentUpon>OuterTalkRoomListControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddDialogueForm.resx">
       <DependentUpon>AddDialogueForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GroupDetailsForm.resx">
       <DependentUpon>GroupDetailsForm.cs</DependentUpon>
@@ -375,11 +367,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\Login\" />
-    <Folder Include="Event\Delegate\" />
-    <Folder Include="Utility\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="img\325-88.gif" />
     <Content Include="img\anotherMenu.jpeg" />

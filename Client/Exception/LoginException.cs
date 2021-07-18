@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// ログインでエラーが発生した。
+    /// </summary>
     [Serializable()]
     class LoginException : HttpException
     {

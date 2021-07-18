@@ -14,14 +14,14 @@ namespace chat_winForm.Client
     /// </summary>
     class RestTemplate
     {
-        static readonly private RestTemplate s_RestTemplate = new RestTemplate();
-        static readonly private HttpClientHandler s_HttpClientHandler =
+        private static readonly RestTemplate s_RestTemplate = new RestTemplate();
+        private static readonly HttpClientHandler s_HttpClientHandler =
             new HttpClientHandler
             {
                 UseProxy = false
             };
-        static readonly private HttpClient s_httpClient = new HttpClient(s_HttpClientHandler);
-        static readonly private RestTemplateErrorHandler s_RestTemplateErrorHandler = RestTemplateErrorHandler.GetInstance();
+        private static readonly HttpClient s_httpClient = new HttpClient(s_HttpClientHandler);
+        private static readonly RestTemplateErrorHandler s_RestTemplateErrorHandler = RestTemplateErrorHandler.GetInstance();
 
         const String OUTH_HTTP_HEADER_NAME = @"X-AUTH-TOKEN";
         const String Content_Type = "application/json";
@@ -30,7 +30,7 @@ namespace chat_winForm.Client
         /// RestTemplateのインスタンスを返す。
         /// </summary>
         /// <returns>RestTemplateのインスタンス</returns>
-        static public RestTemplate GetInstance()
+        public static RestTemplate GetInstance()
         {
             return s_RestTemplate;
 

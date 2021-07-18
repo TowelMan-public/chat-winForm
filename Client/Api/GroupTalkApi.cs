@@ -8,7 +8,7 @@ namespace chat_winForm.Client.Api
     /// </summary>
     class GroupTalkApi
     {
-        readonly static RestTemplate s_RestTemplate = RestTemplate.GetInstance();
+        static readonly RestTemplate s_RestTemplate = RestTemplate.GetInstance();
 
         const String ROOT_URL = ApiUrlRootConfing.ROOT_URL + "/group/talk";
 
@@ -18,7 +18,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkContentText">トークテキスト</param>
-        static public void InsertTalk(String OauthToken, int talkRoomId, String talkContentText)
+        public static void InsertTalk(String OauthToken, int talkRoomId, String talkContentText)
         {
             const String URL = ROOT_URL + "/insert";
 
@@ -38,7 +38,7 @@ namespace chat_winForm.Client.Api
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkIndex"> トークインデクス</param>
         /// <returns>グループトーク</returns>
-        static public TalkResponse GetTalk(String OauthToken, int talkRoomId, int talkIndex)
+        public static TalkResponse GetTalk(String OauthToken, int talkRoomId, int talkIndex)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -58,7 +58,7 @@ namespace chat_winForm.Client.Api
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkIndex"> トークインデクス</param>
         /// <param name="talkContentText">トークテキスト</param>
-        static public void UpdateTalk(String OauthToken, int talkRoomId, int talkIndex, String talkContentText)
+        public static void UpdateTalk(String OauthToken, int talkRoomId, int talkIndex, String talkContentText)
         {
             const String URL = ROOT_URL + "/update";
 
@@ -78,7 +78,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="talkIndex"> トークインデクス</param>
-        static public void DeleteTalk(String OauthToken, int talkRoomId, int talkIndex)
+        public static void DeleteTalk(String OauthToken, int talkRoomId, int talkIndex)
         {
             const String URL = ROOT_URL + "/delete";
 

@@ -38,7 +38,6 @@ namespace chat_winForm.Control
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Name = "TalkRoomListGroupControl";
             this.Size = new System.Drawing.Size(268, 20);
-            this.Load += new System.EventHandler(this.TalkRoomListGroupControl_Load);
             this.ResumeLayout(false);
 
         }

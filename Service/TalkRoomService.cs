@@ -5,11 +5,18 @@ using System.Collections.Generic;
 
 namespace chat_winForm.Service
 {
+    /// <summary>
+    /// トークルームに関する処理を書くところ
+    /// </summary>
     static class TalkRoomService
     {
         private static readonly UserCredentialsProvider userCredentialsProvider = UserCredentialsProvider.GetInstance();
 
-        static public List<TalkRoomModel> GetDialogueTalkRoomModelList()
+        /// <summary>
+        /// 友達トークルームリストを取得する
+        /// </summary>
+        /// <returns>友達トークルームリスト</returns>
+        public static List<TalkRoomModel> GetDialogueTalkRoomModelList()
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 
@@ -24,7 +31,11 @@ namespace chat_winForm.Service
             return modelList;
         }
 
-        static public List<TalkRoomModel> GetGroupTalkRoomModelList()
+        /// <summary>
+        /// グループトークルームリストを取得する
+        /// </summary>
+        /// <returns>グループトークルームリスト</returns>
+        public static List<TalkRoomModel> GetGroupTalkRoomModelList()
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 
@@ -39,7 +50,11 @@ namespace chat_winForm.Service
             return modelList;
         }
 
-        static public List<TalkRoomModel> GetDesireDialogueTalkRoomModelList()
+        /// <summary>
+        /// 友達追加申請者とのトークルームリストの取得
+        /// </summary>
+        /// <returns>友達追加申請者とのトークルームリスト</returns>
+        public static List<TalkRoomModel> GetDesireDialogueTalkRoomModelList()
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 
@@ -53,7 +68,11 @@ namespace chat_winForm.Service
             return modelList;
         }
 
-        static public List<TalkRoomModel> GetDesireGroupTalkRoomModelList()
+        /// <summary>
+        /// 勧誘されているグループトークルームリストの取得
+        /// </summary>
+        /// <returns>勧誘されているグループトークルームリスト</returns>
+        public static List<TalkRoomModel> GetDesireGroupTalkRoomModelList()
         {
             List<TalkRoomModel> modelList = new List<TalkRoomModel>();
 

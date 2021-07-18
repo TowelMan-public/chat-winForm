@@ -24,8 +24,8 @@ namespace chat_winForm
         /// <summary>
         /// 初期化
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void OuterForm_Load(object sender, EventArgs e)
         {
             //マウスイベント登録
@@ -57,8 +57,8 @@ namespace chat_winForm
         /// <summary>
         /// このフォームでマウスが押されたときのイベント（マウスポイント等の記憶）
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void OuterForm_MouseDown(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -71,8 +71,8 @@ namespace chat_winForm
         /// このフォームでマウスがドラッグされたときのイベント
         /// フォームの移動用
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void OuterForm_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -86,8 +86,8 @@ namespace chat_winForm
         /// このフォームのTopSizeChangerでマウスがドラッグされたときのイベント
         /// リサイズ用
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void TopSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -102,8 +102,8 @@ namespace chat_winForm
         /// このフォームのBottomSizeChangerでマウスがドラッグされたときのイベント
         /// リサイズ用
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void BottomSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -116,8 +116,8 @@ namespace chat_winForm
         /// このフォームのRightSizeChangerでマウスがドラッグされたときのイベント
         /// リサイズ用
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void RightSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -130,8 +130,8 @@ namespace chat_winForm
         /// このフォームのLeftSizeChangerでマウスがドラッグされたときのイベント
         /// リサイズ用
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void LeftSizeChanger_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -145,8 +145,8 @@ namespace chat_winForm
         /// <summary>
         /// 閉じるボタンの上にカーソルが乗った
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void ExitButton_MouseEnter(object sender, EventArgs e)
         {
             ExitButton.BackColor = Color.FromArgb(200, 40, 40);
@@ -155,8 +155,8 @@ namespace chat_winForm
         /// <summary>
         /// 閉じるボタンからカーソルが出て行った
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void Button_MouseLeave(object sender, EventArgs e)
         {
             ExitButton.BackColor = Color.FromArgb(64, 64, 64);
@@ -165,8 +165,8 @@ namespace chat_winForm
         /// <summary>
         /// 閉じるボタンが押された
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         protected void ExitButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -175,8 +175,8 @@ namespace chat_winForm
         /// <summary>
         /// 最大化ボタン(ReSizeButton)が押された
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void ReSizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
@@ -187,8 +187,8 @@ namespace chat_winForm
         /// <summary>
         /// 最小化ボタンが押された
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void ToMinButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -197,24 +197,13 @@ namespace chat_winForm
         /// <summary>
         /// リサイズボタン(ReReSize)が押された
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void ReReSizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Normal;
             ReReSizeButton.Visible = false;
             ReSizeButton.Visible = true;
-        }
-
-        /// <summary>
-        /// 認証用トークンの期限が切れたときのハンドラー関数
-        /// </summary>
-        protected void InvalidLoginExceptionHandler()
-        {
-            CommonMessageBoxs.InvalidLoginExceptionMessageBox();
-            Close();
-            Forms.LoginForm loginForm = new Forms.LoginForm();
-            loginForm.Show();
         }
     }
 }

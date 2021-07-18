@@ -3,21 +3,26 @@ using System.Windows.Forms;
 
 namespace chat_winForm.Control
 {
+    /// <summary>
+    /// グループトークルームリスト画面のメニュー画面
+    /// </summary>
     public partial class GroupMenuControl : UserControl
     {
-        public EventHandler ShowGroupDetailsButtonClick
-        {
-            set => ShowGroupDetailsButton.Click += value;
-        }
-
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public GroupMenuControl()
         {
             InitializeComponent();
         }
 
-        private void GroupMenuControl_Load(object sender, EventArgs e)
+        /// <summary>
+        /// グループ詳細画面表示ボタンクリック時のイベントのセット・取得
+        /// </summary>
+        public EventHandler ShowGroupDetailsButtonClick
         {
-
+            set => ShowGroupDetailsButton.Click += value;
         }
+
     }
 }

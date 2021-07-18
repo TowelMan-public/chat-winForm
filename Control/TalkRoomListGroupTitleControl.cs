@@ -3,8 +3,15 @@ using System.Windows.Forms;
 
 namespace chat_winForm.Control
 {
+    /// <summary>
+    /// トークルームリストの見出しのコントロール
+    /// </summary>
     public partial class TalkRoomListGroupTitleControl : UserControl
     {
+        /// <summary>
+        /// このコントロールがクリックされたときのイベント。
+        /// わざわざ作ってあるのはこのコントロールの子コントロールにも同じイベントを登録するため
+        /// </summary>
         public event EventHandler MyClick
         {
             add
@@ -23,6 +30,9 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// トークルームリストの見出しの文字列のセット・取得
+        /// </summary>
         public new String Text
         {
             get
@@ -35,6 +45,9 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// この見出しに対応する1つのトークルームリストグループの合計通知数のセット・取得
+        /// </summary>
         public int NoticeCount
         {
             get
@@ -62,6 +75,10 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// この見出しに対応するトークルームリストグループが表示されているかどうかのセット・取得
+        /// trueなら表示されている、falseなら表示されていない表示されていない
+        /// </summary>
         public bool IsOpend
         {
             get
@@ -81,11 +98,19 @@ namespace chat_winForm.Control
             }
         }
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public TalkRoomListGroupTitleControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// このコントロールが読み込まれたときのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
         private void TalkRoomControl_Load(object sender, EventArgs e)
         {
             IsOpend = true;

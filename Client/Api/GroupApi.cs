@@ -19,7 +19,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <returns>グループ情報</returns>
-        static public GroupTalkRoomResponse GetGroup(String OauthToken, int talkRoomId)
+        public static GroupTalkRoomResponse GetGroup(String OauthToken, int talkRoomId)
         {
             const String URL = ROOT_URL + "/get";
 
@@ -36,7 +36,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <returns>加入してるグループリストの取得</returns>
-        static public List<GroupTalkRoomResponse> GetGroups(String OauthToken)
+        public static List<GroupTalkRoomResponse> GetGroups(String OauthToken)
         {
             const String URL = ROOT_URL + "/gets";
 
@@ -53,7 +53,7 @@ namespace chat_winForm.Client.Api
         /// <param name="startIndex">最初のトークインデックス</param>
         /// <param name="maxSize">最大件数</param>
         /// <returns>グループトークリスト</returns>
-        static public List<TalkResponse> GetGroupTalks(String OauthToken, int talkRoomId, int startIndex, int maxSize)
+        public static List<TalkResponse> GetGroupTalks(String OauthToken, int talkRoomId, int startIndex, int maxSize)
         {
             const String URL = ROOT_URL + "/gets/talks";
 
@@ -73,7 +73,7 @@ namespace chat_winForm.Client.Api
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomId">グループトークルームID</param>
         /// <param name="groupName">グループ名</param>
-        static public void UpdateGroupName(String OauthToken, int talkRoomId, String groupName)
+        public static void UpdateGroupName(String OauthToken, int talkRoomId, String groupName)
         {
             const String URL = ROOT_URL + "/update/name";
 
@@ -91,7 +91,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="talkRoomid">グループトークルームID</param>
-        static public void DeleteGroup(String OauthToken, int talkRoomid)
+        public static void DeleteGroup(String OauthToken, int talkRoomid)
         {
             const String URL = ROOT_URL + "/delete";
 
@@ -108,7 +108,7 @@ namespace chat_winForm.Client.Api
         /// </summary>
         /// <param name="OauthToken">認証用トークン</param>
         /// <param name="groupName">グループ名</param>
-        static public void InsertGroup(String OauthToken, String groupName)
+        public static void InsertGroup(String OauthToken, String groupName)
         {
             const String URL = ROOT_URL + "/insert";
 

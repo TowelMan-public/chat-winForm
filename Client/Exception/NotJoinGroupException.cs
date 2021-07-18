@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// 加入してないグループが指定された
+    /// </summary>
     [Serializable()]
     class NotJoinGroupException : HttpException
     {

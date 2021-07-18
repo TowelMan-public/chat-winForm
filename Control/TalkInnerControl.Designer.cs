@@ -80,7 +80,6 @@ namespace chat_winForm.Control
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "TalkInnerControl";
             this.Size = new System.Drawing.Size(152, 150);
-            this.Load += new System.EventHandler(this.TalkControl_Load);
             this.SizeChanged += new System.EventHandler(this.TalkControl_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

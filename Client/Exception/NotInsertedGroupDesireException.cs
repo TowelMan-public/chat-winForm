@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// グループに勧誘されていない
+    /// </summary>
     [Serializable()]
     class NotInsertedGroupDesireException : HttpException
     {

@@ -4,6 +4,9 @@ using System.Web;
 
 namespace chat_winForm.Client.Exception
 {
+    /// <summary>
+    /// 既に友達登録されているユーザーが不正に指定された
+    /// </summary>
     [Serializable()]
     class AlreadyHaveUserException : HttpException
     {
