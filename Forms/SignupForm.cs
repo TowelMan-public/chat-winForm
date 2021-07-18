@@ -87,6 +87,7 @@ namespace chat_winForm.Forms
                 //画面遷移
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
+                IsClosedByThis = true;
                 Close();
             }
             catch (AlreadyUsedUserIdNameException)
