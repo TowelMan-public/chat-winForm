@@ -178,9 +178,11 @@ namespace chat_winForm.Forms
             catch (NotFoundException exception)
             {
                 if (!exception.IsErrorFieldUserIdName())
+                {
                     throw exception;
+                }
 
-                var ERROR_MESSAGE = "あなたが入力したユーザーIDは存在しません。もう一度ご確認ください。";
+                string ERROR_MESSAGE = "あなたが入力したユーザーIDは存在しません。もう一度ご確認ください。";
 
                 MessageBox.Show(ERROR_MESSAGE,
                             "エラー",
@@ -190,7 +192,7 @@ namespace chat_winForm.Forms
             }
             catch (AlreadyInsertedGroupException)
             {
-                var ERROR_MESSAGE = "あなたが指定したユーザーは既にグループに加入しています。もう一度ご確認ください。";
+                string ERROR_MESSAGE = "あなたが指定したユーザーは既にグループに加入しています。もう一度ご確認ください。";
 
                 MessageBox.Show(ERROR_MESSAGE,
                             "エラー",
@@ -200,7 +202,7 @@ namespace chat_winForm.Forms
             }
             catch (AlreadyInsertedGroupDesireException)
             {
-                var ERROR_MESSAGE = "あなたが指定したユーザーは既にこのグループに勧誘中です。もう一度ご確認ください。";
+                string ERROR_MESSAGE = "あなたが指定したユーザーは既にこのグループに勧誘中です。もう一度ご確認ください。";
 
                 MessageBox.Show(ERROR_MESSAGE,
                             "エラー",

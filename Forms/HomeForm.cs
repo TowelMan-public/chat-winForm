@@ -94,13 +94,12 @@ namespace chat_winForm.Forms
                 TalkListInTalkRoomPanel.Controls.Clear();
                 TalkListInTalkRoom.Dispose();
             }
+
             TalkListInTalkRoom = talkListInTalkRoom;
             TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
 
             SendPanel.Visible = true;
             SetSendButtonClickEvent(DialogueSendButton_Click);
-
-            UpdateTalkRoomList();
         }
 
         /// <summary>
@@ -141,13 +140,12 @@ namespace chat_winForm.Forms
                 TalkListInTalkRoomPanel.Controls.Clear();
                 TalkListInTalkRoom.Dispose();
             }
+
             TalkListInTalkRoom = talkListInTalkRoom;
             TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
 
             SendPanel.Visible = true;
             SetSendButtonClickEvent(GroupSendButton_Click);
-
-            UpdateTalkRoomList();
         }
 
         /// <summary>
@@ -192,7 +190,6 @@ namespace chat_winForm.Forms
             TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
 
             SendPanel.Visible = false;
-            UpdateTalkRoomList();
         }
 
         /// <summary>
@@ -237,7 +234,6 @@ namespace chat_winForm.Forms
             TalkListInTalkRoomPanel.Controls.Add(TalkListInTalkRoom);
 
             SendPanel.Visible = false;
-            UpdateTalkRoomList();
         }
 
         /// <summary>

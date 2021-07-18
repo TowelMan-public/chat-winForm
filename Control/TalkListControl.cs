@@ -57,6 +57,8 @@ namespace chat_winForm.Control
             InitializeComponent();
         }
 
+
+
         /// <summary>
         /// トークリストを表示する（初回のみ実行する。後はAdd○○と命名された関数で）
         /// </summary>
@@ -114,6 +116,7 @@ namespace chat_winForm.Control
             }
 
             Height = LoadNewerTalkButtom.Location.Y + LoadNewerTalkButtom.Height;
+            Width += 20;
         }
 
         /// <summary>
@@ -239,6 +242,16 @@ namespace chat_winForm.Control
             }
 
             Height = LoadNewerTalkButtom.Location.Y + LoadNewerTalkButtom.Height;
+        }
+
+        /// <summary>
+        /// このコントロールが読み込まれたときのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使う情報</param>
+        private void TalkListControl_Load(object sender, EventArgs e)
+        {
+            Width -= 20;
         }
     }
 }

@@ -49,9 +49,11 @@ namespace chat_winForm.Forms
             catch (NotFoundException exception)
             {
                 if (!exception.IsErrorFieldUserIdName())
+                {
                     throw exception;
+                }
 
-                var ERROR_MESSAGE = "あなたが入力したユーザーIDは存在しません。もう一度ご確認ください。";
+                string ERROR_MESSAGE = "あなたが入力したユーザーIDは存在しません。もう一度ご確認ください。";
 
                 MessageBox.Show(ERROR_MESSAGE,
                             "エラー",
@@ -61,7 +63,7 @@ namespace chat_winForm.Forms
             }
             catch (AlreadyHaveUserException)
             {
-                var ERROR_MESSAGE = "あなたが指定したユーザーは既に友達です。もう一度ご確認ください。";
+                string ERROR_MESSAGE = "あなたが指定したユーザーは既に友達です。もう一度ご確認ください。";
 
                 MessageBox.Show(ERROR_MESSAGE,
                             "エラー",

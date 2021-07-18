@@ -31,7 +31,7 @@ namespace chat_winForm.Control
         /// トークリストを読み込む為の処理が書いてあるデリゲーターのセット・取得
         /// </summary>
         public LoadTalkList TalkListLoader { get; set; }
-        
+
         /// <summary>
         /// トークをクリックしたときのイベント
         /// </summary>
