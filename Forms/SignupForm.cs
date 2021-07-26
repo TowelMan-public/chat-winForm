@@ -3,6 +3,7 @@ using chat_winForm.Forms.Commons;
 using chat_winForm.Registry;
 using chat_winForm.Service;
 using System;
+using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,6 +48,9 @@ namespace chat_winForm.Forms
 
             //PasswordTextBox
             PasswordTextBox.PasswordChar = '*';
+
+            //バリデーション
+            ValidateChildren();
         }
 
         /// <summary>
@@ -110,6 +114,7 @@ namespace chat_winForm.Forms
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            loginForm.Location = Location;
 
             IsClosedByThis = true;
             Close();
@@ -158,6 +163,45 @@ namespace chat_winForm.Forms
                 .GetErrorMessage();
 
             ValidationErrorProvider.SetError(PasswordTextBox, errorMessage);
+        }
+
+        /// <summary>
+        /// ユーザーID名のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void UserIdNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (ValidationErrorProvider.GetError(UserIdNameTextBox) == "")
+                UserIdNameTextBox.BackColor = Color.White;
+            else
+                UserIdNameTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
+        /// ユーザー名のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void UserNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (ValidationErrorProvider.GetError(UserNameTextBox) == "")
+                UserNameTextBox.BackColor = Color.White;
+            else
+                UserNameTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
+        /// パスワードのバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void PasswordTextBox_Validated(object sender, EventArgs e)
+        {
+            if (ValidationErrorProvider.GetError(PasswordTextBox) == "")
+                PasswordTextBox.BackColor = Color.White;
+            else
+                PasswordTextBox.BackColor = Color.Red;
         }
 
         /// <summary>

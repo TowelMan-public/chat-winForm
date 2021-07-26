@@ -100,6 +100,7 @@ namespace chat_winForm.Forms
             this.GroupNameTextBox.Size = new System.Drawing.Size(314, 27);
             this.GroupNameTextBox.TabIndex = 28;
             this.GroupNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.GroupNameTextBox_Validating);
+            this.GroupNameTextBox.Validated += new System.EventHandler(this.GroupNameTextBox_Validated);
             // 
             // InvitationUserIdNameTextBox
             // 
@@ -110,6 +111,7 @@ namespace chat_winForm.Forms
             this.InvitationUserIdNameTextBox.Size = new System.Drawing.Size(314, 27);
             this.InvitationUserIdNameTextBox.TabIndex = 29;
             this.InvitationUserIdNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.InvitationUserIdNameTextBox_Validating);
+            this.InvitationUserIdNameTextBox.Validated += new System.EventHandler(this.InvitationUserIdNameTextBox_Validated);
             // 
             // ChangeGroupNameButton
             // 
@@ -239,7 +241,7 @@ namespace chat_winForm.Forms
             // GroupErrorProvider
             // 
             this.GroupErrorProvider.BlinkRate = 100;
-            this.GroupErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.GroupErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.GroupErrorProvider.ContainerControl = this;
             // 
             // BrockGroupButton

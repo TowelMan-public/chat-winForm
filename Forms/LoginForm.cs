@@ -56,12 +56,8 @@ namespace chat_winForm.Forms
             string password = userCredentialsProvider.Password;
             UserIdNameTextBox.Text = userIdName;
 
-            //ValidationErrorProviderの初期状態作成
-            ValidationErrorProvider.SetError(PasswordTextBox, ValidateMessage.INIT_MESSAGE);
-            if (userIdName == null)
-            {
-                ValidationErrorProvider.SetError(UserIdNameTextBox, ValidateMessage.INIT_MESSAGE);
-            }
+            //Validationさせる
+            ValidateChildren();
 
             //ログイン処理
             if (userIdName != null && password != null)
@@ -158,6 +154,7 @@ namespace chat_winForm.Forms
             //画面遷移
             SignupForm signupForm = new SignupForm();
             signupForm.Show();
+            signupForm.Location = Location;
 
             IsClosedByThis = true;
             Close();
@@ -194,6 +191,32 @@ namespace chat_winForm.Forms
         }
 
         /// <summary>
+        /// ユーザーID(UserIdName)のバリデーションチェックの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void UserIdNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if(ValidationErrorProvider.GetError(UserIdNameTextBox) == "")
+                UserIdNameTextBox.BackColor = Color.White;
+            else
+                UserIdNameTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
+        /// パスワードのバリデーションチェックの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void PasswordTextBox_Validated(object sender, EventArgs e)
+        {
+            if (ValidationErrorProvider.GetError(PasswordTextBox) == "")
+                PasswordTextBox.BackColor = Color.White;
+            else
+                PasswordTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
         /// このフォームが閉じられた時のイベントハンドラー
         /// </summary>
         /// <param name="sender">イベント発生主</param>
@@ -214,8 +237,6 @@ namespace chat_winForm.Forms
         /// <param name="e">イベントで使われる情報</param>
         private void NoneCatchedEception_Throw(object sender, UnhandledExceptionEventArgs e)
         {
-            object exceptionObject = e.ExceptionObject;
-
             CommonMessageBoxs.UnexpectedErrorMessageBox();
         }
 

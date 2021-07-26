@@ -4,6 +4,7 @@ using chat_winForm.Registry;
 using chat_winForm.Regular;
 using chat_winForm.Service;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 
 namespace chat_winForm.Forms
@@ -49,6 +50,7 @@ namespace chat_winForm.Forms
             finally
             {
                 FinishSpinnerMode();
+                ValidateChildren();
             }
         }
 
@@ -142,6 +144,7 @@ namespace chat_winForm.Forms
         {
             WithdrawalForm withdrawalForm = new WithdrawalForm();
             withdrawalForm.Show();
+            withdrawalForm.Location = Location;
             Close();
         }
 
@@ -162,7 +165,7 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender">イベント発生主</param>
         /// <param name="e">イベントで使われる情報</param>
-        private void UserNameTextBox_Validated(object sender, EventArgs e)
+        private void UserNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             UserConfingErrorProvider.SetError(UserNameTextBox,
                 new Validater(UserNameTextBox.Text)
@@ -176,7 +179,7 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender">イベント発生主</param>
         /// <param name="e">イベントで使われる情報</param>
-        private void UserIdNameTextBox_Validated(object sender, EventArgs e)
+        private void UserIdNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             UserConfingErrorProvider.SetError(UserIdNameTextBox,
                 new Validater(UserIdNameTextBox.Text)
@@ -190,7 +193,7 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender">イベント発生主</param>
         /// <param name="e">イベントで使われる情報</param>
-        private void PasswordTextBox_Validated(object sender, EventArgs e)
+        private void PasswordTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             UserConfingErrorProvider.SetError(PasswordTextBox,
                 new Validater(PasswordTextBox.Text)
@@ -206,7 +209,7 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender">イベント発生主</param>
         /// <param name="e">イベントで使われる情報</param>
-        private void OneMorePasswordTextBox_Validated(object sender, EventArgs e)
+        private void OneMorePasswordTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             UserConfingErrorProvider.SetError(OneMorePasswordTextBox,
                 new Validater(OneMorePasswordTextBox.Text)
@@ -215,6 +218,60 @@ namespace chat_winForm.Forms
                 .GetErrorMessage());
 
             PasswordIsNotMatchLabel.Visible = PasswordTextBox.Text != OneMorePasswordTextBox.Text;
+        }
+
+        /// <summary>
+        /// ユーザー名のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void UserNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (UserConfingErrorProvider.GetError(UserNameTextBox) == "")
+                UserNameTextBox.BackColor = Color.White;
+            else
+                UserNameTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
+        /// ユーザーID名のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void UserIdNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (UserConfingErrorProvider.GetError(UserIdNameTextBox) == "")
+                UserIdNameTextBox.BackColor = Color.White;
+            else
+                UserIdNameTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
+        /// パスワードのバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void PasswordTextBox_Validated(object sender, EventArgs e)
+        {
+            if (UserConfingErrorProvider.GetError(PasswordTextBox) == "" ||
+                    PasswordIsNotMatchLabel.Visible)
+                PasswordTextBox.BackColor = Color.White;
+            else
+                PasswordTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
+        /// パスワード（もう一回）のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void OneMorePasswordTextBox_Validated(object sender, EventArgs e)
+        {
+            if (UserConfingErrorProvider.GetError(OneMorePasswordTextBox) == "" ||
+                    PasswordIsNotMatchLabel.Visible)
+                OneMorePasswordTextBox.BackColor = Color.White;
+            else
+                OneMorePasswordTextBox.BackColor = Color.Red;
         }
 
         /// <summary>

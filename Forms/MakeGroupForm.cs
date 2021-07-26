@@ -1,6 +1,7 @@
 ﻿using chat_winForm.Forms.Commons;
 using chat_winForm.Service;
 using System;
+using System.Drawing;
 
 namespace chat_winForm.Forms
 {
@@ -22,6 +23,17 @@ namespace chat_winForm.Forms
         public MakeGroupForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// このフォームが読み込まれたときのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void MakeGroupForm_Load(object sender, EventArgs e)
+        {
+            //バリデーション 
+            ValidateChildren();
         }
 
         /// <summary>
@@ -55,13 +67,26 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender">イベント発生主</param>
         /// <param name="e">イベントで使われる情報</param>
-        private void GroupNameTextBox_Validated(object sender, EventArgs e)
+        private void GroupNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MakeGroupErrorProvider.SetError(GroupNameTextBox,
                 new Validater(GroupNameTextBox.Text)
                 .NotBlank()
                 .MaxString(100)
                 .GetErrorMessage());
+        }
+
+        /// <summary>
+        /// グループ名のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void GroupNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (MakeGroupErrorProvider.GetError(GroupNameTextBox) == "")
+                GroupNameTextBox.BackColor = Color.White;
+            else
+                GroupNameTextBox.BackColor = Color.Red;
         }
 
         /// <summary>

@@ -75,6 +75,7 @@ namespace chat_winForm.Forms
             this.GroupNameTextBox.Name = "GroupNameTextBox";
             this.GroupNameTextBox.Size = new System.Drawing.Size(313, 27);
             this.GroupNameTextBox.TabIndex = 18;
+            this.GroupNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.GroupNameTextBox_Validating);
             this.GroupNameTextBox.Validated += new System.EventHandler(this.GroupNameTextBox_Validated);
             // 
             // label2
@@ -105,6 +106,7 @@ namespace chat_winForm.Forms
             // 
             // MakeGroupErrorProvider
             // 
+            this.MakeGroupErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.MakeGroupErrorProvider.ContainerControl = this;
             // 
             // MakeGroupForm
@@ -118,6 +120,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(670, 420);
             this.Name = "MakeGroupForm";
+            this.Load += new System.EventHandler(this.MakeGroupForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.MakeGrolupButton, 0);
             this.Controls.SetChildIndex(this.label2, 0);

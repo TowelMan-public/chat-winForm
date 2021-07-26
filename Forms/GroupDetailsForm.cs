@@ -103,6 +103,7 @@ namespace chat_winForm.Forms
             {
                 UserInGroupList.ResumeLayout();
                 FinishSpinnerMode();
+                ValidateChildren();
             }
         }
 
@@ -292,6 +293,32 @@ namespace chat_winForm.Forms
                 .NotBlank()
                 .MaxString(100)
                 .GetErrorMessage());
+        }
+
+        /// <summary>
+        /// グループ名のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void GroupNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (GroupErrorProvider.GetError(GroupNameTextBox) == "")
+                GroupNameTextBox.BackColor = Color.White;
+            else
+                GroupNameTextBox.BackColor = Color.Red;
+        }
+
+        /// <summary>
+        /// 勧誘するユーザーIDのバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void InvitationUserIdNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (GroupErrorProvider.GetError(InvitationUserIdNameTextBox) == "")
+                InvitationUserIdNameTextBox.BackColor = Color.White;
+            else
+                InvitationUserIdNameTextBox.BackColor = Color.Red;
         }
 
         /// <summary>

@@ -161,6 +161,7 @@ namespace chat_winForm.Forms
             this.UserIdNameTextBox.Size = new System.Drawing.Size(228, 24);
             this.UserIdNameTextBox.TabIndex = 29;
             this.UserIdNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.UserIdNameTextBox_Validating);
+            this.UserIdNameTextBox.Validated += new System.EventHandler(this.UserIdNameTextBox_Validated);
             // 
             // UserNameTextBox
             // 
@@ -172,6 +173,7 @@ namespace chat_winForm.Forms
             this.UserNameTextBox.Size = new System.Drawing.Size(228, 24);
             this.UserNameTextBox.TabIndex = 30;
             this.UserNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.UserNameTextBox_Validating);
+            this.UserNameTextBox.Validated += new System.EventHandler(this.UserNameTextBox_Validated);
             // 
             // PasswordTextBox
             // 
@@ -183,11 +185,12 @@ namespace chat_winForm.Forms
             this.PasswordTextBox.Size = new System.Drawing.Size(228, 24);
             this.PasswordTextBox.TabIndex = 31;
             this.PasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordTextBox_Validating);
+            this.PasswordTextBox.Validated += new System.EventHandler(this.PasswordTextBox_Validated);
             // 
             // ValidationErrorProvider
             // 
             this.ValidationErrorProvider.BlinkRate = 100;
-            this.ValidationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ValidationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.ValidationErrorProvider.ContainerControl = this;
             // 
             // SpinnerBox

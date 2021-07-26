@@ -119,6 +119,7 @@ namespace chat_winForm.Forms
             this.UserNameTextBox.Name = "UserNameTextBox";
             this.UserNameTextBox.Size = new System.Drawing.Size(335, 29);
             this.UserNameTextBox.TabIndex = 18;
+            this.UserNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.UserNameTextBox_Validating);
             this.UserNameTextBox.Validated += new System.EventHandler(this.UserNameTextBox_Validated);
             // 
             // UserIdNameTextBox
@@ -128,6 +129,7 @@ namespace chat_winForm.Forms
             this.UserIdNameTextBox.Name = "UserIdNameTextBox";
             this.UserIdNameTextBox.Size = new System.Drawing.Size(335, 29);
             this.UserIdNameTextBox.TabIndex = 19;
+            this.UserIdNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.UserIdNameTextBox_Validating);
             this.UserIdNameTextBox.Validated += new System.EventHandler(this.UserIdNameTextBox_Validated);
             // 
             // PasswordTextBox
@@ -137,6 +139,7 @@ namespace chat_winForm.Forms
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(335, 29);
             this.PasswordTextBox.TabIndex = 20;
+            this.PasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordTextBox_Validating);
             this.PasswordTextBox.Validated += new System.EventHandler(this.PasswordTextBox_Validated);
             // 
             // OneMorePasswordTextBox
@@ -146,6 +149,7 @@ namespace chat_winForm.Forms
             this.OneMorePasswordTextBox.Name = "OneMorePasswordTextBox";
             this.OneMorePasswordTextBox.Size = new System.Drawing.Size(335, 29);
             this.OneMorePasswordTextBox.TabIndex = 21;
+            this.OneMorePasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OneMorePasswordTextBox_Validating);
             this.OneMorePasswordTextBox.Validated += new System.EventHandler(this.OneMorePasswordTextBox_Validated);
             // 
             // UpdateUserNameButton
@@ -206,6 +210,7 @@ namespace chat_winForm.Forms
             // 
             // UserConfingErrorProvider
             // 
+            this.UserConfingErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.UserConfingErrorProvider.ContainerControl = this;
             // 
             // PasswordIsNotMatchLabel

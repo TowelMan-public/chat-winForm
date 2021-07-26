@@ -73,6 +73,7 @@ namespace chat_winForm.Forms
             // UserIdNameTextBox
             // 
             this.UserIdNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UserIdNameTextBox.BackColor = System.Drawing.Color.White;
             this.UserIdNameTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.UserIdNameTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.UserIdNameTextBox.Location = new System.Drawing.Point(349, 165);
@@ -80,6 +81,7 @@ namespace chat_winForm.Forms
             this.UserIdNameTextBox.Size = new System.Drawing.Size(228, 24);
             this.UserIdNameTextBox.TabIndex = 14;
             this.UserIdNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.UserIdNameTextBox_Validating);
+            this.UserIdNameTextBox.Validated += new System.EventHandler(this.UserIdNameTextBox_Validated);
             // 
             // PasswordTextBox
             // 
@@ -90,6 +92,7 @@ namespace chat_winForm.Forms
             this.PasswordTextBox.Size = new System.Drawing.Size(228, 24);
             this.PasswordTextBox.TabIndex = 15;
             this.PasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordTextBox_Validating);
+            this.PasswordTextBox.Validated += new System.EventHandler(this.PasswordTextBox_Validated);
             // 
             // label3
             // 
@@ -161,7 +164,7 @@ namespace chat_winForm.Forms
             // ValidationErrorProvider
             // 
             this.ValidationErrorProvider.BlinkRate = 100;
-            this.ValidationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.ValidationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.ValidationErrorProvider.ContainerControl = this;
             // 
             // SpinnerBox

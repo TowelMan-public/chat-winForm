@@ -73,6 +73,7 @@ namespace chat_winForm.Forms
             this.UserIdNameTextBox.Name = "UserIdNameTextBox";
             this.UserIdNameTextBox.Size = new System.Drawing.Size(313, 27);
             this.UserIdNameTextBox.TabIndex = 14;
+            this.UserIdNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.UserIdNameTextBox_Validating);
             this.UserIdNameTextBox.Validated += new System.EventHandler(this.UserIdNameTextBox_Validated);
             // 
             // AddDialogueButton
@@ -92,7 +93,7 @@ namespace chat_winForm.Forms
             // AddDialogueErrorProvider
             // 
             this.AddDialogueErrorProvider.BlinkRate = 100;
-            this.AddDialogueErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.AddDialogueErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.AddDialogueErrorProvider.ContainerControl = this;
             // 
             // SpinnerBox
@@ -120,6 +121,7 @@ namespace chat_winForm.Forms
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(670, 390);
             this.Name = "AddDialogueForm";
+            this.Load += new System.EventHandler(this.AddDialogueForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.UserIdNameTextBox, 0);

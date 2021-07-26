@@ -2,6 +2,7 @@
 using chat_winForm.Forms.Commons;
 using chat_winForm.Service;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace chat_winForm.Forms
@@ -24,6 +25,17 @@ namespace chat_winForm.Forms
         public AddDialogueForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// このフォームが読み込まれたときのイベントハンドラー
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void AddDialogueForm_Load(object sender, EventArgs e)
+        {
+            //バリデーション
+            ValidateChildren();
         }
 
         /// <summary>
@@ -82,13 +94,26 @@ namespace chat_winForm.Forms
         /// </summary>
         /// <param name="sender">イベント発生主</param>
         /// <param name="e">イベントで使われる情報</param>
-        private void UserIdNameTextBox_Validated(object sender, EventArgs e)
+        private void UserIdNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             AddDialogueErrorProvider.SetError(UserIdNameTextBox,
                 new Validater(UserIdNameTextBox.Text)
                 .NotBlank()
                 .MaxString(100)
                 .GetErrorMessage());
+        }
+
+        /// <summary>
+        /// ユーザーID名のバリデーションチェックのイベントハンドラーの後処理
+        /// </summary>
+        /// <param name="sender">イベント発生主</param>
+        /// <param name="e">イベントで使われる情報</param>
+        private void UserIdNameTextBox_Validated(object sender, EventArgs e)
+        {
+            if (AddDialogueErrorProvider.GetError(UserIdNameTextBox) == "")
+                UserIdNameTextBox.BackColor = Color.White;
+            else
+                UserIdNameTextBox.BackColor = Color.Red;
         }
 
         /// <summary>
